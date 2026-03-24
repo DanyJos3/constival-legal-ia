@@ -1,0 +1,91 @@
+---
+import Button from './ui/Button.astro';
+import ThemeToggle from './ThemeToggle.astro';
+---
+<header class="fixed top-0 left-0 w-full z-50 bg-white/70 dark:bg-constival-navy/70 backdrop-blur-xl border-b border-constival-navy/5 dark:border-white/5 transition-all duration-300" id="main-nav">
+  <nav class="flex justify-between items-center w-full px-6 md:px-12 lg:px-16 py-4 mx-auto max-w-6xl">
+    <a href="/" class="text-2xl font-black text-constival-navy dark:text-white tracking-widest font-sans flex items-center gap-1 relative z-50">
+      CONSTI<span class="text-constival-mint">VAL</span>
+    </a>
+    
+    <div class="hidden md:flex items-center gap-8 font-sans tracking-tight uppercase font-bold text-xs">
+      <a class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint pb-1 transition-all" href="#inicio">Inicio</a>
+      <a class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint pb-1 transition-all" href="#servicios">Servicios</a>
+      <a class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint pb-1 transition-all" href="#configurador">Configurador</a>
+      <a class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint pb-1 transition-all" href="#precios">Precios</a>
+      <a class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint pb-1 transition-all" href="#faq">FAQ</a>
+    </div>
+    
+    <div class="flex items-center gap-4">
+      <ThemeToggle />
+      <div class="hidden lg:block">
+        <!-- TRACKING: nav_cta_diagnostico -->
+        <Button variant="primary" href="#configurador" class="py-2.5 px-6 text-xs">Iniciar Diagnóstico</Button>
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 relative z-50 p-2" aria-label="Abrir menú">
+        <span class="block w-6 h-0.5 bg-constival-navy dark:bg-white transition-all duration-300 origin-center" id="bar1"></span>
+        <span class="block w-6 h-0.5 bg-constival-navy dark:bg-white transition-all duration-300" id="bar2"></span>
+        <span class="block w-4 h-0.5 bg-constival-mint transition-all duration-300 origin-center" id="bar3"></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed inset-0 z-40 pointer-events-none opacity-0 transition-opacity duration-300">
+  <div class="absolute inset-0 bg-constival-navy/95 backdrop-blur-2xl"></div>
+  <nav class="relative z-10 flex flex-col items-center justify-center h-full gap-8 font-sans">
+    <a class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link" href="#inicio">Inicio</a>
+    <a class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link" href="#servicios">Servicios</a>
+    <a class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link" href="#configurador">Configurador</a>
+    <a class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link" href="#precios">Precios</a>
+    <a class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link" href="#faq">FAQ</a>
+    <div class="mt-4">
+      <!-- TRACKING: mobile_cta_diagnostico -->
+      <Button variant="primary" href="#configurador" class="text-lg px-10">Iniciar Diagnóstico</Button>
+    </div>
+  </nav>
+</div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  const links = document.querySelectorAll('.mobile-link');
+  let isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      drawer?.classList.remove('pointer-events-none', 'opacity-0');
+      drawer?.classList.add('pointer-events-auto', 'opacity-100');
+      bar1?.classList.add('rotate-45', 'translate-y-[4px]');
+      bar2?.classList.add('opacity-0', 'scale-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-[4px]', 'w-6');
+      document.body.style.overflow = 'hidden';
+    } else {
+      drawer?.classList.add('pointer-events-none', 'opacity-0');
+      drawer?.classList.remove('pointer-events-auto', 'opacity-100');
+      bar1?.classList.remove('rotate-45', 'translate-y-[4px]');
+      bar2?.classList.remove('opacity-0', 'scale-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-[4px]', 'w-6');
+      document.body.style.overflow = '';
+    }
+  }
+
+  btn?.addEventListener('click', toggleMenu);
+  links.forEach(link => link.addEventListener('click', () => { if (isOpen) toggleMenu(); }));
+
+  // Navbar scroll shadow
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add('shadow-lg', 'shadow-constival-navy/5', 'dark:shadow-black/20');
+    } else {
+      nav?.classList.remove('shadow-lg', 'shadow-constival-navy/5', 'dark:shadow-black/20');
+    }
+  });
+</script>

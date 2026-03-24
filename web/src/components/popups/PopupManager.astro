@@ -1,0 +1,158 @@
+---
+---
+<!-- Exit Intent Popup -->
+<div id="popup-exit" class="fixed inset-0 z-[60] hidden items-center justify-center p-4" role="dialog" aria-modal="true">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="popup-exit-overlay"></div>
+  <div class="relative bg-constival-navy w-full max-w-lg p-8 md:p-12 overflow-hidden animate-slide-up">
+    <!-- Ambient glow -->
+    <div class="absolute top-0 right-0 w-64 h-64 bg-constival-teal/30 blur-[100px] rounded-full pointer-events-none"></div>
+    
+    <button id="popup-exit-close" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors z-10" aria-label="Cerrar">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    
+    <div class="relative z-10">
+      <span class="inline-block py-1 px-3 bg-red-500/10 text-red-400 font-sans font-bold tracking-widest uppercase text-[10px] mb-6 border-l-2 border-red-500">Alerta Preventiva</span>
+      <h3 class="font-sans text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">¿Te vas dejando tu empresa vulnerable?</h3>
+      <p class="font-sans text-sm text-slate-400 mb-8 leading-relaxed">Descarga gratis nuestro <strong class="text-white">"Checklist de Blindaje S.A.S."</strong> y descubre si tus estatutos actuales resistirían una auditoría de la SCVS.</p>
+      
+      <div class="flex flex-col gap-3">
+        <input type="email" placeholder="Tu email corporativo" class="w-full px-4 py-3.5 bg-constival-deep border border-constival-teal/20 text-white font-sans text-sm placeholder:text-slate-600 focus:border-constival-mint focus:outline-none transition-colors" id="exit-email" />
+        <!-- TRACKING: exit_intent_checklist_download -->
+        <button class="w-full px-6 py-3.5 bg-constival-mint text-constival-navy font-sans font-bold text-sm uppercase tracking-wider hover:bg-constival-mint/80 transition-colors" id="exit-submit">
+          Descargar Checklist Gratuito
+        </button>
+      </div>
+      <button class="mt-4 font-sans text-xs text-slate-600 hover:text-slate-400 transition-colors italic cursor-pointer" id="popup-exit-dismiss">
+        No gracias, asumo los riesgos legales actuales de mi empresa.
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Scroll Slide-In (50%) -->
+<div id="popup-scroll" class="fixed bottom-6 right-6 z-[60] hidden max-w-sm w-full animate-slide-in-right">
+  <div class="bg-constival-deep border-t-4 border-constival-mint p-6 shadow-2xl relative">
+    <button id="popup-scroll-close" class="absolute top-3 right-3 text-slate-500 hover:text-white transition-colors" aria-label="Cerrar">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <span class="font-sans font-bold tracking-widest uppercase text-[10px] text-constival-mint mb-3 block">Protección Empresarial Integral</span>
+    <h4 class="font-sans text-lg font-bold text-white mb-2 leading-snug">Tu estatuto debe ser tu mayor escudo, no tu mayor debilidad.</h4>
+    <p class="font-sans text-xs text-slate-400 mb-5 leading-relaxed">Arquitectamos negocios estables que blindan tu patrimonio personal.</p>
+    <!-- TRACKING: scroll_slidein_cta -->
+    <a href="#configurador" class="inline-flex items-center gap-2 font-sans font-bold text-constival-mint uppercase text-xs tracking-wider hover:translate-x-1 transition-transform">
+      Conocer la Metodología →
+    </a>
+  </div>
+</div>
+
+<!-- Time-Delayed Popup (45s) -->
+<div id="popup-time" class="fixed inset-0 z-[60] hidden items-center justify-center p-4" role="dialog" aria-modal="true">
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="popup-time-overlay"></div>
+  <div class="relative bg-constival-mint w-full max-w-md p-8 md:p-10 overflow-hidden animate-slide-up">
+    <button id="popup-time-close" class="absolute top-4 right-4 text-constival-navy/40 hover:text-constival-navy transition-colors z-10" aria-label="Cerrar">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+    <div class="relative z-10">
+      <div class="w-12 h-12 mb-6 text-constival-navy/80">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
+      </div>
+      <h3 class="font-sans text-2xl font-extrabold text-constival-navy mb-3 leading-tight">¿Dudas sobre qué estructura necesitas?</h3>
+      <p class="font-sans text-sm text-constival-navy/70 mb-8 leading-relaxed">Agenda <strong>15 minutos de diagnóstico estratégico sin costo</strong> y resuelve tu escenario sin compromisos.</p>
+      <!-- TRACKING: time_delayed_booking_click -->
+      <a href="#configurador" class="block w-full px-6 py-3.5 bg-constival-navy text-constival-mint font-sans font-bold text-sm uppercase tracking-wider text-center hover:bg-constival-navy/90 transition-colors">
+        Agendar mis 15 min libres de jerga
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ============ Popup Manager (Anti-collision) ============
+  const POPUP_STATE = {
+    activePopup: null as string | null,
+    shown: new Set<string>(),
+  };
+
+  function canShow(id: string): boolean {
+    // Only 1 popup at a time, and check localStorage
+    if (POPUP_STATE.activePopup) return false;
+    if (POPUP_STATE.shown.has(id)) return false;
+    const stored = localStorage.getItem(`popup_${id}_dismissed`);
+    if (stored) {
+      const dismissedAt = parseInt(stored);
+      const cooldown = id === 'scroll' ? 30 * 24 * 60 * 60 * 1000 : 7 * 24 * 60 * 60 * 1000;
+      if (Date.now() - dismissedAt < cooldown) return false;
+    }
+    return true;
+  }
+
+  function showPopup(id: string) {
+    if (!canShow(id)) return;
+    const el = document.getElementById(`popup-${id}`);
+    if (!el) return;
+    POPUP_STATE.activePopup = id;
+    POPUP_STATE.shown.add(id);
+    el.classList.remove('hidden');
+    el.classList.add('flex');
+    document.body.style.overflow = id !== 'scroll' ? 'hidden' : '';
+  }
+
+  function hidePopup(id: string) {
+    const el = document.getElementById(`popup-${id}`);
+    if (!el) return;
+    el.classList.add('hidden');
+    el.classList.remove('flex');
+    POPUP_STATE.activePopup = null;
+    document.body.style.overflow = '';
+    localStorage.setItem(`popup_${id}_dismissed`, String(Date.now()));
+  }
+
+  // Close handlers
+  ['exit', 'scroll', 'time'].forEach(id => {
+    document.getElementById(`popup-${id}-close`)?.addEventListener('click', () => hidePopup(id));
+  });
+  document.getElementById('popup-exit-overlay')?.addEventListener('click', () => hidePopup('exit'));
+  document.getElementById('popup-exit-dismiss')?.addEventListener('click', () => hidePopup('exit'));
+  document.getElementById('popup-time-overlay')?.addEventListener('click', () => hidePopup('time'));
+
+  // Email submit
+  document.getElementById('exit-submit')?.addEventListener('click', () => {
+    const emailInput = document.getElementById('exit-email') as HTMLInputElement;
+    if (emailInput?.value?.includes('@')) {
+      const btn = document.getElementById('exit-submit')!;
+      btn.textContent = '✓ Enviado — Revisa tu email';
+      btn.classList.add('opacity-70', 'pointer-events-none');
+      setTimeout(() => hidePopup('exit'), 2000);
+    }
+  });
+
+  // ============ Trigger: Exit Intent ============
+  let exitTriggered = false;
+  document.addEventListener('mouseout', (e) => {
+    if (exitTriggered) return;
+    if ((e as MouseEvent).clientY <= 0) {
+      exitTriggered = true;
+      showPopup('exit');
+    }
+  });
+
+  // ============ Trigger: Scroll 50% ============
+  let scrollTriggered = false;
+  window.addEventListener('scroll', () => {
+    if (scrollTriggered) return;
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    if (scrollPercent >= 50) {
+      scrollTriggered = true;
+      showPopup('scroll');
+    }
+  });
+
+  // ============ Trigger: Time Delayed 45s ============
+  // Only on desktop (mobile: skip to avoid Google penalty)
+  if (window.innerWidth >= 768) {
+    setTimeout(() => {
+      showPopup('time');
+    }, 45000);
+  }
+</script>

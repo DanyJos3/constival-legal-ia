@@ -1,0 +1,237 @@
+---
+import { CONSTIVAL_DATA } from '../constants/company';
+const { calculator } = CONSTIVAL_DATA;
+---
+<section class="py-14 md:py-16 bg-dark-teal relative overflow-hidden transition-colors duration-300" id="configurador">
+  <!-- Ambient glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-constival-teal/20 blur-[150px] rounded-full pointer-events-none"></div>
+  
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-6xl relative z-10">
+    <div class="text-center mb-10">
+      <span class="inline-block py-1 px-3 bg-constival-mint/10 text-constival-mint font-sans font-bold tracking-widest uppercase text-[10px] mb-4 border-l-4 border-constival-mint">
+        Ingeniería Societaria a tu Medida
+      </span>
+      <h2 class="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
+        Diseña la arquitectura legal <br class="hidden md:block"/> <span class="text-constival-mint">de tu éxito.</span>
+      </h2>
+      <p class="font-sans text-sm text-slate-400 mt-3 max-w-xl mx-auto">
+        Responde 5 preguntas sin jerga legal y obtén tu mapa de ruta en segundos.
+      </p>
+    </div>
+
+    <!-- Calculator Widget -->
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-[#0f2222] border border-constival-teal/20 p-6 md:p-8 relative overflow-hidden" id="calc-container">
+        
+        <!-- Progress bar -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-3">
+            <span class="font-sans text-xs text-constival-mint font-bold tracking-widest uppercase">Pregunta <span id="calc-current">1</span> de 5</span>
+            <span class="font-sans text-xs text-slate-500" id="calc-percent">20%</span>
+          </div>
+          <div class="h-1 w-full bg-constival-teal/20 rounded-full overflow-hidden">
+            <div class="h-full bg-constival-mint transition-all duration-500 rounded-full" id="calc-progress" style="width: 20%"></div>
+          </div>
+        </div>
+
+        <!-- Questions container -->
+        <div id="calc-questions">
+          {calculator.questions.map((q, i) => (
+            <div class={`calc-step ${i === 0 ? '' : 'hidden'}`} data-step={i}>
+              <h3 class="font-sans text-lg md:text-xl font-bold text-white mb-5">{q.label}</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {q.options.map((opt) => (
+                  <button
+                    class="calc-option group text-left p-3.5 border border-constival-teal/20 text-slate-300 hover:border-constival-mint hover:text-constival-mint transition-all duration-300 font-sans font-medium text-sm relative overflow-hidden"
+                    data-question={q.id}
+                    data-value={opt.value}
+                    data-weights={JSON.stringify(opt.weights)}
+                  >
+                    <span class="relative z-10">{opt.label}</span>
+                    <div class="absolute inset-0 bg-constival-mint/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Results Panel (hidden by default) -->
+        <div id="calc-results" class="hidden">
+          <div class="text-center mb-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-constival-mint/10 text-constival-mint font-sans font-bold text-xs mb-4">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Análisis Completado
+            </div>
+            <h3 class="font-sans text-xl md:text-2xl font-bold text-white mb-2" id="result-name"></h3>
+            <p class="font-sans text-sm text-constival-mint italic" id="result-tagline"></p>
+          </div>
+          
+          <div class="bg-[#0a1818] border border-constival-teal/10 p-4 md:p-6 mb-6">
+            <p class="font-sans text-sm text-slate-300 leading-relaxed" id="result-reason"></p>
+          </div>
+
+          <!-- Efficiency Table -->
+          <h4 class="font-sans text-base font-bold text-white mb-4">Comparativa de Eficiencia</h4>
+          <div class="overflow-x-auto mb-6">
+            <table class="w-full text-left font-sans text-xs">
+              <thead>
+                <tr class="border-b border-constival-teal/20">
+                  <th class="py-3 pr-4 text-slate-500 font-medium">Métrica</th>
+                  <th class="py-3 px-4 text-red-400/80 font-medium">Vía Tradicional</th>
+                  <th class="py-3 pl-4 text-constival-mint font-medium">Vía Constival</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-constival-teal/10">
+                  <td class="py-4 pr-4 text-slate-400">Burocracia</td>
+                  <td class="py-4 px-4 text-red-400/60">{calculator.efficiency.traditional.bureaucracy}</td>
+                  <td class="py-4 pl-4 text-constival-mint font-medium">{calculator.efficiency.constival.bureaucracy}</td>
+                </tr>
+                <tr class="border-b border-constival-teal/10">
+                  <td class="py-4 pr-4 text-slate-400">Costos Ocultos</td>
+                  <td class="py-4 px-4 text-red-400/60">{calculator.efficiency.traditional.hiddenCosts}</td>
+                  <td class="py-4 pl-4 text-constival-mint font-medium">{calculator.efficiency.constival.hiddenCosts}</td>
+                </tr>
+                <tr>
+                  <td class="py-4 pr-4 text-slate-400">Tiempo al Alta</td>
+                  <td class="py-4 px-4 text-red-400/60">{calculator.efficiency.traditional.time}</td>
+                  <td class="py-4 pl-4 text-constival-mint font-medium">{calculator.efficiency.constival.time}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Email Gate -->
+          <div class="bg-constival-mint/5 border border-constival-mint/20 p-4 md:p-6">
+            <h4 class="font-sans text-sm font-bold text-white mb-1">Descarga tu reporte con estatutos sugeridos</h4>
+            <p class="font-sans text-xs text-slate-400 mb-4">Incluye cláusulas clave personalizadas y tu hoja de ruta para la Fase 1.</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <input type="email" placeholder="Tu email corporativo" class="flex-1 px-4 py-3 bg-[#0a1818] border border-constival-teal/20 text-white font-sans text-sm placeholder:text-slate-600 focus:border-constival-mint focus:outline-none transition-colors" id="calc-email" />
+              <!-- TRACKING: calculator_email_submit -->
+              <button class="px-8 py-3 bg-constival-mint text-constival-navy font-sans font-bold text-sm uppercase tracking-wider hover:bg-constival-mint/80 transition-colors" id="calc-submit">
+                Descargar Reporte
+              </button>
+            </div>
+          </div>
+
+          <!-- TRACKING: calculator_restart -->
+          <button class="mt-6 font-sans text-sm text-slate-500 hover:text-constival-mint transition-colors underline underline-offset-4" id="calc-restart">
+            ← Recalcular con otros datos
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentStep = 0;
+  const totalSteps = 5;
+  const scores = { sas: 0, ltda: 0, sa: 0 };
+  const answers: Record<string, string> = {};
+
+  const steps = document.querySelectorAll('.calc-step');
+  const progressBar = document.getElementById('calc-progress');
+  const currentLabel = document.getElementById('calc-current');
+  const percentLabel = document.getElementById('calc-percent');
+  const questionsContainer = document.getElementById('calc-questions');
+  const resultsPanel = document.getElementById('calc-results');
+
+  // Results elements
+  const resultName = document.getElementById('result-name');
+  const resultTagline = document.getElementById('result-tagline');
+  const resultReason = document.getElementById('result-reason');
+
+  document.querySelectorAll('.calc-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const question = (btn as HTMLElement).dataset.question!;
+      const value = (btn as HTMLElement).dataset.value!;
+      const weights = JSON.parse((btn as HTMLElement).dataset.weights!);
+      
+      // TRACKING: calculator_step_answer
+      answers[question] = value;
+      scores.sas += weights.sas;
+      scores.ltda += weights.ltda;
+      scores.sa += weights.sa;
+
+      // Highlight selected
+      const siblings = (btn as HTMLElement).parentElement?.querySelectorAll('.calc-option');
+      siblings?.forEach(s => s.classList.remove('border-constival-mint', 'text-constival-mint', 'bg-constival-mint/5'));
+      (btn as HTMLElement).classList.add('border-constival-mint', 'text-constival-mint', 'bg-constival-mint/5');
+
+      setTimeout(() => {
+        currentStep++;
+        if (currentStep < totalSteps) {
+          showStep(currentStep);
+        } else {
+          showResults();
+        }
+      }, 400);
+    });
+  });
+
+  function showStep(step: number) {
+    steps.forEach((s, i) => {
+      if (i === step) {
+        (s as HTMLElement).classList.remove('hidden');
+        (s as HTMLElement).style.animation = 'slide-up 0.4s ease-out';
+      } else {
+        (s as HTMLElement).classList.add('hidden');
+      }
+    });
+    const pct = Math.round(((step + 1) / totalSteps) * 100);
+    if (progressBar) progressBar.style.width = pct + '%';
+    if (currentLabel) currentLabel.textContent = String(step + 1);
+    if (percentLabel) percentLabel.textContent = pct + '%';
+  }
+
+  function showResults() {
+    // TRACKING: calculator_completed
+    questionsContainer?.classList.add('hidden');
+    resultsPanel?.classList.remove('hidden');
+    resultsPanel!.style.animation = 'fade-in 0.6s ease-out';
+
+    if (progressBar) progressBar.style.width = '100%';
+    if (currentLabel) currentLabel.textContent = '5';
+    if (percentLabel) percentLabel.textContent = '100%';
+
+    // Determine winner
+    const winner = scores.sas >= scores.ltda && scores.sas >= scores.sa ? 'sas'
+      : scores.ltda >= scores.sa ? 'ltda' : 'sa';
+
+    const resultsData: Record<string, {name: string, tagline: string, reason: string}> = {
+      sas: { name: "S.A.S. (Sociedad por Acciones Simplificada)", tagline: "Máxima flexibilidad. Ideal para startups y emprendedores modernos.", reason: "La S.A.S. permite estatutos hiper-flexibles, voto múltiple, y cero capital mínimo. Ideal para captar Venture Capital y operar con firmas 100% electrónicas." },
+      ltda: { name: "Cía. Ltda. (Compañía de Responsabilidad Limitada)", tagline: "Control hermético. Ideal para negocios familiares y comerciales.", reason: "La Cía. Ltda. ofrece blindaje patrimonial limitando estrictamente quién puede entrar a la sociedad. Perfecta para comercio y capital familiar." },
+      sa: { name: "S.A. (Sociedad Anónima)", tagline: "Escala institucional. Ideal para grandes capitales y múltiples accionistas.", reason: "La S.A. soporta gran volumen de accionistas con anonimato parcial. Idónea para industrias pesadas y estructuras bursátiles." }
+    };
+
+    const data = resultsData[winner];
+    if (resultName) resultName.textContent = data.name;
+    if (resultTagline) resultTagline.textContent = data.tagline;
+    if (resultReason) resultReason.textContent = data.reason;
+  }
+
+  // Restart
+  document.getElementById('calc-restart')?.addEventListener('click', () => {
+    currentStep = 0;
+    scores.sas = 0; scores.ltda = 0; scores.sa = 0;
+    questionsContainer?.classList.remove('hidden');
+    resultsPanel?.classList.add('hidden');
+    showStep(0);
+    document.querySelectorAll('.calc-option').forEach(btn => {
+      btn.classList.remove('border-constival-mint', 'text-constival-mint', 'bg-constival-mint/5');
+    });
+  });
+
+  // Email submit
+  document.getElementById('calc-submit')?.addEventListener('click', () => {
+    const emailInput = document.getElementById('calc-email') as HTMLInputElement;
+    if (emailInput?.value && emailInput.value.includes('@')) {
+      // TRACKING: calculator_lead_captured
+      const submitBtn = document.getElementById('calc-submit')!;
+      submitBtn.textContent = '✓ Enviado — Revisa tu email';
+      submitBtn.classList.add('opacity-70', 'pointer-events-none');
+    }
+  });
+</script>

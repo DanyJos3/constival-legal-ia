@@ -1,0 +1,187 @@
+---
+import Button from "./ui/Button.astro";
+import { CONSTIVAL_DATA } from "../constants/company";
+
+// Preparar los servicios para el carrusel (los duplicamos para el efecto infinito)
+const heroServices = Object.values(CONSTIVAL_DATA.services);
+const carouselItems = [...heroServices, ...heroServices];
+---
+
+<section
+  class="relative min-h-[100svh] max-h-screen flex items-center pt-28 pb-10 md:pt-32 md:pb-12 overflow-hidden bg-white dark:bg-constival-navy transition-colors duration-300"
+  id="inicio"
+>
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <img
+      src="/images/hero-bg.png"
+      alt="Corporate architecture"
+      class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 dark:opacity-20 mix-blend-multiply dark:mix-blend-lighten"
+    />
+    <div
+      class="absolute top-0 right-0 w-[500px] h-[500px] bg-constival-teal/30 blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+    >
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-constival-blue/20 blur-[100px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+    >
+    </div>
+  </div>
+
+  <div
+    class="container mx-auto px-6 md:px-12 lg:px-16 relative z-10 flex flex-col lg:flex-row items-center justify-between max-w-7xl gap-10"
+  >
+    <!-- Left Column: Copy -->
+    <div class="max-w-xl lg:w-6/12 flex-shrink-0 relative z-10">
+      <span
+        class="inline-block py-1.5 px-3 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-5 font-sans font-bold tracking-widest uppercase text-[10px]"
+      >
+        Arquitectura Empresarial Contemporánea
+      </span>
+
+      <h1
+        class="font-sans text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold tracking-tighter leading-[0.95] text-constival-navy dark:text-white mb-5"
+      >
+        ESTRUCTURAS SOCIETARIAS BLINDADAS PARA <br />
+        <span class="text-constival-blue dark:text-white"
+          >ESCALAR TU EMPRESA.</span
+        >
+      </h1>
+
+      <p
+        class="font-serif italic text-base md:text-lg text-constival-teal dark:text-slate-400 mb-8 max-w-xl border-l-4 border-constival-mint pl-6 leading-snug"
+      >
+        Transforma la vulnerabilidad de tu negocio en una base corporativa
+        impenetrable. Diseñamos, automatizamos y protegemos tu ecosistema
+        societario en Ecuador.
+      </p>
+
+      <div class="flex flex-wrap gap-3 items-center">
+        <!-- TRACKING: hero_cta_diagnostico -->
+        <Button variant="primary" href="#configurador">
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg
+          >
+          Iniciar Diagnóstico Gratuito
+        </Button>
+        <!-- TRACKING: hero_cta_secondary -->
+        <Button
+          variant="ghost"
+          href="#servicios"
+          class="text-xs border-none hover:bg-transparent hover:text-constival-mint underline underline-offset-4"
+        >
+          Explorar protocolos &rarr;
+        </Button>
+      </div>
+
+      <!-- Social proof -->
+      <div
+        class="mt-6 flex items-center gap-3 pt-5 border-t border-constival-navy/10 dark:border-white/10 w-fit"
+      >
+        <div class="flex -space-x-2">
+          <div
+            class="w-7 h-7 rounded-full bg-constival-mint/20 border-2 border-white dark:border-constival-navy flex items-center justify-center text-[10px] font-bold text-constival-mint"
+          >
+            E
+          </div>
+          <div
+            class="w-7 h-7 rounded-full bg-constival-blue/30 border-2 border-white dark:border-constival-navy flex items-center justify-center text-[10px] font-bold text-constival-blue dark:text-white"
+          >
+            S
+          </div>
+          <div
+            class="w-7 h-7 rounded-full bg-constival-teal/30 border-2 border-white dark:border-constival-navy flex items-center justify-center text-[10px] font-bold text-constival-teal dark:text-constival-mint"
+          >
+            P
+          </div>
+        </div>
+        <p
+          class="font-sans text-[11px] text-constival-navy/50 dark:text-slate-500"
+        >
+          <strong class="text-constival-navy dark:text-white"
+            >100+ empresas</strong
+          > protegidas
+        </p>
+      </div>
+    </div>
+
+    <!-- Right Column: Carousel from old web — positioned absolutely to overlap behind text -->
+    <div
+      class="hidden lg:block absolute top-0 right-0 h-full overflow-hidden"
+      style="left: 45%; -webkit-mask-image: linear-gradient(to right, transparent, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, transparent); mask-image: linear-gradient(to right, transparent, rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, transparent);"
+    >
+      <div class="absolute h-full flex items-center animate-marquee w-max">
+        {
+          carouselItems.map((service, index) => (
+            <div
+              class="carousel-card shrink-0 w-[220px] md:w-[240px] mr-6 bg-gray-50 dark:bg-[#121826] 
+          border border-constival-navy/5 dark:border-white/5 rounded-xl p-4 md:p-5 
+          flex flex-col justify-between h-[190px] md:h-[210px] hover:-translate-y-1.5 
+          transition-transform duration-300 shadow-md cursor-grab active:cursor-grabbing group"
+            >
+              <div>
+                <div class="w-9 h-9 bg-white dark:bg-constival-navy rounded-lg flex items-center justify-center mb-3 text-constival-teal dark:text-constival-mint group-hover:scale-110 transition-transform shadow-sm">
+                  <svg
+                    class="w-4.5 h-4.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="font-sans font-bold text-sm text-constival-navy dark:text-white mb-1.5 leading-tight">
+                  {service.title}
+                </h3>
+                <p class="font-sans text-[11px] text-constival-navy/60 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                  {service.subtitle}
+                </p>
+              </div>
+              <div class="mt-3">
+                <span class="font-sans font-bold text-[9px] text-constival-teal dark:text-constival-mint uppercase tracking-wider flex items-center gap-1">
+                  Más info{" "}
+                  <span class="group-hover:translate-x-1 transition-transform">
+                    &rarr;
+                  </span>
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 animate-bounce z-20"
+  >
+    <span
+      class="font-sans text-[9px] text-constival-navy/30 dark:text-white/20 uppercase tracking-widest"
+      >Scroll</span
+    >
+    <svg
+      class="w-3.5 h-3.5 text-constival-navy/30 dark:text-white/20"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      ><path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg
+    >
+  </div>
+</section>
