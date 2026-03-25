@@ -7,17 +7,20 @@ import ValueProposition from "../components/ValueProposition.astro";
 import WhyUs from "../components/WhyUs.astro";
 import Calculator from "../components/Calculator.astro";
 import Services from "../components/Services.astro";
+import Testimonials from "../components/Testimonials.astro";
 import Pricing from "../components/Pricing.astro";
 import Faq from "../components/Faq.astro";
 import CtaSection from "../components/CtaSection.astro";
 import Footer from "../components/Footer.astro";
 import PopupManager from "../components/popups/PopupManager.astro";
-import ThemeOverride from "../components/ThemeOverride.astro";
+// import ThemeOverride from "../components/ThemeOverride.astro";
+import { CONSTIVAL_DATA } from "../constants/company";
 ---
 
 <Layout
   title="Constival — Arquitectura Societaria Blindada para Ecuador"
   description="Estructuras societarias blindadas para escalar tu empresa en Ecuador. Constitución S.A.S., reformas, registro de marcas y blindaje corporativo 100% digital. Arquitectos Legales."
+  contact={CONSTIVAL_DATA.info.contact}
 >
   <Navbar />
   <main>
@@ -27,6 +30,7 @@ import ThemeOverride from "../components/ThemeOverride.astro";
     <WhyUs />
     <Calculator />
     <Services />
+    <Testimonials />
     <Pricing />
     <Faq />
     <CtaSection />

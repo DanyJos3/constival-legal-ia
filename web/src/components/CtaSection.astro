@@ -14,6 +14,19 @@ import Button from "./ui/Button.astro";
   <div
     class="container mx-auto px-6 md:px-12 text-center max-w-3xl relative z-10"
   >
+    <div
+      class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 mb-6"
+    >
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+      </span>
+      <span
+        class="text-[10px] md:text-xs font-bold font-sans text-red-400 uppercase tracking-widest"
+        >Solo 5 cupos para diagnóstico esta semana</span
+      >
+    </div>
+    
     <h2
       class="font-sans text-3xl md:text-4xl font-black text-white mb-4 tracking-tighter leading-tight"
     >
@@ -21,8 +34,7 @@ import Button from "./ui/Button.astro";
       <span class="text-constival-mint">TU PATRIMONIO?</span>
     </h2>
     <p class="font-sans text-sm text-slate-400 mb-8 max-w-md mx-auto">
-      No esperes a conflictos entre socios o congelamientos bancarios para
-      descubrir que las plantillas genéricas dejaron fisuras en tu empresa.
+      Cada día que mantienes estatutos genéricos de plantilla es un día más de exposición ante multas de la SCVS.
     </p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <!-- TRACKING: cta_final_diagnostico -->

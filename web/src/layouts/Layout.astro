@@ -1,8 +1,10 @@
 ---
+import { CONSTIVAL_DATA } from "../constants/company";
 import "../styles/global.css";
 const {
   title = "Constival Legal",
   description = "Arquitectura societaria blindada para escalar tu empresa en Ecuador. Constitución S.A.S., reformas y registro de marcas 100% digital.",
+  contact = {},
 } = Astro.props;
 ---
 
@@ -21,6 +23,42 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_EC" />
+    <meta property="og:url" content="https://constival.com/" />
+    <meta
+      property="og:image"
+      content="https://constival.com/images/og-image.png"
+    />
+    <meta property="og:site_name" content="Constival Legal" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content="https://constival.com/images/og-image.png"
+    />
+
+    <link rel="canonical" href="https://constival.com/" />
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Constival Legal",
+      "image": "https://constival.com/isotipo-2.svg",
+      "@id": "https://constival.com/",
+      "url": "https://constival.com/",
+      "telephone": "+593969503502",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": CONSTIVAL_DATA.info.contact.address,
+        "addressLocality": CONSTIVAL_DATA.info.contact.city,
+        "addressCountry": CONSTIVAL_DATA.info.contact.country
+      },
+      "description": "Estructuras societarias blindadas para escalar tu empresa en Ecuador.",
+      "priceRange": "$$$"
+    })} />
 
     <!-- Self-hosted font preloads (critical fonts only — reduces LCP) -->
     <link
