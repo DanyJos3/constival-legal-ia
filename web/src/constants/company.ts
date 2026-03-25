@@ -7,7 +7,11 @@ export const CONSTIVAL_DATA = {
     contact: {
       phone: "0969503502",
       email: "info@constival.com",
-      web: "www.constival.com"
+      web: "www.constival.com",
+      address: "Av. Republica de El Salvador 170135, edificio Prisma Norte",
+      country: "Ecuador",
+      city: "Quito"
+      
     }
   },
 

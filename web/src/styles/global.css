@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(:is(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *):not([data-theme="light"] *):not([data-theme="light"])));
 
 @theme {
   --color-constival-mint: #00FFB2;

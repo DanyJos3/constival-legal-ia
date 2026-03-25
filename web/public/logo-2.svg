@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" data-name="Capa 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 726.78 256">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .02em;
+      }
+
+      .cls-2 {
+        letter-spacing: .01em;
+      }
+
+      .cls-3 {
+        letter-spacing: .02em;
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        fill: #6b6b6b;
+        font-family: Montserrat-Regular, Montserrat;
+        font-size: 30px;
+        font-variation-settings: 'wght' 400;
+      }
+
+      .cls-6 {
+        letter-spacing: .03em;
+      }
+
+      .cls-7 {
+        letter-spacing: .02em;
+      }
+
+      .cls-8 {
+        letter-spacing: .03em;
+      }
+
+      .cls-9 {
+        fill: #111622;
+        font-family: Outfit-SemiBold, Outfit;
+        font-size: 78px;
+        font-variation-settings: 'wght' 600;
+        font-weight: 600;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-11 {
+        letter-spacing: 0em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-13 {
+        letter-spacing: 0em;
+      }
+
+      .cls-14 {
+        letter-spacing: 0em;
+      }
+
+      .cls-15 {
+        letter-spacing: 0em;
+      }
+
+      .cls-16 {
+        fill: url(#Degradado_sin_nombre_2);
+        stroke: #2c4747;
+        stroke-miterlimit: 10;
+        stroke-width: .64px;
+      }
+    </style>
+    <linearGradient id="Degradado_sin_nombre_2" data-name="Degradado sin nombre 2" x1="128" y1="350.77" x2="128" y2="-30.09" gradientTransform="translate(256 256) rotate(-180)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2c4747"/>
+      <stop offset=".12" stop-color="#246458"/>
+      <stop offset=".42" stop-color="#15a67e"/>
+      <stop offset=".67" stop-color="#09d69a"/>
+      <stop offset=".86" stop-color="#02f3ab"/>
+      <stop offset=".97" stop-color="#00ffb2"/>
+    </linearGradient>
+  </defs>
+  <g id="Capa_1-2" data-name="Capa 1">
+    <g>
+      <g>
+        <text class="cls-9" transform="translate(280 134.96)"><tspan class="cls-10" x="0" y="0">C</tspan><tspan class="cls-8" x="53.66" y="0">O</tspan><tspan class="cls-1" x="118.4" y="0">N</tspan><tspan class="cls-13" x="176.36" y="0">S</tspan><tspan class="cls-6" x="220.89" y="0">TI</tspan><tspan class="cls-12" x="296.47" y="0">V</tspan><tspan class="cls-3" x="346.63" y="0">AL</tspan></text>
+        <text class="cls-5" transform="translate(303.74 180.82)"><tspan class="cls-15" x="0" y="0">T</tspan><tspan class="cls-7" x="17.25" y="0">u so</tspan><tspan class="cls-11" x="80.52" y="0">c</tspan><tspan class="cls-7" x="97.62" y="0">io legal emp</tspan><tspan class="cls-14" x="288.42" y="0">r</tspan><tspan class="cls-2" x="300.51" y="0">esa</tspan><tspan class="cls-11" x="352.32" y="0">r</tspan><tspan class="cls-7" x="364.56" y="0">ial</tspan></text>
+      </g>
+      <g>
+        <rect class="cls-16" width="256" height="256" rx="57.12" ry="57.12" transform="translate(256 256) rotate(180)"/>
+        <path class="cls-4" d="M139.6,164.95c13.31-13.2,26.79-26.16,40.15-39.31,1.64-1.62,4.72-5.8,6.49-6.84.46-.27.77-.5,1.34-.27l17.54,16.87c.83,1.25.17,2.56-.63,3.6l-64.88,64.58c-18.45,13.83-29.24-4.97-42.5-13.4-5.09-3.24-11.03-5.11-16.42-8.86-40.87-28.49-39.99-86.91,1.12-114.8,27.66-18.76,63.3-16.99,89.3,3.73,2.16,1.73,7.28,5.12,5.49,8.22l-17.97,17.81c-2.87,2.63-6.55-2.83-9-4.72-14.91-11.49-35.77-11.5-50.68,0-35.41,27.33-9.22,80.93,33.97,71.99.32-.07.57-.32.7-.35.6-.14,1.15-.26,1.76-.35l-14.44,20.27,7.59-6.62c3.53-3.98,7.3-7.81,11.08-11.55Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

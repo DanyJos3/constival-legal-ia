@@ -12,6 +12,7 @@ import Faq from "../components/Faq.astro";
 import CtaSection from "../components/CtaSection.astro";
 import Footer from "../components/Footer.astro";
 import PopupManager from "../components/popups/PopupManager.astro";
+import ThemeOverride from "../components/ThemeOverride.astro";
 ---
 
 <Layout
@@ -21,7 +22,9 @@ import PopupManager from "../components/popups/PopupManager.astro";
   <Navbar />
   <main>
     <Hero />
-    <PainSection />
+    <ThemeOverride theme="dark">
+      <PainSection />
+    </ThemeOverride>
     <ValueProposition />
     <WhyUs />
     <Calculator />
@@ -30,6 +33,7 @@ import PopupManager from "../components/popups/PopupManager.astro";
     <Faq />
     <CtaSection />
   </main>
+
   <Footer />
   <PopupManager />
 </Layout>

@@ -1,0 +1,30 @@
+---
+/**
+ * ThemeOverride — Fuerza light o dark mode en un componente específico.
+ * 
+ * Props:
+ *   theme: 'light' | 'dark' | 'auto' (default: 'auto')
+ * 
+ * Uso:
+ *   <ThemeOverride theme="dark">
+ *     <PainSection />
+ *   </ThemeOverride>
+ * 
+ *   <ThemeOverride theme="light">
+ *     <Hero />
+ *   </ThemeOverride>
+ */
+interface Props {
+  theme?: 'light' | 'dark' | 'auto';
+}
+
+const { theme = 'auto' } = Astro.props;
+---
+
+{theme !== 'auto' ? (
+  <div data-theme={theme}>
+    <slot />
+  </div>
+) : (
+  <slot />
+)}
