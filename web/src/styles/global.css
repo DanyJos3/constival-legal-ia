@@ -2,6 +2,104 @@
 
 @custom-variant dark (&:where(:is(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *):not([data-theme="light"] *):not([data-theme="light"])));
 
+/* ========================
+   Self-hosted Font Faces
+   ======================== */
+
+/* Outfit — Sans-serif */
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-400.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-400.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/outfit-900.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Playfair Display — Serif */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display/playfair-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display/playfair-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display/playfair-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/playfair-display/playfair-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ========================
+   Theme Tokens
+   ======================== */
+
 @theme {
   --color-constival-mint: #00FFB2;
   --color-constival-teal: #2C4747;
@@ -19,10 +117,23 @@
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
 }
 
+/* ========================
+   Base Styles
+   ======================== */
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 72px;
 }
+
+::selection {
+  background: rgba(0, 255, 178, 0.3);
+  color: inherit;
+}
+
+/* ========================
+   Keyframes
+   ======================== */
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -44,15 +155,6 @@ html {
   50% { box-shadow: 0 0 40px rgba(0, 255, 178, 0.3); }
 }
 
-/* Smooth scroll */
-html { scroll-behavior: smooth; }
-
-/* Selection color */
-::selection {
-  background: rgba(0, 255, 178, 0.3);
-  color: inherit;
-}
-
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -60,6 +162,7 @@ html { scroll-behavior: smooth; }
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+  will-change: transform;
 }
 
 .animate-marquee:has(.carousel-card:hover) {
