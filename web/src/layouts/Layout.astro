@@ -42,23 +42,28 @@ const {
     <link rel="canonical" href="https://constival.com/" />
 
     <!-- JSON-LD Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "LegalService",
-      "name": "Constival Legal",
-      "image": "https://constival.com/isotipo-2.svg",
-      "@id": "https://constival.com/",
-      "url": "https://constival.com/",
-      "telephone": "+593969503502",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": CONSTIVAL_DATA.info.contact.address,
-        "addressLocality": CONSTIVAL_DATA.info.contact.city,
-        "addressCountry": CONSTIVAL_DATA.info.contact.country
-      },
-      "description": "Estructuras societarias blindadas para escalar tu empresa en Ecuador.",
-      "priceRange": "$$$"
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        name: "Constival Legal",
+        image: "https://constival.com/isotipo-2.svg",
+        "@id": "https://constival.com/",
+        url: "https://constival.com/",
+        telephone: "+593969503502",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: CONSTIVAL_DATA.info.contact.address,
+          addressLocality: CONSTIVAL_DATA.info.contact.city,
+          addressCountry: CONSTIVAL_DATA.info.contact.country,
+        },
+        sameAs: ["https://www.instagram.com/constival.ecu"],
+        description:
+          "Firma legal en Ecuador que ha estructurado más de 100 empresas corporativas. Proveemos constitución digital de S.A.S. en 3 a 5 días operativos y auditoría preventiva ante la Superintendencia de Compañías.",
+        priceRange: "$$$",
+      })}
+    />
 
     <!-- Self-hosted font preloads (critical fonts only — reduces LCP) -->
     <link

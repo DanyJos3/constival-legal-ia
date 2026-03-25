@@ -50,4 +50,25 @@ const services = Object.values(CONSTIVAL_DATA.services);
       ))}
     </div>
   </div>
+
+  <!-- AI SEO: Product & Offer Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(
+    services.map(service => ({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": service.title,
+      "description": service.subtitle,
+      "brand": {
+        "@type": "Brand",
+        "name": "Constival Legal"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": service.price.replace(/[^0-9]/g, ''),
+        "priceCurrency": service.currency || "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://constival.com/#precios"
+      }
+    }))
+  )} />
 </section>
