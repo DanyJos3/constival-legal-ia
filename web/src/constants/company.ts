@@ -22,7 +22,7 @@ export const CONSTIVAL_DATA = {
     values: [
       { 
         title: "Simplificación Legal", 
-        desc: "Convertimos la jerga legal en instrucciones claras." 
+        desc: "Convertimos los tecnicismos legales en instrucciones claras." 
       },
       { 
         title: "Transparencia Radical", 
@@ -57,8 +57,8 @@ export const CONSTIVAL_DATA = {
     },
     reformas: {
       title: "Actualización Societaria",
-      shortDescription: "Actualiza tus estatutos rápidamente sin rechazos de la SCVS.",
-      subtitle: "Reformamos tus estatutos para permitir ingresos de capital o pivotar el objeto social sin rechazos en la SCVS.",
+      shortDescription: "Actualiza tus estatutos rápidamente sin rechazos de la Superintendencia de Compañías.",
+      subtitle: "Reformamos tus estatutos para permitir ingresos de capital o pivotar el objeto social sin rechazos en la Superintendencia de Compañías.",
       price: "Desde $179",
       currency: "USD",
       popular: false,
@@ -91,7 +91,7 @@ export const CONSTIVAL_DATA = {
       currency: "USD",
       popular: false,
       features: [
-        "Registro de nombramientos en SCVS",
+        "Registro de nombramientos en la Superintendencia de Compañías",
         "Inscripción en Registro Mercantil",
         "Prevención de bloqueo bancario",
         "Actualización de firma autorizada",
@@ -107,7 +107,7 @@ export const CONSTIVAL_DATA = {
       features: [
         "Cesión de participaciones / acciones",
         "Actualización de libros societarios",
-        "Notificación a la SCVS",
+        "Notificación a la Superintendencia de Compañías",
         "Asesoría tributaria del traspaso",
       ],
     },
@@ -132,7 +132,7 @@ export const CONSTIVAL_DATA = {
     },
     {
       q: "¿Los precios que publican incluyen todo?",
-      a: "Nuestros honorarios son fijos y publicados. NO incluyen tasas gubernamentales (aranceles de la SCVS, Registro Mercantil o SENADI), las cuales son costos del estado que desglosamos con total transparencia antes de iniciar."
+      a: "Nuestros honorarios son fijos y publicados. NO incluyen tasas gubernamentales (aranceles de la Superintendencia de Compañías, Registro Mercantil o SENADI), las cuales son costos del estado que desglosamos con total transparencia antes de iniciar."
     },
     {
       q: "¿Puedo constituir una empresa siendo extranjero?",
