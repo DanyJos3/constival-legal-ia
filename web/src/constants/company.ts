@@ -42,6 +42,7 @@ export const CONSTIVAL_DATA = {
   services: {
     sas: {
       title: "Constitución Inteligente (S.A.S.)",
+      shortDescription: "Crea tu empresa blindada, electrónica y sin capital mínimo.",
       subtitle: "Diseñamos el esqueleto legal de tu empresa blindado contra conflictos de accionistas y parálisis futura.",
       price: "Desde $149",
       currency: "USD",
@@ -56,6 +57,7 @@ export const CONSTIVAL_DATA = {
     },
     reformas: {
       title: "Actualización Societaria",
+      shortDescription: "Actualiza tus estatutos rápidamente sin rechazos de la SCVS.",
       subtitle: "Reformamos tus estatutos para permitir ingresos de capital o pivotar el objeto social sin rechazos en la SCVS.",
       price: "Desde $179",
       currency: "USD",
@@ -69,6 +71,7 @@ export const CONSTIVAL_DATA = {
     },
     marcas: {
       title: "Blindaje de Identidad (Marcas)",
+      shortDescription: "Protege tu propiedad intelectual a nivel nacional por 10 años.",
       subtitle: "Registro a 10 años ante el SENADI con búsquedas fonéticas. Asegura el control del activo más valioso que tienes.",
       price: "Desde $300",
       currency: "USD",
@@ -82,6 +85,7 @@ export const CONSTIVAL_DATA = {
     },
     nombramientos: {
       title: "Protección de Directorio",
+      shortDescription: "Evita el bloqueo de tus cuentas bancarias corporativas.",
       subtitle: "Inscribimos cambios de representantes y gerentes para evitar el congelamiento automático de tus cuentas bancarias.",
       price: "Desde $99",
       currency: "USD",
@@ -95,6 +99,7 @@ export const CONSTIVAL_DATA = {
     },
     cesiones: {
       title: "Traspaso Acordado (Cesiones)",
+      shortDescription: "Transfiere acciones legalmente y sin contingencias fiscales.",
       subtitle: "Transferencia accionaria 100% legalizada en libros societarios y notificada en portales gubernamentales.",
       price: "Desde $149",
       currency: "USD",
