@@ -8,14 +8,14 @@ const carouselItems = [...heroServices, ...heroServices];
 ---
 
 <section
-  class="relative min-h-[100svh] max-h-screen flex items-center py-16 pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12 overflow-hidden bg-white dark:bg-constival-navy transition-colors duration-300"
   id="inicio"
+  class="relative min-h-[100svh] flex items-center py-16 pt-20 sm:pt-24 md:pt-28 pb-8 sm:pb-10 md:pb-12 bg-white dark:bg-constival-navy transition-colors duration-300"
 >
   <!-- Background layers -->
-  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+  <div class="absolute inset-0 z-0 pointer-events-none">
     <img
       src="/images/hero-bg.webp"
-      alt="Corporate architecture"
+      alt="Derecho societario ecuador"
       width="1920"
       height="1080"
       fetchpriority="high"
@@ -23,11 +23,11 @@ const carouselItems = [...heroServices, ...heroServices];
       class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 dark:opacity-20 mix-blend-multiply dark:mix-blend-lighten"
     />
     <div
-      class="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-constival-teal/30 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+      class="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-constival-teal/90 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
     >
     </div>
     <div
-      class="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-constival-blue/20 blur-[60px] md:blur-[100px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+      class="absolute bottom-0 left-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-constival-blue/90 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
     >
     </div>
   </div>
@@ -197,7 +197,7 @@ const carouselItems = [...heroServices, ...heroServices];
   </div>
 
   <!-- Scroll indicator -->
-  <div
+  <!-- <div
     class="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1 animate-bounce z-20"
   >
     <span
@@ -216,5 +216,5 @@ const carouselItems = [...heroServices, ...heroServices];
         stroke-width="2"
         d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
     </svg>
-  </div>
+  </div> -->
 </section>
