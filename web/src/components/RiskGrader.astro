@@ -1,0 +1,348 @@
+---
+import { CONSTIVAL_DATA } from "../constants/company";
+
+const auditData = CONSTIVAL_DATA.riskAudit;
+const totalQuestions = auditData.questions.length;
+---
+
+<section
+  id="auditor-riesgos"
+  class="flex flex-col justify-center min-h-[70vh] lg:min-h-[70vh] py-16 md:py-24 bg-constival-navy dark:bg-constival-deep relative border-t border-white/5 transition-colors duration-300 scroll-mt-[10vh] lg:scroll-mt-[10vh]"
+>
+  <div class="container mx-auto px-6 md:px-12 max-w-4xl relative z-10 w-full">
+    <div
+      id="audit-initial-view"
+      class="text-center opacity-100 transition-opacity duration-500"
+    >
+      <span
+        class="inline-block py-1 px-3 bg-red-500/10 text-red-500 font-sans font-bold tracking-widest uppercase text-xs mb-4 border-l-2 border-red-500"
+      >
+        Diagnóstico Gratuito
+      </span>
+      <h2
+        class="font-sans text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4"
+      >
+        Descubre si tu empresa tiene <span class="text-constival-mint"
+          >Estructura de Riesgo</span
+        >.
+      </h2>
+      <p
+        class="font-sans text-base md:text-lg text-slate-400 mb-8 max-w-2xl mx-auto"
+      >
+        Responde solo 4 preguntas clínicas sin tecnicismos legales y descubre si
+        estás a punto de enfrentar multas o bloqueos bancarios corporativos.
+      </p>
+      <button
+        id="start-audit-btn"
+        class="px-8 py-4 bg-red-600 hover:bg-red-500 text-white font-sans font-bold text-sm md:text-base uppercase tracking-wider rounded-full transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-xl shadow-red-900/20"
+      >
+        Comenzar Auditoría (1 minuto) →
+      </button>
+    </div>
+
+    <!-- Questions Container -->
+    <div
+      id="audit-questions-view"
+      class="hidden opacity-0 transition-opacity duration-500 bg-white dark:bg-[#121826] rounded-3xl p-6 md:p-10 shadow-2xl border border-constival-navy/5 dark:border-white/5 mx-auto w-full max-w-3xl"
+    >
+      <div
+        class="flex justify-between items-center mb-8 border-b border-gray-100 dark:border-white/10 pb-4"
+      >
+        <span
+          class="font-sans font-bold text-sm text-constival-teal dark:text-constival-mint"
+          id="audit-progress-text">Pregunta 1 de {totalQuestions}</span
+        >
+        <div class="flex gap-1" id="audit-progress-dots">
+          {
+            auditData.questions.map((_, i) => (
+              <div
+                class={`h-1.5 rounded-full transition-all duration-300 ${i === 0 ? "w-6 bg-constival-teal dark:bg-constival-mint" : "w-2 bg-gray-200 dark:bg-white/10"}`}
+                data-dot-index={i}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="min-h-[250px] flex flex-col justify-center">
+        {
+          auditData.questions.map((q, qIndex) => (
+            <div
+              class={`audit-question-step absolute w-full left-0 transition-all duration-500 ${qIndex === 0 ? "opacity-100 translate-x-0 relative" : "opacity-0 translate-x-10 hidden"}`}
+              data-question-id={q.id}
+            >
+              <h3 class="font-sans text-lg md:text-2xl font-bold text-constival-navy dark:text-white mb-6 leading-tight">
+                {q.label}
+              </h3>
+              <div class="flex flex-col gap-3">
+                {q.options.map((opt) => (
+                  <button
+                    class="audit-option group relative w-full text-left p-4 md:p-5 border border-gray-200 dark:border-white/10 rounded-xl hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center justify-between"
+                    data-score={opt.riskScore}
+                  >
+                    <span class="font-sans text-sm md:text-base text-constival-navy/80 dark:text-slate-300 font-medium z-10">
+                      {opt.label}
+                    </span>
+                    <div class="w-5 h-5 rounded-full border border-gray-300 dark:border-slate-600 group-hover:border-constival-mint transition-colors flex items-center justify-center">
+                      <div class="w-2.5 h-2.5 rounded-full bg-constival-mint scale-0 group-hover:scale-50 transition-transform" />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+
+        <div
+          id="audit-loading-step"
+          class="hidden opacity-0 flex-col items-center justify-center text-center py-10 transition-opacity duration-500"
+        >
+          <div
+            class="w-12 h-12 border-4 border-constival-teal/20 dark:border-white/10 border-t-constival-mint rounded-full animate-spin mb-6"
+          >
+          </div>
+          <h3
+            class="font-sans text-xl font-bold text-constival-navy dark:text-white mb-2"
+          >
+            Evaluando estructura legal...
+          </h3>
+          <p
+            class="font-sans text-sm text-constival-navy/60 dark:text-slate-400"
+          >
+            Verificando vulnerabilidades en estatutos, capital e intangibles.
+          </p>
+        </div>
+
+        <div
+          id="audit-result-step"
+          class="hidden opacity-0 flex-col items-center justify-center text-center py-4 transition-opacity duration-500"
+        >
+          <div
+            id="audit-result-icon"
+            class="w-20 h-20 rounded-full flex items-center justify-center font-black text-4xl mb-6 text-white shadow-xl"
+          >
+            <!-- Icono dinámico -->
+          </div>
+          <h3
+            id="audit-result-title"
+            class="font-sans text-2xl md:text-3xl font-extrabold text-constival-navy dark:text-white mb-3"
+          >
+            <!-- Título dinámico -->
+          </h3>
+          <p
+            id="audit-result-description"
+            class="font-sans text-base md:text-lg text-constival-navy/70 dark:text-slate-400 mb-8 max-w-lg mx-auto"
+          >
+            <!-- Desc dinámica -->
+          </p>
+
+          <div class="w-full flex flex-col gap-3 max-w-sm mx-auto">
+            <!-- TRACKING: risk_audit_whatsapp_cta -->
+            <a
+              id="audit-whatsapp-btn"
+              href="#"
+              target="_blank"
+              class="w-full px-6 py-4 bg-[#25D366] hover:bg-[#1ebd5b] text-white font-sans font-bold text-base rounded-full shadow-lg transition-transform hover:-translate-y-1 block"
+            >
+              <!-- CTA dinámico -->
+            </a>
+            <button
+              id="audit-restart-btn"
+              class="font-sans text-sm text-constival-navy/50 dark:text-slate-500 hover:text-constival-navy dark:hover:text-white underline mt-2"
+            >
+              Volver a evaluar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { CONSTIVAL_DATA } from "../constants/company";
+
+  const auditData = CONSTIVAL_DATA.riskAudit;
+  let currentStep = 0;
+  let totalScore = 0;
+  let selectedOptions = [];
+
+  const startBtn = document.getElementById("start-audit-btn");
+  const initialView = document.getElementById("audit-initial-view");
+  const questionsView = document.getElementById("audit-questions-view");
+  const questionSteps = document.querySelectorAll(".audit-question-step");
+  const optionBtns = document.querySelectorAll(".audit-option");
+
+  const loadingStep = document.getElementById("audit-loading-step");
+  const resultStep = document.getElementById("audit-result-step");
+
+  const progressText = document.getElementById("audit-progress-text");
+  const progressDots = document.querySelectorAll("#audit-progress-dots div");
+
+  const restartBtn = document.getElementById("audit-restart-btn");
+
+  function getSeverity(score) {
+    // Escala del plan: Roja (más de 4 pts alto riesgo), Verde (cero problemas)
+    // Score máx. posible: 3 + 5 + 3 + 3 = 14
+    if (score >= 5) return { severity: "high", bg: "bg-red-500", icon: "!" };
+    if (score >= 2) return { severity: "mid", bg: "bg-orange-500", icon: "⚠" };
+    return { severity: "low", bg: "bg-[#25D366]", icon: "✓" };
+  }
+
+  startBtn?.addEventListener("click", () => {
+    initialView?.classList.replace("opacity-100", "opacity-0");
+    setTimeout(() => {
+      initialView?.classList.add("hidden");
+      questionsView?.classList.remove("hidden");
+      setTimeout(
+        () => questionsView?.classList.replace("opacity-0", "opacity-100"),
+        50,
+      );
+    }, 500);
+  });
+
+  optionBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const score = Number(btn.getAttribute("data-score")) || 0;
+      totalScore += score;
+      
+      const optionText = btn.querySelector("span").innerText;
+      selectedOptions.push(`- ${optionText}`);
+
+      const currentEl = questionSteps[currentStep];
+      currentEl.classList.replace("opacity-100", "opacity-0");
+      currentEl.classList.replace("translate-x-0", "-translate-x-10");
+
+      setTimeout(() => {
+        currentEl.classList.add("hidden");
+        currentEl.classList.remove("relative", "-translate-x-10");
+
+        currentStep++;
+
+        if (currentStep < questionSteps.length) {
+          progressText.innerText = `Pregunta ${currentStep + 1} de ${questionSteps.length}`;
+          progressDots.forEach((dot, j) => {
+            if (j === currentStep) {
+              dot.classList.add(
+                "w-6",
+                "bg-constival-teal",
+                "dark:bg-constival-mint",
+              );
+              dot.classList.remove("w-2", "bg-gray-200", "dark:bg-white/10");
+            }
+          });
+
+          const nextEl = questionSteps[currentStep];
+          nextEl.classList.remove("hidden", "translate-x-10");
+          nextEl.classList.add("relative", "translate-x-4");
+          setTimeout(() => {
+            nextEl.classList.replace("opacity-0", "opacity-100");
+            nextEl.classList.replace("translate-x-4", "translate-x-0");
+          }, 50);
+        } else {
+          // Finish - Animate Loading
+          document
+            .querySelector("#audit-progress-dots")
+            .parentElement.classList.add("hidden");
+          loadingStep?.classList.remove("hidden");
+          setTimeout(
+            () => loadingStep?.classList.replace("opacity-0", "opacity-100"),
+            50,
+          );
+
+          setTimeout(() => {
+            loadingStep?.classList.replace("opacity-100", "opacity-0");
+            setTimeout(() => {
+              loadingStep?.classList.add("hidden");
+              showResults();
+            }, 500);
+          }, 1800);
+        }
+      }, 500);
+    });
+  });
+
+  function showResults() {
+    const analysis = getSeverity(totalScore);
+    const data = auditData.results[analysis.severity];
+
+    const iconEl = document.getElementById("audit-result-icon");
+    const titleEl = document.getElementById("audit-result-title");
+    const descEl = document.getElementById("audit-result-description");
+    const waBtn = document.getElementById("audit-whatsapp-btn");
+
+    iconEl.className = `w-20 h-20 rounded-full flex items-center justify-center font-black text-4xl mb-6 text-white shadow-xl ${analysis.bg}`;
+    iconEl.innerText = analysis.icon;
+
+    titleEl.innerText = data.title;
+    if (analysis.severity === "high") {
+      titleEl.classList.add("text-red-500", "dark:text-red-400");
+    } else if (analysis.severity === "mid") {
+      titleEl.classList.add("text-orange-500", "dark:text-orange-400");
+    }
+
+    descEl.innerText = data.description;
+    
+    const answersList = selectedOptions.join("\n");
+    const fullMessage = `${data.messageText}\n\n*Detalle de mis respuestas:*\n${answersList}`;
+    
+    waBtn.innerHTML = `
+      <div class="flex items-center justify-center gap-2">
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        ${data.cta}
+      </div>
+    `;
+    const phone = CONSTIVAL_DATA.info.contact.phone;
+    waBtn.href = `https://wa.me/593${phone.replace(/^0/, "")}?text=${encodeURIComponent(fullMessage)}`;
+
+    resultStep?.classList.remove("hidden");
+    setTimeout(
+      () => resultStep?.classList.replace("opacity-0", "opacity-100"),
+      50,
+    );
+  }
+
+  restartBtn?.addEventListener("click", () => {
+    currentStep = 0;
+    totalScore = 0;
+    selectedOptions = [];
+
+    resultStep?.classList.replace("opacity-100", "opacity-0");
+    setTimeout(() => {
+      resultStep?.classList.add("hidden");
+      document
+        .querySelector("#audit-progress-dots")
+        .parentElement.classList.remove("hidden");
+
+      progressText.innerText = `Pregunta 1 de ${questionSteps.length}`;
+      progressDots.forEach((dot, j) => {
+        dot.className =
+          j === 0
+            ? "h-1.5 rounded-full transition-all duration-300 w-6 bg-constival-teal dark:bg-constival-mint"
+            : "h-1.5 rounded-full transition-all duration-300 w-2 bg-gray-200 dark:bg-white/10";
+      });
+
+      questionSteps.forEach((step, i) => {
+        if (i === 0) {
+          step.classList.remove("hidden", "-translate-x-10");
+          step.classList.add("relative", "translate-x-0", "opacity-100");
+          step.classList.remove("opacity-0");
+        } else {
+          step.classList.add("hidden", "opacity-0", "translate-x-10");
+          step.classList.remove("relative");
+        }
+      });
+
+      questionsView?.classList.add("hidden", "opacity-0");
+      questionsView?.classList.remove("opacity-100");
+
+      initialView?.classList.remove("hidden");
+      setTimeout(
+        () => initialView?.classList.replace("opacity-0", "opacity-100"),
+        50,
+      );
+    }, 500);
+  });
+</script>

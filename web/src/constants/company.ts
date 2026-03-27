@@ -213,6 +213,67 @@ export const CONSTIVAL_DATA = {
     }
   },
 
+  riskAudit: {
+    questions: [
+      {
+        id: "estatutos",
+        label: "¿Usaste una plantilla genérica al constituir tu empresa o los estatutos fueron personalizados?",
+        options: [
+          { label: "Plantilla genérica o modelo por defecto", value: "plantilla", riskScore: 3 },
+          { label: "Personalizados por abogado generalista", value: "generalista", riskScore: 1 },
+          { label: "Hechos a medida (con cláusulas de prevención)", value: "medida", riskScore: 0 }
+        ]
+      },
+      {
+        id: "nombramientos",
+        label: "¿Hace cuánto tiempo se inscribió el cargo de tu Gerente General o Presidente actual?",
+        options: [
+          { label: "Más de 5 años (Probablemente vencido)", value: "vencido", riskScore: 5 },
+          { label: "No estoy seguro o no recuerdo", value: "duda", riskScore: 3 },
+          { label: "Menos de 4 años (Aún vigente)", value: "vigente", riskScore: 0 }
+        ]
+      },
+      {
+        id: "conflictos",
+        label: "¿Tienes un protocolo legal firmado sobre qué sucede si tú y tu socio no logran ponerse de acuerdo?",
+        options: [
+          { label: "No, si nos peleamos la empresa se traba", value: "sin-pacto", riskScore: 3 },
+          { label: "Sí, tenemos pactos de accionistas listos", value: "con-pacto", riskScore: 0 },
+          { label: "Soy el único dueño (S.A.S. Unipersonal)", value: "unipersonal", riskScore: 0 }
+        ]
+      },
+      {
+        id: "marcas",
+        label: "¿La marca comercial de tu empresa está legalmente registrada en el SENADI?",
+        options: [
+          { label: "No, la usamos sin registro oficial", value: "sin-registro", riskScore: 3 },
+          { label: "Está inscrita a mi nombre personal", value: "personal", riskScore: 2 },
+          { label: "Sí, a nombre estricto de la empresa", value: "empresa", riskScore: 0 }
+        ]
+      }
+    ],
+    results: {
+      high: {
+        title: "ALERTA ROJA: Riesgo Operativo y Patrimonial Alto",
+        description: "Tu empresa está expuesta a multas severas, congelamiento bancario inminente por nombramientos caducados, o parálisis total societaria por falta de estructura legal.",
+        cta: "Agendar Diagnóstico de Rescate",
+        messageText: "Hola Constival, mi empresa salió con Alerta Roja en el Auditor. Necesito un diagnóstico urgente para proteger mi patrimonio."
+      },
+      mid: {
+        title: "RIESGO MODERADO: Vacíos Legales Detectados",
+        description: "Tienes tu documentación base, pero operas con vacíos en la resolución de conflictos o protección de intangibles corporativos que podrían costarte caro a futuro.",
+        cta: "Agendar Revisión Preventiva",
+        messageText: "Hola Constival, salí con Riesgo Moderado en el Auditor. Quiero agendar una revisión para parchar los vacíos en mis estatutos."
+      },
+      low: {
+        title: "ESTRUCTURA SÓLIDA: Riesgo Mínimo",
+        description: "¡Felicidades! Tu empresa proyecta un blindaje societario superior al promedio. Tu administración e intangibles cuentan con barreras de protección adecuadas.",
+        cta: "Hablar con un Experto",
+        messageText: "Hola Constival, aprobé el Auditor de Riesgos de su sitio, pero igual quiero consultar otros servicios societarios para mi empresa."
+      }
+    }
+  },
+
   valueProposition: {
     title: "Arquitectos de estructuras empresariales",
     points: [
