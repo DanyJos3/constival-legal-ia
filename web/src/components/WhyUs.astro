@@ -1,71 +1,180 @@
 ---
-import Button from './ui/Button.astro';
+import Button from "./ui/Button.astro";
 ---
-<section class="py-14 md:py-16 bg-white dark:bg-[#090e1a] overflow-hidden relative transition-colors duration-300">
-  <div class="absolute right-0 top-0 w-1/3 h-full bg-constival-blue/5 dark:bg-constival-blue/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+<section
+  class="py-14 md:py-16 bg-white dark:bg-[#090e1a] overflow-hidden relative transition-colors duration-300"
+>
+  <div
+    class="absolute right-0 top-0 w-1/3 h-full bg-constival-blue/5 dark:bg-constival-blue/10 blur-[120px] rounded-full pointer-events-none"
+  >
+  </div>
   <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
-    
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center relative z-10">
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-center relative z-10"
+    >
       <div>
-        <span class="inline-block py-1 px-3 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-4 font-sans font-bold tracking-widest uppercase text-[10px]">
+        <span
+          class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-4 sm:mb-5 font-sans font-bold tracking-widest uppercase text-xs sm:text-sm"
+        >
           Nuestra Metodología
         </span>
-        <h2 class="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-constival-navy dark:text-white mb-5 tracking-tight">5 FASES PARA ERRADICAR <br/> <span class="text-constival-mint">TU RIESGO SOCIETARIO</span></h2>
-        <p class="text-constival-navy/80 dark:text-slate-400 leading-relaxed font-sans text-sm mb-6 border-l-2 border-constival-mint pl-4">El riesgo de operar bajo la informalidad o con estatutos genéricos paraliza negocios. Así lo prevenimos:</p>
-        
-        <div class="space-y-4">
-          <div class="flex gap-4">
-            <div class="font-sans font-black text-lg text-constival-mint mt-0.5">01.</div>
+        <h2
+          class="font-sans text-3xl sm:text-4xl 2xl:text-5xl font-extrabold text-constival-navy dark:text-white mb-5 sm:mb-6 tracking-tight leading-[1.1]"
+        >
+          5 FASES ESTRATÉGICAS PARA ESCALAR TU EMPRESA <br class="hidden sm:block" />
+          <span class="text-constival-mint">CON SEGURIDAD LEGAL</span>
+        </h2>
+        <p
+          class="text-constival-navy/80 dark:text-slate-400 leading-relaxed font-sans text-base sm:text-lg mb-8 sm:mb-10 border-l-[3px] border-constival-mint pl-4 sm:pl-5"
+        >
+          Las empresas en Ecuador no se estancan por falta de ventas, sino por
+          contingencias legales ocultas. Así blindan tu negocio nuestros
+          abogados corporativos:
+        </p>
+
+        <div class="space-y-6 sm:space-y-8">
+          <div class="flex gap-4 sm:gap-5">
+            <div
+              class="font-sans font-black text-xl sm:text-2xl text-constival-mint mt-0.5 sm:mt-0"
+            >
+              01.
+            </div>
             <div>
-              <h3 class="font-sans text-sm font-bold text-constival-navy dark:text-white mb-0.5">Diagnóstico Estratégico</h3>
-              <p class="text-constival-navy/70 dark:text-slate-400 font-sans text-xs leading-relaxed">Evaluamos fisuras en la titularidad de tus activos antes de redactar una cláusula.</p>
+              <h3
+                class="font-sans text-base sm:text-lg font-bold text-constival-navy dark:text-white mb-1"
+              >
+                Diagnóstico Legal y Societario
+              </h3>
+              <p
+                class="text-constival-navy/70 dark:text-slate-400 font-sans text-sm sm:text-base leading-relaxed"
+              >
+                Antes de crear una compañía en Ecuador, nuestros abogados
+                societarios auditan la titularidad de tus activos y los riesgos
+                de tu modelo de negocio.
+              </p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="font-sans font-black text-lg text-constival-mint mt-0.5">02.</div>
+          <div class="flex gap-4 sm:gap-5">
+            <div
+              class="font-sans font-black text-xl sm:text-2xl text-constival-mint mt-0.5 sm:mt-0"
+            >
+              02.
+            </div>
             <div>
-              <h3 class="font-sans text-sm font-bold text-constival-navy dark:text-white mb-0.5">Planificación Societaria</h3>
-              <p class="text-constival-navy/70 dark:text-slate-400 font-sans text-xs leading-relaxed">Arquitectamos estatutos corporativos operando como escudos anti-fricción.</p>
+              <h3
+                class="font-sans text-base sm:text-lg font-bold text-constival-navy dark:text-white mb-1"
+              >
+                Estatutos y Pactos de Accionistas
+              </h3>
+              <p
+                class="text-constival-navy/70 dark:text-slate-400 font-sans text-sm sm:text-base leading-relaxed"
+              >
+                Diseñamos estatutos anti-fricción corporativa y un pacto de
+                accionistas a medida para prevenir conflictos entre socios y
+                retener el control.
+              </p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="font-sans font-black text-lg text-constival-mint mt-0.5">03.</div>
+          <div class="flex gap-4 sm:gap-5">
+            <div
+              class="font-sans font-black text-xl sm:text-2xl text-constival-mint mt-0.5 sm:mt-0"
+            >
+              03.
+            </div>
             <div>
-              <h3 class="font-sans text-sm font-bold text-constival-navy dark:text-white mb-0.5">Ejecución 100% Digital</h3>
-              <p class="text-constival-navy/70 dark:text-slate-400 font-sans text-xs leading-relaxed">Firma, aprueba y supervisa desde tu pantalla sin pisar oficinas.</p>
+              <h3
+                class="font-sans text-base sm:text-lg font-bold text-constival-navy dark:text-white mb-1"
+              >
+                Constitución Electrónica de Empresas
+              </h3>
+              <p
+                class="text-constival-navy/70 dark:text-slate-400 font-sans text-sm sm:text-base leading-relaxed"
+              >
+                Constituye tu S.A.S. o Cía. Ltda. 100% digital mediante firma
+                electrónica, sin burocracia ni visitas a notarías.
+              </p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="font-sans font-black text-lg text-constival-mint mt-0.5">04.</div>
+          <div class="flex gap-4 sm:gap-5">
+            <div
+              class="font-sans font-black text-xl sm:text-2xl text-constival-mint mt-0.5 sm:mt-0"
+            >
+              04.
+            </div>
             <div>
-              <h3 class="font-sans text-sm font-bold text-constival-navy dark:text-white mb-0.5">Formalización Inquebrantable</h3>
-              <p class="text-constival-navy/70 dark:text-slate-400 font-sans text-xs leading-relaxed">Seguimiento milimétrico ante la Superintendencia de Compañías y Registro Mercantil.</p>
+              <h3
+                class="font-sans text-base sm:text-lg font-bold text-constival-navy dark:text-white mb-1"
+              >
+                Registros y Nombramientos Directivos
+              </h3>
+              <p
+                class="text-constival-navy/70 dark:text-slate-400 font-sans text-sm sm:text-base leading-relaxed"
+              >
+                Gestión milimétrica ante la Superintendencia de Compañías y el
+                Registro Mercantil para que tu empresa opere de inmediato.
+              </p>
             </div>
           </div>
-          <div class="flex gap-4">
-            <div class="font-sans font-black text-lg text-constival-mint mt-0.5">05.</div>
+          <div class="flex gap-4 sm:gap-5">
+            <div
+              class="font-sans font-black text-xl sm:text-2xl text-constival-mint mt-0.5 sm:mt-0"
+            >
+              05.
+            </div>
             <div>
-              <h3 class="font-sans text-sm font-bold text-constival-navy dark:text-white mb-0.5">Seguimiento Preventivo</h3>
-              <p class="text-constival-navy/70 dark:text-slate-400 font-sans text-xs leading-relaxed">Alertas tempranas para renovaciones que evitan congelamientos bancarios.</p>
+              <h3
+                class="font-sans text-base sm:text-lg font-bold text-constival-navy dark:text-white mb-1"
+              >
+                Cumplimiento Preventivo (Compliance)
+              </h3>
+              <p
+                class="text-constival-navy/70 dark:text-slate-400 font-sans text-sm sm:text-base leading-relaxed"
+              >
+                Monitorizamos tus obligaciones societarias anuales para evitar
+                multas de la SuperCias y el congelamiento de cuentas bancarias.
+              </p>
             </div>
           </div>
         </div>
-        
+
         <div class="mt-6">
-           <Button variant="primary" href="#configurador">Iniciar tu Fase 1 Hoy</Button>
+          <Button variant="primary" href="#configurador"
+            >Iniciar tu Fase 1 Hoy</Button
+          >
         </div>
       </div>
-      
-      <div class="relative mt-8 lg:mt-0 h-full flex flex-col justify-center">
-        <div class="bg-gray-50 dark:bg-[#1a1f2c] p-6 md:p-8 relative overflow-hidden group border-t-4 border-constival-blue dark:border-constival-mint shadow-xl">
-          <div class="absolute right-0 top-0 text-[10rem] font-sans font-black text-constival-navy/[0.03] dark:text-white/[0.02] leading-none select-none pointer-events-none translate-x-1/4 -translate-y-1/4">
+
+      <div
+        class="relative mt-10 md:mt-12 lg:mt-0 h-full flex flex-col justify-center"
+      >
+        <div
+          class="bg-gray-50 dark:bg-[#1a1f2c] p-8 md:p-10 relative overflow-hidden group border-t-4 border-constival-blue dark:border-constival-mint shadow-xl"
+        >
+          <div
+            class="absolute right-0 top-0 text-[12rem] font-sans font-black text-constival-navy/[0.03] dark:text-white/[0.02] leading-none select-none pointer-events-none translate-x-1/4 -translate-y-1/4"
+          >
             C
           </div>
-          <h3 class="font-sans text-xl font-bold text-constival-navy dark:text-white mb-4">Evita el colapso por documentos de plantilla.</h3>
-          <p class="text-constival-navy/70 dark:text-slate-400 leading-relaxed font-sans text-sm mb-6">
-            Las fábricas genéricas de sociedades entregan un PDF en serie. Nosotros analizamos el ADN de tu negocio para inyectar cláusulas específicas que protegerán tus futuras rondas de inversión. <br/><br/><strong>La velocidad de la tecnología combinada con el rigor de estrategas corporativos.</strong>
+          <h3
+            class="font-sans text-2xl sm:text-3xl font-extrabold text-constival-navy dark:text-white mb-5 pr-6 tracking-tight"
+          >
+            ¿Por qué no usar plantillas genéricas para crear tu empresa?
+          </h3>
+          <p
+            class="text-constival-navy/80 dark:text-slate-400 leading-relaxed font-sans text-base sm:text-lg mb-8"
+          >
+            El 80% de las contingencias patrimoniales surgen por estatutos 
+            copiados de internet. Como <strong class="text-constival-navy dark:text-white">Arquitectos de Estructuras Empresariales</strong>, 
+            en Constival redactamos cada cláusula analizando el ADN de tu negocio 
+            para proteger tus futuras rondas de inversión. <br
+            /><br />Simplificación legal con transparencia radical.
           </p>
-          <a href="#configurador" class="font-sans font-bold text-constival-mint uppercase text-xs tracking-wider flex items-center gap-2 group-hover:translate-x-2 transition-transform">Descubrir la Diferencia Constival &rarr;</a>
+          <a
+            href="#configurador"
+            class="inline-flex font-sans font-bold text-constival-blue dark:text-white uppercase text-xs sm:text-sm tracking-widest items-center gap-2 group-hover:translate-x-2 transition-transform"
+            >Configurar Mi Estructura Ideal &rarr;</a
+          >
         </div>
       </div>
     </div>
