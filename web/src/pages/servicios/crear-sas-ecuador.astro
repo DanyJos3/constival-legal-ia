@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import SasEcuadorHero from "../../components/servicios/SasEcuadorHero.astro";
+import Footer from "../../components/Footer.astro";
+
+const title = "Crea tu SAS en Ecuador — 100% digital | CONSTIVAL";
+const description =
+  "Constitución inteligente desde $149. Sin notarías, sin burocracia, sin capital mínimo. Legal-tech premium para emprendedores.";
+const canonicalUrl = "https://constival.com/servicios/creasecuador";
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Navbar />
+  <main>
+    <SasEcuadorHero />
+  </main>
+  <Footer />
+</Layout>

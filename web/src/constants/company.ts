@@ -10,8 +10,11 @@ export const CONSTIVAL_DATA = {
       web: "www.constival.com",
       address: "Av. Republica de El Salvador 170135, edificio Prisma Norte",
       country: "Ecuador",
-      city: "Quito"
-      
+      city: "Quito",
+      socials: {
+        instagram: "https://www.instagram.com/constival.ecu/",
+        facebook: "https://www.facebook.com/constival"
+      }
     }
   },
 
@@ -54,6 +57,7 @@ export const CONSTIVAL_DATA = {
         "Diagnóstico preventivo de socios",
         "Sin capital mínimo obligatorio"
       ],
+      url: "/servicios/crear-sas-ecuador"
     },
     reformas: {
       title: "Actualización Societaria",
@@ -68,6 +72,7 @@ export const CONSTIVAL_DATA = {
         "Cambio de domicilio societario",
         "Fusiones y escisiones",
       ],
+        url: "/servicios/crear-sas-ecuador"
     },
     marcas: {
       title: "Blindaje de Identidad (Marcas)",
@@ -82,6 +87,7 @@ export const CONSTIVAL_DATA = {
         "Protección a 10 años renovables",
         "Monitoreo de infracciones",
       ],
+        url: "/servicios/crear-sas-ecuador"
     },
     nombramientos: {
       title: "Protección de Directorio",
@@ -96,6 +102,7 @@ export const CONSTIVAL_DATA = {
         "Prevención de bloqueo bancario",
         "Actualización de firma autorizada",
       ],
+        url: "/servicios/crear-sas-ecuador"
     },
     cesiones: {
       title: "Traspaso Acordado (Cesiones)",
@@ -110,6 +117,7 @@ export const CONSTIVAL_DATA = {
         "Notificación a la Superintendencia de Compañías",
         "Asesoría tributaria del traspaso",
       ],
+        url: "/servicios/crear-sas-ecuador"
     },
   },
 
