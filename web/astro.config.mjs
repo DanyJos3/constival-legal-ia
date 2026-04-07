@@ -8,6 +8,12 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://constival.com',
   integrations: [sitemap()],
+  redirects: {
+    '/crear-sas-ecuador': {
+      status: 301,
+      destination: '/servicios/crear-sas-ecuador'
+    }
+  },
   vite: {
     plugins: [tailwindcss()]
   }
