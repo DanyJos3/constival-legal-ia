@@ -213,10 +213,10 @@
           </div>
           <!-- Center number -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint shadow-[0_0_20px_rgba(0,255,178,0.15)]"
+            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint shadow-[0_0_20px_rgba(0,255,178,0.15)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:rotate-3"
           >
             <span
-              class="font-sans font-black text-xl lg:text-2xl text-constival-mint"
+              class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 group-[]:text-constival-navy step-number"
               >01</span
             >
           </div>
@@ -230,10 +230,10 @@
           <div class="w-1/2 pr-12 lg:pr-16"></div>
           <!-- Center number -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)]"
+            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:border-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:-rotate-3"
           >
             <span
-              class="font-sans font-black text-xl lg:text-2xl text-constival-mint"
+              class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 step-number"
               >02</span
             >
           </div>
@@ -280,10 +280,10 @@
           </div>
           <!-- Center number -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)]"
+            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:border-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:rotate-3"
           >
             <span
-              class="font-sans font-black text-xl lg:text-2xl text-constival-mint"
+              class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 step-number"
               >03</span
             >
           </div>
@@ -297,10 +297,10 @@
           <div class="w-1/2 pr-12 lg:pr-16"></div>
           <!-- Center number -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)]"
+            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:border-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:-rotate-3"
           >
             <span
-              class="font-sans font-black text-xl lg:text-2xl text-constival-mint"
+              class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 step-number"
               >04</span
             >
           </div>
@@ -348,10 +348,10 @@
           </div>
           <!-- Center number -->
           <div
-            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint shadow-[0_0_20px_rgba(0,255,178,0.15)]"
+            class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint shadow-[0_0_20px_rgba(0,255,178,0.15)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:rotate-3"
           >
             <span
-              class="font-sans font-black text-xl lg:text-2xl text-constival-mint"
+              class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 step-number"
               >05</span
             >
           </div>
@@ -385,3 +385,10 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Swap number text to navy when box fills with mint */
+  div:hover > .step-number {
+    color: #111622 !important;
+  }
+</style>

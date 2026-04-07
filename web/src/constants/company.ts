@@ -201,18 +201,18 @@ export const CONSTIVAL_DATA = {
     results: {
       sas: {
         name: "S.A.S. (Sociedad por Acciones Simplificada)",
-        tagline: "Máxima flexibilidad. Ideal para startups y emprendedores modernos.",
-        reason: "La S.A.S. permite estatutos hiper-flexibles, voto múltiple, y cero capital mínimo. Ideal para captar Venture Capital y operar con firmas 100% electrónicas."
+        tagline: "Ágil, digital y lista para escalar.",
+        reason: "La S.A.S. es la estructura diseñada para fundadores que quieren moverse rápido. Arrancas sin capital mínimo obligatorio, personalizas cada cláusula de tus estatutos y operas con firma electrónica — sin pisar una notaría. Si tu meta es crecer, captar inversión o pivotar sin trabas legales, esta es tu base."
       },
       ltda: {
         name: "Cía. Ltda. (Compañía de Responsabilidad Limitada)",
-        tagline: "Control hermético. Ideal para negocios familiares y comerciales.",
-        reason: "La Cía. Ltda. ofrece blindaje patrimonial limitando estrictamente quién puede entrar a la sociedad. Perfecta para comercio y capital familiar."
+        tagline: "Blindaje patrimonial para quienes controlan cada entrada.",
+        reason: "La Cía. Ltda. te permite decidir exactamente quién entra y quién sale de tu sociedad. Nadie compra participaciones sin tu aprobación. Ideal si manejas capital familiar, operas en comercio o simplemente quieres un candado legal sobre quién toca tu empresa."
       },
       sa: {
         name: "S.A. (Sociedad Anónima)",
-        tagline: "Escala institucional. Ideal para grandes capitales y múltiples accionistas.",
-        reason: "La S.A. soporta gran volumen de accionistas con anonimato parcial. Idónea para industrias pesadas y estructuras bursátiles."
+        tagline: "Estructura institucional para operaciones de gran escala.",
+        reason: "La S.A. soporta múltiples accionistas, emisión de títulos y una gobernanza formal con directorio. Es la figura que necesitas si manejas grandes capitales, planeas cotizar a futuro o requieres una estructura que proyecte solidez institucional ante bancos e inversores."
       }
     },
     efficiency: {

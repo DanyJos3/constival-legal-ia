@@ -4,7 +4,7 @@ import Button from "../../ui/Button.astro";
 
 <section
   id="precio-sas"
-  class="py-14 md:py-16 bg-white dark:bg-constival-navy relative overflow-hidden transition-colors duration-300"
+  class="py-14 md:py-16 bg-gray-50 dark:bg-[#0a0f1a] relative overflow-hidden transition-colors duration-300"
 >
   <div
     class="absolute top-0 right-1/4 w-[300px] h-[300px] bg-constival-mint/5 dark:bg-constival-mint/10 blur-[100px] rounded-full pointer-events-none"
@@ -23,201 +23,295 @@ import Button from "../../ui/Button.astro";
       >
         Honorarios Fijos. <span class="text-constival-mint">Cero Sorpresas.</span>
       </h2>
-      <p
-        class="font-sans text-base sm:text-lg text-constival-navy/70 dark:text-slate-400 mt-4 max-w-xl mx-auto leading-relaxed"
-      >
-        Nuestros precios son públicos y no cambian durante el proceso. Sin
-        costos ocultos, sin facturar "por llamada".
-      </p>
     </div>
 
-    <!-- Single Premium Card -->
-    <div class="max-w-2xl mx-auto">
-      <div
-        class="relative bg-white dark:bg-constival-deep/60 border-2 border-constival-mint shadow-[0_0_40px_rgba(0,255,178,0.08)] p-6 sm:p-8 md:p-10 overflow-hidden"
-      >
-        <!-- Popular badge -->
-        <div
-          class="absolute -top-4 left-8 px-4 py-1.5 bg-constival-mint text-constival-navy font-sans font-bold text-xs uppercase tracking-widest"
+    <!-- Split Layout -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center"
+    >
+      <!-- LEFT: Value proposition + Inclusions -->
+      <div>
+        <h3
+          class="font-sans text-2xl sm:text-3xl font-extrabold text-constival-navy dark:text-white mb-4 tracking-tight leading-tight"
         >
-          Paquete Fundación S.A.S.
-        </div>
-
-        <!-- Decorative -->
-        <div
-          class="absolute right-0 top-0 text-[10rem] font-sans font-black text-constival-navy/[0.02] dark:text-white/[0.02] leading-none select-none pointer-events-none translate-x-1/4 -translate-y-1/4"
+          Nuestra Solución Integral
+        </h3>
+        <p
+          class="font-sans text-base sm:text-lg text-constival-navy/70 dark:text-slate-400 mb-8 leading-relaxed border-l-[3px] border-constival-mint pl-4 sm:pl-5"
         >
-          $
-        </div>
+          Olvídese de la burocracia. Nos encargamos de todo el ecosistema legal
+          para que usted se enfoque en su negocio.
+        </p>
 
-        <!-- Price -->
-        <div class="mb-8 mt-4 sm:mt-2">
-          <div class="flex items-baseline gap-2 mb-1">
+        <!-- Inclusions Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
+          <div class="flex items-start gap-3">
+            <svg
+              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >
+            <div>
+              <h4
+                class="font-sans font-bold text-sm text-constival-navy dark:text-white"
+              >
+                Asesoría legal.
+              </h4>
+              <p
+                class="font-sans text-xs text-constival-navy/50 dark:text-slate-500 leading-relaxed"
+              >
+                Consulta con expertos societarios.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg
+              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >
+            <div>
+              <h4
+                class="font-sans font-bold text-sm text-constival-navy dark:text-white"
+              >
+                Reserva de nombre.
+              </h4>
+              <p
+                class="font-sans text-xs text-constival-navy/50 dark:text-slate-500 leading-relaxed"
+              >
+                Verificación en la SCVS.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg
+              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >
+            <div>
+              <h4
+                class="font-sans font-bold text-sm text-constival-navy dark:text-white"
+              >
+                Estatutos a medida.
+              </h4>
+              <p
+                class="font-sans text-xs text-constival-navy/50 dark:text-slate-500 leading-relaxed"
+              >
+                Sin formatos genéricos de internet.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg
+              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >
+            <div>
+              <h4
+                class="font-sans font-bold text-sm text-constival-navy dark:text-white"
+              >
+                Nombramientos.
+              </h4>
+              <p
+                class="font-sans text-xs text-constival-navy/50 dark:text-slate-500 leading-relaxed"
+              >
+                Registro de Representantes Legales.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg
+              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >
+            <div>
+              <h4
+                class="font-sans font-bold text-sm text-constival-navy dark:text-white"
+              >
+                Registro SCVS.
+              </h4>
+              <p
+                class="font-sans text-xs text-constival-navy/50 dark:text-slate-500 leading-relaxed"
+              >
+                Inscripción electrónica completa.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg
+              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              ><path
+                fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path></svg
+            >
+            <div>
+              <h4
+                class="font-sans font-bold text-sm text-constival-navy dark:text-white"
+              >
+                Obtención de RUC.
+              </h4>
+              <p
+                class="font-sans text-xs text-constival-navy/50 dark:text-slate-500 leading-relaxed"
+              >
+                Listo para facturar de inmediato.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Pricing Card -->
+      <div class="flex justify-center lg:justify-end">
+        <div
+          class="relative bg-white dark:bg-constival-deep/60 border border-constival-navy/5 dark:border-white/5 p-6 sm:p-8 w-full max-w-sm shadow-xl hover:shadow-2xl transition-shadow duration-500 overflow-hidden"
+        >
+          <!-- Promotion badge -->
+          <div class="flex items-center justify-between mb-6">
             <span
-              class="font-sans text-xs font-bold text-constival-navy/50 dark:text-slate-500 uppercase tracking-wider"
-              >Desde</span
+              class="font-sans font-bold text-xs uppercase tracking-widest text-constival-navy/50 dark:text-slate-500"
+              >Inversión</span
+            >
+            <span
+              class="px-3 py-1 bg-constival-mint text-constival-navy font-sans font-bold text-[10px] uppercase tracking-widest"
+              >Constitución Digital</span
             >
           </div>
-          <div class="flex items-baseline gap-2">
-            <span
-              class="font-sans text-5xl sm:text-6xl font-black text-constival-navy dark:text-white"
-              >$149</span
-            >
-            <span
-              class="font-sans text-sm sm:text-base font-bold text-constival-navy/70 dark:text-slate-500"
-              >+ IVA</span
-            >
+
+          <!-- Price -->
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1.5">
+              <span
+                class="font-sans text-5xl sm:text-6xl font-black text-constival-navy dark:text-white leading-none"
+                >$149</span
+              >
+              <span
+                class="font-sans text-sm font-bold text-constival-navy/50 dark:text-slate-500"
+                >+ IVA</span
+              >
+            </div>
           </div>
-          <p
-            class="font-sans text-xs sm:text-sm text-constival-navy/50 dark:text-slate-500 mt-2 leading-relaxed"
+
+          <!-- Key benefits -->
+          <div class="space-y-3 mb-8">
+            <div class="flex items-center gap-2.5">
+              <svg
+                class="w-4.5 h-4.5 text-constival-mint shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path></svg
+              >
+              <span
+                class="font-sans text-sm text-constival-navy/80 dark:text-slate-300"
+                >Sin cuotas anuales obligatorias</span
+              >
+            </div>
+            <div class="flex items-center gap-2.5">
+              <svg
+                class="w-4.5 h-4.5 text-constival-mint shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path></svg
+              >
+              <span
+                class="font-sans text-sm text-constival-navy/80 dark:text-slate-300"
+                >Entrega en 48-72 horas</span
+              >
+            </div>
+            <div class="flex items-center gap-2.5">
+              <svg
+                class="w-4.5 h-4.5 text-constival-mint shrink-0"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clip-rule="evenodd"></path></svg
+              >
+              <span
+                class="font-sans text-sm text-constival-navy/80 dark:text-slate-300"
+                >Honorarios fijos y publicados</span
+              >
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <Button
+            variant="primary"
+            href="https://wa.me/593969503502?text=Hola,%20quiero%20constituir%20mi%20SAS%20en%20Ecuador"
+            class="w-full py-3.5 text-sm"
+            >Iniciar Constitución</Button
           >
-            Cotizamos en función de la cantidad final de accionistas. No
-            incluye aranceles registrales gubernamentales, los cuales
-            desglosamos con total transparencia.
+
+          <!-- Fine print -->
+          <p
+            class="font-sans text-[10px] text-constival-navy/40 dark:text-slate-600 mt-4 text-center leading-relaxed"
+          >
+            Cotizamos en función de la cantidad de accionistas. No incluye
+            aranceles registrales gubernamentales.
           </p>
         </div>
-
-        <!-- Inclusions grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Asesoría legal inicial personalizada
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Reserva de denominación social
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Elaboración de estatutos a medida
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Nombramientos de administración
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Inscripción ante Superintendencia (SCVS)
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Obtención de RUC ante el SRI
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Verificación de cumplimiento normativo
-          </div>
-          <div
-            class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug"
-          >
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            Entrega de documentación societaria completa
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <Button variant="primary" href="https://wa.me/593969503502?text=Hola,%20quiero%20constituir%20mi%20SAS%20en%20Ecuador" class="w-full py-3.5 text-sm">
-          Configurar mi Empresa
-        </Button>
       </div>
     </div>
   </div>
 
   <!-- Product Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Constitución de S.A.S. en Ecuador",
-    "description": "Servicio de constitución de Sociedad por Acciones Simplificada 100% electrónica en Ecuador. Incluye asesoría, estatutos, inscripción SCVS y RUC.",
-    "brand": {
-      "@type": "Brand",
-      "@id": "https://constival.com/#organization",
-      "name": "Constival Legal"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "149",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "url": "https://constival.com/servicios/crear-sas-ecuador"
-    }
-  })} />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: "Constitución de S.A.S. en Ecuador",
+      description:
+        "Servicio de constitución de Sociedad por Acciones Simplificada 100% electrónica en Ecuador. Incluye asesoría, estatutos, inscripción SCVS y RUC.",
+      brand: {
+        "@type": "Brand",
+        "@id": "https://constival.com/#organization",
+        name: "Constival Legal",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "149",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: "https://constival.com/servicios/crear-sas-ecuador",
+      },
+    })}
+  />
 </section>

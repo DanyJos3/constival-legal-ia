@@ -58,65 +58,52 @@ const { calculator } = CONSTIVAL_DATA;
 
         <!-- Results Panel (hidden by default) -->
         <div id="calc-results" class="hidden">
+          <!-- Verdict Header -->
           <div class="text-center mb-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-constival-mint/10 text-constival-mint font-sans font-bold text-xs mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-constival-mint/10 text-constival-mint font-sans font-bold text-xs mb-5">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               Análisis Completado
             </div>
-            <h3 class="font-sans text-xl md:text-2xl font-bold text-white mb-2" id="result-name"></h3>
-            <p class="font-sans text-sm text-constival-mint italic" id="result-tagline"></p>
+            <p class="font-sans text-sm text-slate-400 uppercase tracking-widest mb-2">Según tus respuestas, tu estructura ideal es:</p>
+            <h3 class="font-sans text-2xl md:text-3xl font-black text-white mb-2 leading-tight" id="result-name"></h3>
+            <p class="font-sans text-sm text-constival-mint font-medium" id="result-tagline"></p>
           </div>
           
-          <div class="bg-[#0a1818] border border-constival-teal/10 p-4 md:p-6 mb-6">
+          <!-- Reason Box -->
+          <div class="bg-[#0a1818] border-l-[3px] border-constival-mint p-4 md:p-5 mb-6">
             <p class="font-sans text-sm text-slate-300 leading-relaxed" id="result-reason"></p>
           </div>
 
-          <!-- Efficiency Table -->
-          <h4 class="font-sans text-base font-bold text-white mb-4">Comparativa de Eficiencia</h4>
-          <div class="overflow-x-auto mb-6">
-            <table class="w-full text-left font-sans text-xs">
-              <thead>
-                <tr class="border-b border-constival-teal/20">
-                  <th class="py-3 pr-4 text-slate-500 font-medium">Métrica</th>
-                  <th class="py-3 px-4 text-red-400/80 font-medium">Vía Tradicional</th>
-                  <th class="py-3 pl-4 text-constival-mint font-medium">Vía Constival</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-constival-teal/10">
-                  <td class="py-4 pr-4 text-slate-400">Burocracia</td>
-                  <td class="py-4 px-4 text-red-400/60">{calculator.efficiency.traditional.bureaucracy}</td>
-                  <td class="py-4 pl-4 text-constival-mint font-medium">{calculator.efficiency.constival.bureaucracy}</td>
-                </tr>
-                <tr class="border-b border-constival-teal/10">
-                  <td class="py-4 pr-4 text-slate-400">Costos Ocultos</td>
-                  <td class="py-4 px-4 text-red-400/60">{calculator.efficiency.traditional.hiddenCosts}</td>
-                  <td class="py-4 pl-4 text-constival-mint font-medium">{calculator.efficiency.constival.hiddenCosts}</td>
-                </tr>
-                <tr>
-                  <td class="py-4 pr-4 text-slate-400">Tiempo al Alta</td>
-                  <td class="py-4 px-4 text-red-400/60">{calculator.efficiency.traditional.time}</td>
-                  <td class="py-4 pl-4 text-constival-mint font-medium">{calculator.efficiency.constival.time}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Email Gate -->
-          <div class="bg-constival-mint/5 border border-constival-mint/20 p-4 md:p-6">
-            <h4 class="font-sans text-sm font-bold text-white mb-1">Descarga tu reporte con estatutos sugeridos</h4>
-            <p class="font-sans text-xs text-slate-400 mb-4">Incluye cláusulas clave personalizadas y tu hoja de ruta para la Fase 1.</p>
-            <div class="flex flex-col sm:flex-row gap-3">
-              <input type="email" placeholder="Tu email corporativo" class="flex-1 px-4 py-3 bg-[#0a1818] border border-constival-teal/20 text-white font-sans text-sm placeholder:text-slate-600 focus:border-constival-mint focus:outline-none transition-colors" id="calc-email" />
-              <!-- TRACKING: calculator_email_submit -->
-              <button class="px-8 py-3 bg-constival-mint text-constival-navy font-sans font-bold text-sm uppercase tracking-wider hover:bg-constival-mint/80 transition-colors" id="calc-submit">
-                Descargar Reporte
-              </button>
+          <!-- Impact Metrics (replaces old table) -->
+          <div class="grid grid-cols-3 gap-3 mb-6">
+            <div class="bg-[#0a1818] border border-constival-teal/10 p-3 md:p-4 text-center">
+              <div class="font-sans font-black text-2xl md:text-3xl text-constival-mint leading-none mb-1" id="metric-time">3 días</div>
+              <div class="font-sans text-[11px] md:text-xs text-slate-400 uppercase tracking-wider">Tiempo estimado</div>
+            </div>
+            <div class="bg-[#0a1818] border border-constival-teal/10 p-3 md:p-4 text-center">
+              <div class="font-sans font-black text-2xl md:text-3xl text-constival-mint leading-none mb-1" id="metric-cost">$0</div>
+              <div class="font-sans text-[11px] md:text-xs text-slate-400 uppercase tracking-wider">Costos ocultos</div>
+            </div>
+            <div class="bg-[#0a1818] border border-constival-teal/10 p-3 md:p-4 text-center">
+              <div class="font-sans font-black text-2xl md:text-3xl text-constival-mint leading-none mb-1">100%</div>
+              <div class="font-sans text-[11px] md:text-xs text-slate-400 uppercase tracking-wider">Digital</div>
             </div>
           </div>
 
+          <!-- WhatsApp CTA -->
+          <!-- TRACKING: calculator_whatsapp_cta -->
+          <a
+            id="calc-whatsapp-btn"
+            href="#"
+            target="_blank"
+            class="w-full flex items-center justify-center gap-2.5 px-6 py-4 bg-[#25D366] hover:bg-[#1ebd5b] text-white font-sans font-bold text-sm md:text-base uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-green-900/20"
+          >
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Hablar con un Arquitecto Societario
+          </a>
+
           <!-- TRACKING: calculator_restart -->
-          <button class="mt-6 font-sans text-sm text-slate-500 hover:text-constival-mint transition-colors underline underline-offset-4" id="calc-restart">
+          <button class="mt-6 w-full font-sans text-sm text-slate-400 hover:text-constival-mint transition-colors underline underline-offset-4" id="calc-restart">
             ← Recalcular con otros datos
           </button>
         </div>
@@ -129,7 +116,7 @@ const { calculator } = CONSTIVAL_DATA;
   let currentStep = 0;
   const totalSteps = 5;
   const scores = { sas: 0, ltda: 0, sa: 0 };
-  const answers: Record<string, string> = {};
+  const selectedLabels: string[] = [];
 
   const steps = document.querySelectorAll('.calc-step');
   const progressBar = document.getElementById('calc-progress');
@@ -145,12 +132,11 @@ const { calculator } = CONSTIVAL_DATA;
 
   document.querySelectorAll('.calc-option').forEach(btn => {
     btn.addEventListener('click', () => {
-      const question = (btn as HTMLElement).dataset.question!;
-      const value = (btn as HTMLElement).dataset.value!;
       const weights = JSON.parse((btn as HTMLElement).dataset.weights!);
-      
+      const label = btn.querySelector('span')?.textContent || (btn as HTMLElement).textContent?.trim() || '';
+
       // TRACKING: calculator_step_answer
-      answers[question] = value;
+      selectedLabels.push(label);
       scores.sas += weights.sas;
       scores.ltda += weights.ltda;
       scores.sa += weights.sa;
@@ -200,38 +186,67 @@ const { calculator } = CONSTIVAL_DATA;
     const winner = scores.sas >= scores.ltda && scores.sas >= scores.sa ? 'sas'
       : scores.ltda >= scores.sa ? 'ltda' : 'sa';
 
-    const resultsData: Record<string, {name: string, tagline: string, reason: string}> = {
-      sas: { name: "S.A.S. (Sociedad por Acciones Simplificada)", tagline: "Máxima flexibilidad. Ideal para startups y emprendedores modernos.", reason: "La S.A.S. permite estatutos hiper-flexibles, voto múltiple, y cero capital mínimo. Ideal para captar Venture Capital y operar con firmas 100% electrónicas." },
-      ltda: { name: "Cía. Ltda. (Compañía de Responsabilidad Limitada)", tagline: "Control hermético. Ideal para negocios familiares y comerciales.", reason: "La Cía. Ltda. ofrece blindaje patrimonial limitando estrictamente quién puede entrar a la sociedad. Perfecta para comercio y capital familiar." },
-      sa: { name: "S.A. (Sociedad Anónima)", tagline: "Escala institucional. Ideal para grandes capitales y múltiples accionistas.", reason: "La S.A. soporta gran volumen de accionistas con anonimato parcial. Idónea para industrias pesadas y estructuras bursátiles." }
+    const resultsData: Record<string, {name: string, tagline: string, reason: string, time: string, price: string}> = {
+      sas: {
+        name: "S.A.S. (Sociedad por Acciones Simplificada)",
+        tagline: "Ágil, digital y lista para escalar.",
+        reason: "La S.A.S. es la estructura diseñada para fundadores que quieren moverse rápido. Arrancas sin capital mínimo obligatorio, personalizas cada cláusula de tus estatutos y operas con firma electrónica — sin pisar una notaría. Si tu meta es crecer, captar inversión o pivotar sin trabas legales, esta es tu base.",
+        time: "3 días",
+        price: "$149"
+      },
+      ltda: {
+        name: "Cía. Ltda. (Compañía de Responsabilidad Limitada)",
+        tagline: "Blindaje patrimonial para quienes controlan cada entrada.",
+        reason: "La Cía. Ltda. te permite decidir exactamente quién entra y quién sale de tu sociedad. Nadie compra participaciones sin tu aprobación. Ideal si manejas capital familiar, operas en comercio o simplemente quieres un candado legal sobre quién toca tu empresa.",
+        time: "10 días",
+        price: "$179"
+      },
+      sa: {
+        name: "S.A. (Sociedad Anónima)",
+        tagline: "Estructura institucional para operaciones de gran escala.",
+        reason: "La S.A. soporta múltiples accionistas, emisión de títulos y una gobernanza formal con directorio. Es la figura que necesitas si manejas grandes capitales, planeas cotizar a futuro o requieres una estructura que proyecte solidez institucional ante bancos e inversores.",
+        time: "15 días",
+        price: "$300+"
+      }
     };
 
     const data = resultsData[winner];
     if (resultName) resultName.textContent = data.name;
     if (resultTagline) resultTagline.textContent = data.tagline;
     if (resultReason) resultReason.textContent = data.reason;
+
+    // Update metric cards dynamically
+    const metricTime = document.getElementById('metric-time');
+    const metricCost = document.getElementById('metric-cost');
+    if (metricTime) metricTime.textContent = data.time;
+    if (metricCost) metricCost.textContent = data.price;
+
+    // Build WhatsApp message with quiz context
+    const questionLabels = [
+      'Socios', 'Capital inicial', 'Inversión extranjera', 'Industria', 'Volumen de gestión'
+    ];
+    const answersText = selectedLabels
+      .map((label, i) => `- ${questionLabels[i]}: ${label}`)
+      .join('\n');
+
+    const waMessage = `Hola Constival, usé el Configurador Societario de su web y el resultado fue *${data.name}*.\n\n*Mis respuestas:*\n${answersText}\n\nQuiero agendar una consulta para definir la mejor estructura para mi empresa.`;
+
+    const waBtn = document.getElementById('calc-whatsapp-btn') as HTMLAnchorElement;
+    if (waBtn) {
+      waBtn.href = `https://wa.me/593969503502?text=${encodeURIComponent(waMessage)}`;
+    }
   }
 
   // Restart
   document.getElementById('calc-restart')?.addEventListener('click', () => {
     currentStep = 0;
     scores.sas = 0; scores.ltda = 0; scores.sa = 0;
+    selectedLabels.length = 0;
     questionsContainer?.classList.remove('hidden');
     resultsPanel?.classList.add('hidden');
     showStep(0);
     document.querySelectorAll('.calc-option').forEach(btn => {
       btn.classList.remove('border-constival-mint', 'text-constival-mint', 'bg-constival-mint/5');
     });
-  });
-
-  // Email submit
-  document.getElementById('calc-submit')?.addEventListener('click', () => {
-    const emailInput = document.getElementById('calc-email') as HTMLInputElement;
-    if (emailInput?.value && emailInput.value.includes('@')) {
-      // TRACKING: calculator_lead_captured
-      const submitBtn = document.getElementById('calc-submit')!;
-      submitBtn.textContent = '✓ Enviado — Revisa tu email';
-      submitBtn.classList.add('opacity-70', 'pointer-events-none');
-    }
   });
 </script>
