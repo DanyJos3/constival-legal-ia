@@ -10,7 +10,8 @@ const blogCollection = defineCollection({
     author: z.string().default("Constival Legal"),
     image: z.string().optional(),
     tags: z.array(z.string()).default([]),
-    draft: z.boolean().default(false)
+    draft: z.boolean().default(false),
+    relatedService: z.enum(["sas", "marcas", "none"]).default("none")
   }),
 });
 

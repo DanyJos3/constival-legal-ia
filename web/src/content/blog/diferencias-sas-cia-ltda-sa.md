@@ -4,6 +4,7 @@ description: "¿No sabes qué tipo de empresa crear en Ecuador? Descubre las ven
 pubDate: 2026-04-06
 author: "Constival Legal"
 tags: ["derecho societario", "crear empresa", "s.a.s", "ecuador"]
+relatedService: "sas"
 draft: false
 ---
 
