@@ -380,19 +380,22 @@ import Button from "../../ui/Button.astro";
     </div>
   </div>
 
-  <!-- Product Schema -->
+  <!-- Service Schema -->
   <script
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Product",
-      name: "Constitución de S.A.S. en Ecuador",
-      description:
-        "Servicio de constitución de Sociedad por Acciones Simplificada 100% electrónica en Ecuador. Incluye asesoría, estatutos, inscripción SCVS y RUC.",
-      brand: {
-        "@type": "Brand",
-        "@id": "https://constival.com/#organization",
+      "@type": "Service",
+      serviceType: "Constitución de Empresas S.A.S. en Ecuador",
+      description: "Servicio de constitución de Sociedad por Acciones Simplificada 100% electrónica en Ecuador. Incluye asesoría, estatutos, inscripción SCVS y RUC.",
+      provider: {
+        "@type": "LegalService",
         name: "Constival Legal",
+        url: "https://constival.com/"
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Ecuador"
       },
       offers: {
         "@type": "AggregateOffer",
@@ -400,9 +403,8 @@ import Button from "../../ui/Button.astro";
         highPrice: "249",
         priceCurrency: "USD",
         offerCount: "4",
-        availability: "https://schema.org/InStock",
-        url: "https://constival.com/servicios/crear-sas-ecuador",
-      },
+        url: "https://constival.com/servicios/crear-sas-ecuador"
+      }
     })}
   />
 </section>

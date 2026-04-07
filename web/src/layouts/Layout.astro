@@ -4,8 +4,12 @@ import "../styles/global.css";
 const {
   title = "Constival Legal",
   description = "Arquitectura societaria blindada para escalar tu empresa en Ecuador. Constitución S.A.S., reformas y registro de marcas 100% digital.",
+  canonicalUrl,
+  ogImage = "https://constival.com/images/og-image.png",
   contact = {},
 } = Astro.props;
+
+const canonicalURLStr = canonicalUrl || "https://constival.com/";
 ---
 
 <!doctype html>
@@ -23,10 +27,10 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_EC" />
-    <meta property="og:url" content="https://constival.com/" />
+    <meta property="og:url" content={canonicalURLStr} />
     <meta
       property="og:image"
-      content="https://constival.com/images/og-image.png"
+      content={ogImage}
     />
     <meta property="og:site_name" content="Constival Legal" />
 
@@ -36,10 +40,10 @@ const {
     <meta name="twitter:description" content={description} />
     <meta
       name="twitter:image"
-      content="https://constival.com/images/og-image.png"
+      content={ogImage}
     />
 
-    <link rel="canonical" href="https://constival.com/" />
+    <link rel="canonical" href={canonicalURLStr} />
 
     <!-- JSON-LD Schema -->
     <script
