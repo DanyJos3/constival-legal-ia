@@ -1,19 +1,35 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
-import SasEcuadorHero from "../../components/servicios/SasEcuadorHero.astro";
 import Footer from "../../components/Footer.astro";
+
+// Embudo CRO: Secuencia estratégica de conversión
+import SasHero from "../../components/servicios/crear-sas/SasHero.astro";
+import SasContexto from "../../components/servicios/crear-sas/SasContexto.astro";
+import SasComparacion from "../../components/servicios/crear-sas/SasComparacion.astro";
+import SasProceso from "../../components/servicios/crear-sas/SasProceso.astro";
+import SasRequisitos from "../../components/servicios/crear-sas/SasRequisitos.astro";
+import SasPricing from "../../components/servicios/crear-sas/SasPricing.astro";
+import SasFaq from "../../components/servicios/crear-sas/SasFaq.astro";
+import SasCtaFinal from "../../components/servicios/crear-sas/SasCtaFinal.astro";
 
 const title = "Crea tu SAS en Ecuador — 100% digital | CONSTIVAL";
 const description =
-  "Constitución inteligente desde $149. Sin notarías, sin burocracia, sin capital mínimo. Legal-tech premium para emprendedores.";
-const canonicalUrl = "https://constival.com/servicios/creasecuador";
+  "Constitución de SAS en Ecuador desde $149+IVA. Sin notarías, sin capital mínimo, empresa lista en 3 días. Arquitectura societaria blindada por abogados expertos.";
+const canonicalUrl = "https://constival.com/servicios/crear-sas-ecuador";
 ---
 
 <Layout title={title} description={description} canonicalUrl={canonicalUrl}>
   <Navbar />
   <main>
-    <SasEcuadorHero />
+    <SasHero />
+    <SasContexto />
+    <SasComparacion />
+    <SasProceso />
+    <SasRequisitos />
+    <SasPricing />
+    <SasFaq />
+    <SasCtaFinal />
   </main>
   <Footer />
 </Layout>

@@ -1,0 +1,86 @@
+---
+/**
+ * Seccion de FAQ SAS Ecuador
+ * Preguntas extraidas del PDF de servicios y Supercias.
+ */
+const faqs = [
+  {
+    q: "¿Qué es una Sociedad por Acciones Simplificada (SAS)?",
+    a: "Es una forma societaria flexible creada para emprendedores. Se constituye mediante documento privado (sin notarías), con responsabilidad limitada hasta el monto de los aportes y no requiere capital mínimo."
+  },
+  {
+    q: "¿Cuánto capital mínimo necesito para empezar?",
+    a: "No existe un capital mínimo legal. Puedes constituir tu empresa desde $1 en acciones. El monto lo defines libremente en tu acta constitutiva."
+  },
+  {
+    q: "¿Necesito obligatoriamente socios para crear la empresa?",
+    a: "No. Una de las grandes ventajas de la SAS es que puede ser constituida por un solo socio (unipersonal), manteniendo el control total del negocio."
+  },
+  {
+    q: "¿Cuánto tiempo demora el proceso con Constival?",
+    a: "Una vez que nos entregas todos los requisitos (firmas p12 y documentos), el trámite ante la Supercias toma entre 2 a 3 días hábiles."
+  },
+  {
+    q: "¿El RUC se obtiene de forma automática?",
+    a: "Sí. Tras la inscripción en el Registro de Sociedades, la Superintendencia remite los datos al SRI, generando automáticamente tu RUC como sociedad."
+  },
+  {
+    q: "¿Puedo constituir una SAS si soy extranjero?",
+    a: "Sí, es perfectamente posible. Solo se requiere documentación adicional como la certificación de existencia legal en el país de origen (si es una empresa) o pasaporte vigente (si es persona natural)."
+  }
+];
+---
+
+<section id="faq-sas" class="py-20 bg-gray-50 dark:bg-constival-deep/30 transition-colors duration-300">
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-4xl">
+    <div class="text-center mb-16">
+      <h2 class="font-sans text-3xl md:text-4xl font-extrabold text-constival-navy dark:text-white mb-4 tracking-tight">
+        Preguntas <span class="text-constival-mint">Frecuentes</span> sobre SAS
+      </h2>
+      <p class="font-sans text-lg text-constival-navy/70 dark:text-slate-400">
+        Todo lo que necesitas saber antes de formalizar tu negocio en Ecuador.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group bg-white dark:bg-constival-navy border border-constival-navy/5 dark:border-white/5 rounded-2xl p-6 transition-all duration-300 open:border-constival-mint/30 open:shadow-lg">
+          <summary class="flex justify-between items-center font-sans font-extrabold text-constival-navy dark:text-white cursor-pointer list-none">
+            <span class="pr-8">{faq.q}</span>
+            <svg class="w-5 h-5 text-constival-mint transition-transform duration-300 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </summary>
+          <div class="mt-4 font-sans text-sm sm:text-base text-constival-navy/70 dark:text-slate-400 leading-relaxed">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+    
+    <div class="mt-16 p-8 bg-constival-navy dark:bg-constival-mint text-white dark:text-constival-navy rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8">
+      <div>
+        <h3 class="font-sans text-2xl font-black mb-2 leading-none">¿Tienes otra duda?</h3>
+        <p class="font-sans text-sm opacity-80">Escríbenos y un experto te responderá de inmediato.</p>
+      </div>
+      <a href="https://wa.me/593969503502" class="px-8 py-4 bg-constival-mint dark:bg-constival-navy text-constival-navy dark:text-white font-sans font-bold rounded-xl hover:scale-105 transition-transform uppercase tracking-wider text-sm shadow-xl">
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- FAQ Schema for this specific page -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    })),
+    "publisher": {
+      "@id": "https://constival.com/#organization"
+    }
+  })}></script>
+</section>
