@@ -124,27 +124,27 @@ export const CONSTIVAL_DATA = {
   faq: [
     {
       q: "¿Hay servicios más baratos e inmediatos que Constival?",
-      a: "Nuestro servicio NO vende la inscripción de un trámite. Vende arquitectura de resolución para evitar que fracases en 2 años. Lo barato en derecho societario y 'sin diagnósticos' quiebra y rompe a los futuros dueños de negocio por usar plantillas ajenas."
-    },
-    {
-      q: "¿Qué sucede si la Superintendencia rechaza mi Registro?",
-      a: "Evitamos deficiencias administrativas por diseño previo. Si es problema de forma, reingresamos sin cobrar honorario adicional. Exigimos confianza bidireccional."
-    },
-    {
-      q: "¿Cuánto tiempo toma constituir una S.A.S.?",
-      a: "De 5 a 10 días operativos. Los plazos dependen de la Superintendencia de Compañías (SCVS) y el Registro Mercantil, no de nosotros. Somos honestos: no vendemos falsas ilusiones de '24 horas'."
+      a: "Nuestro servicio NO vende la inscripción rápida de un trámite genérico. Vende arquitectura de resolución para evitar que fracases en 2 años. Lo barato en derecho societario y 'sin diagnósticos preventivos' quiebra y rompe a los futuros dueños de negocio por usar plantillas ajenas."
     },
     {
       q: "¿Necesito ir a una notaría u oficina física?",
-      a: "No. Nuestro proceso es 100% electrónico: firma digital, reuniones por Zoom, y carga de documentos vía web. Cero desplazamientos."
+      a: "No. Nuestro proceso es 100% electrónico: utilizamos firma digital, reuniones por Zoom y carga de documentos vía web. Cero desplazamientos."
     },
     {
       q: "¿Los precios que publican incluyen todo?",
-      a: "Nuestros honorarios son fijos y publicados. NO incluyen tasas gubernamentales (aranceles de la Superintendencia de Compañías, Registro Mercantil o SENADI), las cuales son costos del estado que desglosamos con total transparencia antes de iniciar."
+      a: "Nuestros honorarios son fijos, transparentes y están publicados. NO incluyen tasas gubernamentales (aranceles de la Superintendencia de Compañías, Registro Mercantil o SENADI), las cuales son costos netos del Estado que desglosamos siempre antes de iniciar para que no existan sorpresas."
     },
     {
-      q: "¿Puedo constituir una empresa siendo extranjero?",
-      a: "Sí. Las S.A.S. en Ecuador permiten accionistas extranjeros sin restricciones. Diseñamos la estructura para que tu inversión foránea opere limpiamente bajo la normativa local."
+      q: "¿Prestan servicios a empresas ya constituidas (S.A. / Cía. Ltda.)?",
+      a: "Sí. Además de constituciones, brindamos servicios integrales de actualización societaria (reformas de estatutos, cesión de acciones, revisión de nombramientos) y registro de marcas ante SENADI para blindar y auditar empresas bajo cualquier figura legal ecuatoriana."
+    },
+    {
+      q: "¿En qué ciudades de Ecuador prestan asesoría corporativa?",
+      a: "Al ser una firma legal-tech, nuestro alcance es de cobertura nacional. Gestionamos auditorías, marcas en el SENADI y constituciones ante la Superintendencia de Compañías para clientes en Quito, Guayaquil, Cuenca y cualquier rincón de Ecuador, de forma 100% remota."
+    },
+    {
+      q: "¿Qué perfiles de empresas recomiendan a la firma Constival?",
+      a: "Somos los aliados estratégicos ideales para dueños de pymes tradicionales, startups tecnológicas, fundadores ágiles y extranjeros buscando formalizar su inversión societaria foránea en suelo ecuatoriano con máximo blindaje jurídico."
     },
   ],
 
@@ -217,7 +217,7 @@ export const CONSTIVAL_DATA = {
     },
     efficiency: {
       traditional: { bureaucracy: "Visitas Notariales, Tramitología", hiddenCosts: "Altísimos (cada copia cuesta)", time: "21 a 40 días hábiles" },
-      constival: { bureaucracy: "100% Firma Electrónica / $0 Notarías", hiddenCosts: "Cero. Tarifa plana documentada", time: "5 a 10 días operativos" }
+      constival: { bureaucracy: "100% Firma Electrónica / $0 Notarías", hiddenCosts: "Cero. Tarifa plana documentada", time: "2 a 3 días hábiles (S.A.S.)" }
     }
   },
 

@@ -21,7 +21,7 @@ Una vez terminado el quiz, la última pantalla (antes del PDF) mostrará una tab
 | :--- | :--- | :--- |
 | **Burocracia** | Visitas Notariales, Tramitología. | 100% Firma Electrónica / $0 Notarías. |
 | **Costos Ocultos** | Altísimos (cada copia cuesta). | Cero. Tarifa plana documentada. |
-| **Tiempo al Alta** | 21 a 40 días hábiles. | 5 a 10 días operativos (S.A.S). |
+| **Tiempo al Alta** | 21 a 40 días hábiles. | 2 a 3 días hábiles (S.A.S). |
 
 ---
 
