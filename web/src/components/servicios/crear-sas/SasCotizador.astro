@@ -4,305 +4,239 @@ import Button from "../../ui/Button.astro";
 
 <section
   id="precio-sas"
-  class="py-14 md:py-16 bg-gray-50 dark:bg-[#0a0f1a] relative overflow-hidden transition-colors duration-300"
+  class="py-20 md:py-28 bg-gradient-to-br from-constival-navy via-[#061021] to-constival-teal/90 relative overflow-hidden transition-colors duration-300"
 >
+  <!-- Background Glow -->
   <div
-    class="absolute top-0 right-1/4 w-[300px] h-[300px] bg-constival-mint/5 dark:bg-constival-mint/10 blur-[100px] rounded-full pointer-events-none"
+    class="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-constival-mint/20 blur-[120px] rounded-full pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-constival-mint/30 to-transparent"
   >
   </div>
 
   <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
-    <div class="text-center mb-10 md:mb-14">
+    <div class="text-center mb-16 md:mb-20">
       <span
-        class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-xs sm:text-sm mb-4 border-l-4 border-constival-teal dark:border-constival-mint"
+        class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-mint/10 text-constival-mint font-sans font-bold tracking-widest uppercase text-xs sm:text-sm mb-6 border-l-4 border-constival-mint backdrop-blur-sm"
       >
-        Inversión Transparente
+        Presupuesto Inmediato
       </span>
       <h2
-        class="font-sans text-3xl sm:text-4xl 2xl:text-5xl font-extrabold text-constival-navy dark:text-white tracking-tight"
+        class="font-sans text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight drop-shadow-lg leading-tight"
       >
-        Configura tu inversión. <span class="text-constival-mint">Sin sorpresas.</span>
+        Cotiza la Constitución <br class="hidden sm:block"/> <span class="text-constival-mint">de tu S.A.S. Oficial</span>
       </h2>
-      <p class="font-sans text-base md:text-lg text-constival-navy/60 dark:text-slate-400 mt-3 max-w-2xl mx-auto">
-        Selecciona la cantidad de socios y obtén tu cotización al instante.
+      <p class="font-sans text-base md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto leading-relaxed">
+        Nuestros honorarios son fijos y 100% transparentes. Selecciona tu estructura societaria para iniciar.
       </p>
     </div>
 
     <!-- Split Layout -->
     <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start"
+      class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
     >
       <!-- LEFT: Value proposition + Inclusions -->
-      <div>
+      <div class="order-2 lg:order-1">
         <h3
-          class="font-sans text-2xl sm:text-3xl font-extrabold text-constival-navy dark:text-white mb-4 tracking-tight leading-tight"
+          class="font-sans text-2xl sm:text-3xl font-extrabold text-white mb-6 tracking-tight leading-tight"
         >
-          Nuestra Solución Integral
+          Todo el ecosistema corporativo en un solo pago.
         </h3>
         <p
-          class="font-sans text-base sm:text-lg text-constival-navy/70 dark:text-slate-400 mb-8 leading-relaxed border-l-[3px] border-constival-mint pl-4 sm:pl-5"
+          class="font-sans text-base sm:text-lg text-slate-300 mb-10 leading-relaxed border-l-[3px] border-constival-mint pl-5"
         >
-          Olvídese de la burocracia. Nos encargamos de todo el ecosistema legal
-          para que usted se enfoque en su negocio.
+          Despídete de los sobrecostos notariales. Nuestros abogados corporativos se encargan de blindar legalmente el nacimiento de tu empresa.
         </p>
 
         <!-- Inclusions Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5">
-          <div class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
+          <div class="flex items-start gap-4">
+            <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+              <svg class="w-5 h-5 text-constival-mint" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
             <div>
-              <h4
-                class="font-sans font-bold text-sm sm:text-base text-constival-navy dark:text-white"
-              >
-                Asesoría legal.
-              </h4>
-              <p
-                class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed"
-              >
-                Consulta con expertos societarios.
-              </p>
+              <h4 class="font-sans font-bold text-sm sm:text-base text-white">Asesoría Estratégica</h4>
+              <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">Diagnóstico con expertos.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
+          <div class="flex items-start gap-4">
+            <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+              <svg class="w-5 h-5 text-constival-mint" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
             <div>
-              <h4
-                class="font-sans font-bold text-sm sm:text-base text-constival-navy dark:text-white"
-              >
-                Reserva de nombre.
-              </h4>
-              <p
-                class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed"
-              >
-                Verificación en la SCVS.
-              </p>
+              <h4 class="font-sans font-bold text-sm sm:text-base text-white">Reserva de Nombre</h4>
+              <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">Validación técnica en SCVS.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
+          <div class="flex items-start gap-4">
+            <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+              <svg class="w-5 h-5 text-constival-mint" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
             <div>
-              <h4
-                class="font-sans font-bold text-sm sm:text-base text-constival-navy dark:text-white"
-              >
-                Estatutos a medida.
-              </h4>
-              <p
-                class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed"
-              >
-                Sin formatos genéricos de internet.
-              </p>
+              <h4 class="font-sans font-bold text-sm sm:text-base text-white">Estatutos a Medida</h4>
+              <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">Sin plantillas genéricas.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
+          <div class="flex items-start gap-4">
+            <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+              <svg class="w-5 h-5 text-constival-mint" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
             <div>
-              <h4
-                class="font-sans font-bold text-sm sm:text-base text-constival-navy dark:text-white"
-              >
-                Nombramientos.
-              </h4>
-              <p
-                class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed"
-              >
-                Registro de Representantes Legales.
-              </p>
+              <h4 class="font-sans font-bold text-sm sm:text-base text-white">Alta Legal (Nombramientos)</h4>
+              <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">Gerente y Presidente oficial.</p>
             </div>
           </div>
 
-          <div class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
-            <div>
-              <h4
-                class="font-sans font-bold text-sm sm:text-base text-constival-navy dark:text-white"
-              >
-                Registro SCVS.
-              </h4>
-              <p
-                class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed"
-              >
-                Inscripción electrónica completa.
-              </p>
+          <div class="flex items-start gap-4">
+            <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+              <svg class="w-5 h-5 text-constival-mint" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+              </svg>
             </div>
-          </div>
-
-          <div class="flex items-start gap-3">
-            <svg
-              class="w-5 h-5 text-constival-mint mt-0.5 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              ><path
-                fill-rule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clip-rule="evenodd"></path></svg
-            >
             <div>
-              <h4
-                class="font-sans font-bold text-sm sm:text-base text-constival-navy dark:text-white"
-              >
-                Obtención de RUC.
-              </h4>
-              <p
-                class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed"
-              >
-                Listo para facturar de inmediato.
-              </p>
+              <h4 class="font-sans font-bold text-sm sm:text-base text-white">Registro Mercantil y RUC</h4>
+              <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">Listo para operar y facturar.</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- RIGHT: Interactive Cotizador -->
-      <div id="cotizador-interactivo" class="flex justify-center lg:justify-end scroll-mt-28 md:scroll-mt-32">
+      <div id="cotizador-interactivo" class="order-1 lg:order-2 flex justify-center lg:justify-end scroll-mt-32 relative">
         <div
-          class="relative bg-white dark:bg-constival-deep/60 border border-constival-navy/5 dark:border-white/5 p-6 sm:p-8 w-full max-w-sm shadow-xl transition-shadow duration-500 overflow-hidden"
+          class="relative bg-white text-constival-navy w-full max-w-md shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-2xl transition-all duration-500 overflow-hidden"
         >
-          <!-- Step 1: Select partners -->
-          <div id="cotiz-step1">
-            <div class="flex items-center justify-between mb-5">
-              <span
-                class="font-sans font-bold text-xs uppercase tracking-widest text-constival-navy/50 dark:text-slate-400"
-                >Paso 1 de 2</span
-              >
-              <span
-                class="px-3 py-1 bg-constival-mint text-constival-navy font-sans font-bold text-xs uppercase tracking-widest"
-                >Cotizador</span
-              >
-            </div>
+          <!-- Widget Header -->
+          <div class="bg-constival-mint px-6 py-6 text-center border-b-[6px] border-[#1ebd5b]">
+            <h3 class="font-sans text-2xl font-black text-constival-navy tracking-tight leading-none mb-1">
+              Cotizador de tu S.A.S.
+            </h3>
+            <p class="font-sans text-xs font-bold text-constival-navy/70 uppercase tracking-widest">
+              Conoce tu inversión exacta ahora
+            </p>
+          </div>
 
-            <h4 class="font-sans text-base font-bold text-constival-navy dark:text-white mb-2">
-              ¿Cuántos accionistas tendrá tu SAS?
+          <!-- Widget Body -->
+          <div class="p-8 sm:p-10">
+            <!-- Step 1: Select partners -->
+            <div id="cotiz-step1">
+              <div class="flex items-center justify-between mb-8">
+                <span
+                  class="font-sans font-bold text-xs uppercase tracking-widest text-slate-400"
+                  >Paso 1 de 2</span
+                >
+                <div class="h-1.5 w-16 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-constival-mint w-1/2 rounded-full"></div>
+                </div>
+              </div>
+
+            <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">
+              ¿Cuántos socios fundadores tendrá tu nueva empresa?
             </h4>
-            <p class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 mb-5">
-              El precio varía según la cantidad de socios fundadores.
+            <p class="font-sans text-sm text-slate-500 mb-8 leading-relaxed">
+              El honorario notarial es $0, pero la gestión varía según la cantidad inicial de accionistas.
             </p>
 
-            <div class="grid grid-cols-2 gap-3">
+            <div class="grid grid-cols-2 gap-4">
               <button
-                class="cotiz-partner-btn group relative p-4 border border-constival-navy/10 dark:border-white/10 hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 text-center"
+                class="cotiz-partner-btn group relative p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-center shadow-sm"
                 data-partners="1"
                 data-price="149"
                 data-label="1 Socio"
+                aria-label="Seleccionar 1 socio (empresa unipersonal) — $149"
               >
-                <div class="font-sans text-2xl font-black text-constival-navy dark:text-white group-hover:text-constival-mint transition-colors">1</div>
-                <div class="font-sans text-xs text-constival-navy/50 dark:text-slate-400 mt-1">Unipersonal</div>
+                <div class="font-sans text-3xl font-black text-constival-navy group-hover:text-constival-mint transition-colors" aria-hidden="true">1</div>
+                <div class="font-sans text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide" aria-hidden="true">Unipersonal</div>
               </button>
 
               <button
-                class="cotiz-partner-btn group relative p-4 border border-constival-navy/10 dark:border-white/10 hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 text-center"
+                class="cotiz-partner-btn group relative p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-center shadow-sm"
                 data-partners="2-3"
                 data-price="179"
                 data-label="2-3 Socios"
+                aria-label="Seleccionar 2 a 3 socios fundadores — $179"
               >
-                <div class="font-sans text-2xl font-black text-constival-navy dark:text-white group-hover:text-constival-mint transition-colors">2-3</div>
-                <div class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 mt-1">Socios</div>
+                <div class="font-sans text-3xl font-black text-constival-navy group-hover:text-constival-mint transition-colors" aria-hidden="true">2-3</div>
+                <div class="font-sans text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide" aria-hidden="true">Socios</div>
               </button>
 
               <button
-                class="cotiz-partner-btn group relative p-4 border border-constival-navy/10 dark:border-white/10 hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 text-center"
+                class="cotiz-partner-btn group relative p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-center shadow-sm"
                 data-partners="4-6"
                 data-price="219"
                 data-label="4-6 Socios"
+                aria-label="Seleccionar 4 a 6 socios fundadores — $219"
               >
-                <div class="font-sans text-2xl font-black text-constival-navy dark:text-white group-hover:text-constival-mint transition-colors">4-6</div>
-                <div class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 mt-1">Socios</div>
+                <div class="font-sans text-3xl font-black text-constival-navy group-hover:text-constival-mint transition-colors" aria-hidden="true">4-6</div>
+                <div class="font-sans text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide" aria-hidden="true">Socios</div>
               </button>
 
               <button
-                class="cotiz-partner-btn group relative p-4 border border-constival-navy/10 dark:border-white/10 hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 text-center"
+                class="cotiz-partner-btn group relative p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-center shadow-sm"
                 data-partners="7+"
                 data-price="249"
                 data-label="7+ Socios"
+                aria-label="Seleccionar 7 o más socios fundadores — $249"
               >
-                <div class="font-sans text-2xl font-black text-constival-navy dark:text-white group-hover:text-constival-mint transition-colors">7+</div>
-                <div class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 mt-1">Socios</div>
+                <div class="font-sans text-3xl font-black text-constival-navy group-hover:text-constival-mint transition-colors" aria-hidden="true">7+</div>
+                <div class="font-sans text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide" aria-hidden="true">Socios</div>
               </button>
             </div>
           </div>
 
           <!-- Step 2: Name reserved? -->
           <div id="cotiz-step2" class="hidden">
-            <div class="flex items-center justify-between mb-5">
-              <span
-                class="font-sans font-bold text-xs uppercase tracking-widest text-constival-navy/50 dark:text-slate-400"
-                >Paso 2 de 2</span
-              >
-              <button id="cotiz-back" class="font-sans text-xs text-constival-mint hover:underline">← Atrás</button>
+            <div class="flex items-center justify-between mb-8">
+              <span class="font-sans font-bold text-xs uppercase tracking-widest text-[#0a1818]">Paso 2 de 2</span>
+              <button id="cotiz-back" class="font-sans text-xs font-bold text-constival-teal hover:text-constival-mint hover:underline transition-colors shrink-0 outline-none">← Volver</button>
             </div>
 
-            <h4 class="font-sans text-base font-bold text-constival-navy dark:text-white mb-2">
-              ¿Ya tienes nombre de empresa reservado?
+            <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">
+              ¿Ya tienes el nombre de tu empresa reservado?
             </h4>
-            <p class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 mb-5">
-              Si no lo tienes, nosotros lo gestionamos sin costo adicional.
+            <p class="font-sans text-sm text-slate-500 mb-8 leading-relaxed">
+              Si aún no lo posees, nuestro equipo legal lo gestionará en el sistema de la SCVS sin cargo extra.
             </p>
 
-            <div class="flex flex-col gap-3">
+            <div class="flex flex-col gap-4">
               <button
-                class="cotiz-name-btn group p-4 border border-constival-navy/10 dark:border-white/10 hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 text-left flex items-center gap-3"
+                class="cotiz-name-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm"
                 data-has-name="yes"
+                aria-label="Sí, ya tengo el nombre de mi empresa reservado en la SCVS"
               >
-                <div class="w-8 h-8 rounded-full bg-constival-mint/10 flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <div class="w-10 h-10 rounded-full bg-constival-mint/20 flex flex-col items-center justify-center shrink-0" aria-hidden="true">
+                  <svg class="w-5 h-5 text-constival-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                 </div>
                 <div>
-                  <div class="font-sans text-sm font-bold text-constival-navy dark:text-white">Sí, ya lo tengo</div>
-                  <div class="font-sans text-sm text-constival-navy/60 dark:text-slate-400">Tengo mi denominación aprobada</div>
+                  <div class="font-sans text-base font-black text-constival-navy">Sí, ya lo tengo reservado</div>
+                  <div class="font-sans text-sm text-slate-500 mt-0.5">Cuento con la denominación oficial</div>
                 </div>
               </button>
 
               <button
-                class="cotiz-name-btn group p-4 border border-constival-navy/10 dark:border-white/10 hover:border-constival-mint dark:hover:border-constival-mint transition-all duration-300 text-left flex items-center gap-3"
+                class="cotiz-name-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm"
                 data-has-name="no"
+                aria-label="No, necesito que Constival gestione la reserva de nombre por mí"
               >
-                <div class="w-8 h-8 rounded-full bg-constival-mint/10 flex items-center justify-center shrink-0">
-                  <svg class="w-4 h-4 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center shrink-0" aria-hidden="true">
+                  <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                 </div>
                 <div>
-                  <div class="font-sans text-sm font-bold text-constival-navy dark:text-white">No, necesito reservar</div>
-                  <div class="font-sans text-sm text-constival-navy/60 dark:text-slate-400">Incluido en el servicio</div>
+                  <div class="font-sans text-base font-black text-constival-navy">No, necesito que me ayuden</div>
+                  <div class="font-sans text-sm text-slate-500 mt-0.5">Trámite de reserva 100% incluido</div>
                 </div>
               </button>
             </div>
@@ -310,45 +244,45 @@ import Button from "../../ui/Button.astro";
 
           <!-- Result Panel -->
           <div id="cotiz-result" class="hidden">
-            <div class="flex items-center justify-between mb-5">
+            <div class="flex items-center justify-between mb-8">
               <span
-                class="font-sans font-bold text-xs uppercase tracking-widest text-constival-mint"
-                >Tu Cotización</span
+                class="font-sans font-black text-sm uppercase tracking-widest text-[#0a1818]"
+                >Presupuesto Final</span
               >
               <span
-                class="px-3 py-1 bg-constival-mint text-constival-navy font-sans font-bold text-xs uppercase tracking-widest"
+                class="px-3 py-1 bg-constival-mint text-constival-navy rounded-sm font-sans font-bold text-xs uppercase tracking-widest"
                 id="cotiz-badge">1 Socio</span
               >
             </div>
 
             <!-- Price display -->
-            <div class="mb-5">
-              <p class="font-sans text-sm text-constival-navy/50 dark:text-slate-400 mb-1">Tu inversión:</p>
-              <div class="flex items-baseline gap-1.5">
+            <div class="mb-8 p-6 bg-slate-50 border border-slate-200 rounded-xl text-center shadow-inner">
+              <p class="font-sans text-sm font-bold text-slate-500 mb-2 uppercase tracking-wide">Inversión Honorarios Legales:</p>
+              <div class="flex items-baseline justify-center gap-2">
                 <span
-                  class="font-sans text-5xl sm:text-6xl font-black text-constival-navy dark:text-white leading-none"
+                  class="font-sans text-6xl sm:text-7xl font-black text-constival-navy leading-none font-display tracking-tight"
                   id="cotiz-price">$149</span
                 >
                 <span
-                  class="font-sans text-sm font-bold text-constival-navy/50 dark:text-slate-400"
+                  class="font-sans text-base font-bold text-slate-400"
                   >+ IVA</span
                 >
               </div>
             </div>
 
             <!-- Impact metrics -->
-            <div class="grid grid-cols-3 gap-2 mb-5">
-              <div class="bg-gray-50 dark:bg-[#0a1818] p-2.5 text-center">
-                <div class="font-sans font-black text-lg text-constival-mint leading-none">3 días</div>
-                <div class="font-sans text-xs text-constival-navy/50 dark:text-slate-400 mt-1 uppercase tracking-wider">Plazo</div>
+            <div class="grid grid-cols-3 gap-3 mb-8">
+              <div class="bg-constival-navy text-white rounded-lg p-3 text-center shadow-md">
+                <div class="font-sans font-black text-xl text-constival-mint leading-none">3 días</div>
+                <div class="font-sans text-[10px] sm:text-xs text-white/70 mt-1 uppercase tracking-wider font-bold">Tiempo</div>
               </div>
-              <div class="bg-gray-50 dark:bg-[#0a1818] p-2.5 text-center">
-                <div class="font-sans font-black text-lg text-constival-mint leading-none">$0</div>
-                <div class="font-sans text-xs text-constival-navy/50 dark:text-slate-400 mt-1 uppercase tracking-wider">Sorpresas</div>
+              <div class="bg-constival-navy text-white rounded-lg p-3 text-center shadow-md">
+                <div class="font-sans font-black text-xl text-constival-mint leading-none">$0</div>
+                <div class="font-sans text-[10px] sm:text-xs text-white/70 mt-1 uppercase tracking-wider font-bold">Notarios</div>
               </div>
-              <div class="bg-gray-50 dark:bg-[#0a1818] p-2.5 text-center">
-                <div class="font-sans font-black text-lg text-constival-mint leading-none">100%</div>
-                <div class="font-sans text-xs text-constival-navy/50 dark:text-slate-400 mt-1 uppercase tracking-wider">Digital</div>
+              <div class="bg-constival-navy text-white rounded-lg p-3 text-center shadow-md">
+                <div class="font-sans font-black text-xl text-constival-mint leading-none">100%</div>
+                <div class="font-sans text-[10px] sm:text-xs text-white/70 mt-1 uppercase tracking-wider font-bold">Digital</div>
               </div>
             </div>
 
@@ -357,22 +291,24 @@ import Button from "../../ui/Button.astro";
               id="cotiz-whatsapp"
               href="#"
               target="_blank"
-              class="w-full flex items-center justify-center gap-2.5 px-5 py-3.5 bg-[#25D366] hover:bg-[#1ebd5b] text-white font-sans font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-green-900/20"
+              rel="noopener noreferrer"
+              aria-label="Iniciar trámite de constitución de SAS vía WhatsApp con Constival Legal"
+              class="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#1ebd5b] text-white font-sans font-black text-base uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-green-900/30 ring-4 ring-[#25D366]/20"
             >
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Iniciar Constitución
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              INICIAR TRÁMITE AHORA
             </a>
 
             <!-- Restart -->
-            <button class="mt-4 w-full font-sans text-xs text-constival-navy/40 dark:text-slate-400 hover:text-constival-mint transition-colors underline underline-offset-4" id="cotiz-restart">
-              ← Recalcular con otros datos
+            <button class="mt-6 w-full font-sans text-xs font-bold text-slate-400 hover:text-constival-mint transition-colors underline underline-offset-4" id="cotiz-restart">
+              ← Recalcular con otra cantidad de socios
             </button>
 
             <!-- Fine print -->
             <p
-              class="font-sans text-xs text-constival-navy/40 dark:text-slate-400 mt-4 text-center leading-relaxed"
+              class="font-sans text-[11px] text-slate-400 mt-5 text-center leading-relaxed"
             >
-              Honorarios fijos. No incluye aranceles gubernamentales (SCVS, Registro Mercantil), los cuales desglosamos con transparencia antes de iniciar.
+              🔒 Honorarios fijos Constival. Los aranceles gubernamentales a terceros (SCVS) se desglosarán con absoluta transparencia antes de firmar cualquier contrato.
             </p>
           </div>
         </div>
