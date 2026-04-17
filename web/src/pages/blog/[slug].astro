@@ -58,7 +58,7 @@ const schemaMarkup = {
     <!-- Encabezado del Artículo -->
     <header class="container mx-auto px-6 sm:px-8 max-w-4xl relative z-10 text-center mb-12 sm:mb-16">
       <div class="flex items-center justify-center gap-3 mb-6 flex-wrap">
-        <span class="font-sans text-xs sm:text-sm font-bold uppercase tracking-wider text-constival-teal dark:text-slate-400">
+        <span class="font-sans text-badge font-bold uppercase tracking-wider text-constival-teal dark:text-slate-400">
           {post.data.pubDate.toLocaleDateString("es-EC", {
             year: "numeric", month: "long", day: "numeric",
           })}
@@ -66,18 +66,18 @@ const schemaMarkup = {
         {post.data.tags && post.data.tags.map((tag) => (
           <>
             <span class="hidden sm:block w-1.5 h-1.5 rounded-full bg-constival-mint/50"></span>
-            <span class="font-sans text-[10px] sm:text-xs font-bold uppercase tracking-widest text-constival-blue dark:text-constival-mint bg-constival-blue/5 dark:bg-constival-mint/10 px-3 py-1.5">
+            <span class="font-sans text-fine font-bold uppercase tracking-widest text-constival-blue dark:text-constival-mint bg-constival-blue/5 dark:bg-constival-mint/10 px-3 py-1.5">
               {tag}
             </span>
           </>
         ))}
       </div>
       
-      <h1 class="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-constival-navy dark:text-white tracking-tight leading-[1.1] mb-6">
+      <h1 class="font-sans text-blog-title font-extrabold text-constival-navy dark:text-white tracking-tight leading-[1.1] mb-6">
         {post.data.title}
       </h1>
       
-      <p class="font-serif italic text-lg sm:text-xl md:text-2xl text-constival-teal dark:text-slate-400 leading-relaxed max-w-3xl mx-auto">
+      <p class="font-serif italic text-body-lead text-constival-teal dark:text-slate-400 leading-relaxed max-w-3xl mx-auto">
         {post.data.description}
       </p>
     </header>
@@ -98,7 +98,7 @@ const schemaMarkup = {
           </div>
           <div>
             <p class="font-sans font-bold text-constival-navy dark:text-white leading-tight">Escrito por {post.data.author}</p>
-            <p class="font-sans text-sm text-constival-navy/60 dark:text-slate-400">Arquitectura Societaria Preventiva</p>
+            <p class="font-sans text-fine text-constival-navy/60 dark:text-slate-400">Arquitectura Societaria Preventiva</p>
           </div>
         </div>
         
@@ -119,14 +119,14 @@ const schemaMarkup = {
                 <div class="w-8 h-8 flex items-center justify-center bg-constival-mint text-constival-navy rounded-sm">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
                 </div>
-                <span class="font-sans text-xs font-bold uppercase tracking-widest text-constival-teal dark:text-slate-400">Protege tu Inversión</span>
+                <span class="font-sans text-fine font-bold uppercase tracking-widest text-constival-teal dark:text-slate-400">Protege tu Inversión</span>
               </div>
               
-              <h3 class="font-sans text-2xl font-black text-constival-navy dark:text-white mb-4 leading-tight">
+              <h3 class="font-sans text-card-title font-black text-constival-navy dark:text-white mb-4 leading-tight">
                 Constituye tu S.A.S. en Modo <span class="text-constival-teal dark:text-constival-mint">Automático</span>.
               </h3>
               
-              <p class="font-sans text-sm text-constival-navy/70 dark:text-slate-400 mb-8 leading-relaxed">
+              <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 mb-8 leading-relaxed">
                 No uses plantillas genéricas. Nuestros arquitectos societarios redactan estatutos blindados para inversión extranjera y resolución de conflictos. En menos de 3 días.
               </p>
               
@@ -143,12 +143,12 @@ const schemaMarkup = {
                 <div class="w-8 h-8 flex items-center justify-center bg-constival-blue text-white rounded-sm">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <span class="font-sans text-xs font-bold uppercase tracking-widest text-constival-blue dark:text-slate-400">Propiedad Intelectual</span>
+                <span class="font-sans text-fine font-bold uppercase tracking-widest text-constival-blue dark:text-slate-400">Propiedad Intelectual</span>
               </div>
-              <h3 class="font-sans text-2xl font-black text-constival-navy dark:text-white mb-4 leading-tight">
+              <h3 class="font-sans text-card-title font-black text-constival-navy dark:text-white mb-4 leading-tight">
                 Registra tu <span class="text-constival-blue dark:text-constival-mint">Marca</span> antes de que la copien.
               </h3>
-              <p class="font-sans text-sm text-constival-navy/70 dark:text-slate-400 mb-8 leading-relaxed">
+              <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 mb-8 leading-relaxed">
                 Asegura los derechos legales sobre el nombre y logo de tu empresa en todo el territorio ecuatoriano (SENADI).
               </p>
               <a href="#contacto" class="font-sans bg-constival-navy dark:bg-white text-white dark:text-constival-navy font-bold py-3 px-6 w-full inline-flex justify-center items-center gap-2 group hover:bg-constival-blue transition-colors duration-300">
