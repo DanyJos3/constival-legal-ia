@@ -6,13 +6,13 @@ const services = Object.values(CONSTIVAL_DATA.services);
 <section class="py-14 md:py-16 bg-gray-50 dark:bg-[#0a0f1a] relative overflow-hidden transition-colors duration-300" id="servicios">
   <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
     <div class="text-center mb-10 md:mb-14">
-      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-xs sm:text-sm mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
+      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
         Catálogo de Servicios
       </span>
-      <h2 class="font-sans text-3xl sm:text-4xl 2xl:text-5xl font-extrabold text-constival-navy dark:text-white tracking-tight">
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight">
         Honorarios Transparentes. <span class="text-constival-mint">Cero sorpresas.</span>
       </h2>
-      <p class="font-sans text-base sm:text-lg text-constival-navy/70 dark:text-slate-400 mt-4 max-w-xl mx-auto leading-relaxed">
+      <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 mt-4 max-w-xl mx-auto leading-relaxed">
         Honorarios fijos y publicados. No incluyen aranceles registrales gubernamentales, los cuales desglosamos con total transparencia.
       </p>
     </div>
@@ -21,12 +21,12 @@ const services = Object.values(CONSTIVAL_DATA.services);
       {services.map((service: any) => (
         <div class={`relative bg-white dark:bg-constival-deep/60 border ${service.popular ? 'border-constival-mint shadow-[0_0_30px_rgba(0,255,178,0.1)]' : 'border-constival-navy/5 dark:border-white/5'} p-5 md:p-6 flex flex-col group hover:border-constival-mint/50 transition-all duration-500`}>
           {service.popular && (
-            <div class="absolute -top-4 left-8 px-4 py-1.5 bg-constival-mint text-constival-navy font-sans font-bold text-xs sm:text-sm uppercase tracking-widest">
+            <div class="absolute -top-4 left-8 px-4 py-1.5 bg-constival-mint text-constival-navy font-sans font-bold text-badge uppercase tracking-widest">
               Más Elegido
             </div>
           )}
-          <h3 class="font-sans text-lg sm:text-xl font-extrabold text-constival-navy dark:text-white mb-2 tracking-tight">{service.title}</h3>
-          <p class="font-sans text-sm text-constival-navy/80 dark:text-slate-400 mb-6 leading-relaxed">{service.subtitle}</p>
+          <h3 class="font-sans text-feature-title font-extrabold text-constival-navy dark:text-white mb-2 tracking-tight">{service.title}</h3>
+          <p class="font-sans text-fine text-constival-navy/80 dark:text-slate-400 mb-6 leading-relaxed">{service.subtitle}</p>
           
           <div class="mb-6">
             <span class="font-sans text-3xl sm:text-4xl font-black text-constival-navy dark:text-white">{service.price}</span>
@@ -35,7 +35,7 @@ const services = Object.values(CONSTIVAL_DATA.services);
           
           <ul class="space-y-3 mb-8 flex-1">
             {service.features.map((feat: string) => (
-              <li class="flex items-start gap-3 font-sans text-sm text-constival-navy/80 dark:text-slate-300 leading-snug">
+              <li class="flex items-start gap-3 font-sans text-fine text-constival-navy/80 dark:text-slate-300 leading-snug">
                 <svg class="w-5 h-5 text-constival-mint mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
                 {feat}
               </li>
