@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import Testimonials from "../../components/Testimonials.astro";
+
+import ReformaHero from "../../components/servicios/reforma-estatutos/ReformaHero.astro";
+import ReformaContexto from "../../components/servicios/reforma-estatutos/ReformaContexto.astro";
+import ReformaTipos from "../../components/servicios/reforma-estatutos/ReformaTipos.astro";
+import ReformaProceso from "../../components/servicios/reforma-estatutos/ReformaProceso.astro";
+import ReformaRequisitos from "../../components/servicios/reforma-estatutos/ReformaRequisitos.astro";
+import ReformaPricing from "../../components/servicios/reforma-estatutos/ReformaPricing.astro";
+import ReformaCotizador from "../../components/servicios/reforma-estatutos/ReformaCotizador.astro";
+import ReformaFaq from "../../components/servicios/reforma-estatutos/ReformaFaq.astro";
+import ReformaCtaFinal from "../../components/servicios/reforma-estatutos/ReformaCtaFinal.astro";
+
+const title =
+  "Reforma de Estatutos en Ecuador — Rápido y sin Rechazos | CONSTIVAL";
+const description =
+  "Reforma de estatutos para SAS, SA y Cía. Ltda. desde $155+IVA. Cambio de nombre, objeto social, capital o transformación societaria. Gestión integral ante SCVS.";
+const canonicalUrl =
+  "https://constival.com/servicios/reforma-estatutos-ecuador";
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Navbar />
+  <main>
+    <ReformaHero />
+    <ReformaContexto />
+    <ReformaTipos />
+    <ReformaProceso />
+    <ReformaRequisitos />
+    <!-- <Testimonials /> -->
+    <ReformaCotizador />
+    <ReformaFaq />
+    <ReformaCtaFinal />
+  </main>
+  <Footer />
+</Layout>

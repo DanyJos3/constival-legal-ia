@@ -60,7 +60,7 @@ export const CONSTIVAL_DATA = {
       url: "/servicios/crear-sas-ecuador"
     },
     reformas: {
-      title: "Actualización Societaria",
+      title: "Reforma de estatutos",
       shortDescription: "Actualiza tus estatutos rápidamente sin rechazos de la Superintendencia de Compañías.",
       subtitle: "Reformamos tus estatutos para permitir ingresos de capital o pivotar el objeto social sin rechazos en la Superintendencia de Compañías.",
       price: "Desde $179",
@@ -72,10 +72,10 @@ export const CONSTIVAL_DATA = {
         "Cambio de domicilio societario",
         "Fusiones y escisiones",
       ],
-        url: "/servicios/crear-sas-ecuador"
+        url: "/servicios/reforma-estatutos-ecuador"
     },
     marcas: {
-      title: "Blindaje de Identidad (Marcas)",
+      title: "Registro de Marcas",
       shortDescription: "Protege tu propiedad intelectual a nivel nacional por 10 años.",
       subtitle: "Registro a 10 años ante el SENADI con búsquedas fonéticas. Asegura el control del activo más valioso que tienes.",
       price: "Desde $300",

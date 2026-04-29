@@ -1,0 +1,161 @@
+---
+import Button from "../../ui/Button.astro";
+---
+
+<section
+  id="inicio-reforma"
+  class="relative min-h-[100svh] flex items-center py-16 pt-20 sm:pt-24 md:pt-28 pb-10 sm:pb-12 bg-white dark:bg-constival-navy transition-colors duration-300"
+>
+  <!-- Background layers -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div
+      class="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-constival-teal/70 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+    ></div>
+    <div
+      class="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] bg-constival-blue/20 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+    ></div>
+    <!-- Subtle grid pattern -->
+    <div
+      class="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
+      style="background-image: linear-gradient(rgba(0,255,178,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,178,0.3) 1px, transparent 1px); background-size: 60px 60px;"
+    ></div>
+  </div>
+
+  <!-- Content container -->
+  <div
+    class="w-full mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-center lg:justify-between max-w-7xl gap-8 sm:gap-12 lg:gap-16 flex-1 my-auto"
+  >
+    <!-- Left Column: Copy -->
+    <div class="w-full lg:w-7/12 lg:max-w-2xl flex-shrink-0 relative z-10">
+      <span
+        class="inline-block py-2 px-3 sm:py-2.5 sm:px-5 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-5 sm:mb-6 font-sans font-bold tracking-widest uppercase text-badge"
+      >
+        Servicio de Actualización Societaria
+      </span>
+
+      <h1
+        class="font-sans text-hero font-extrabold tracking-tighter leading-[0.95] text-constival-navy dark:text-white mb-5 sm:mb-7 lg:mb-8 uppercase"
+      >
+        Reforma tus Estatutos en Ecuador:
+        <span class="block text-constival-blue dark:text-constival-mint mt-1 sm:mt-2">
+          Legal, Rápido y sin Rechazos.</span
+        >
+      </h1>
+
+      <p
+        class="font-serif italic text-body-lead text-constival-teal dark:text-slate-400 mb-8 sm:mb-9 lg:mb-10 max-w-xl border-l-[4px] sm:border-l-[5px] border-constival-mint pl-5 sm:pl-6 leading-relaxed"
+      >
+        A medida que tu empresa crece, sus necesidades legales cambian. Ya sea que necesites
+        cambiar el nombre, ampliar el objeto social o transformar la figura jurídica, ejecutamos
+        la reforma de forma eficiente y sin rechazos ante la SCVS.
+      </p>
+
+      <div class="flex flex-wrap gap-3 items-center">
+        <Button variant="primary" href="#precio-reforma">
+          <svg class="w-4 h-4 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          Cotizar mi Reforma
+        </Button>
+        <a
+          href="#contexto-reforma"
+          class="font-sans text-body font-bold text-constival-navy/60 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint transition-colors underline underline-offset-4 decoration-constival-mint/30 hover:decoration-constival-mint ml-2"
+        >
+          ¿Cuándo necesito reformar? &darr;
+        </a>
+      </div>
+
+      <!-- Trust badges -->
+      <div
+        class="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 sm:mt-10 pt-6 border-t border-constival-navy/10 dark:border-white/10"
+      >
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <span class="font-sans text-badge font-bold text-constival-navy/70 dark:text-slate-400">Validado SCVS</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span class="font-sans text-badge font-bold text-constival-navy/70 dark:text-slate-400">Gestión 100% Integral</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span class="font-sans text-badge font-bold text-constival-navy/70 dark:text-slate-400">Plazo: 4–9 semanas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Feature highlights -->
+    <div class="w-full lg:w-5/12 relative mt-6 lg:mt-0">
+      <div
+        class="bg-gray-50 dark:bg-[#121826] border border-constival-navy/5 dark:border-white/5 p-6 sm:p-8 relative overflow-hidden"
+      >
+        <div
+          class="absolute right-0 top-0 text-[10rem] font-sans font-black text-constival-navy/[0.03] dark:text-white/[0.02] leading-none select-none pointer-events-none translate-x-1/4 -translate-y-1/4"
+        >
+          R
+        </div>
+        <h2
+          class="font-sans text-card-title font-extrabold text-constival-navy dark:text-white mb-6 tracking-tight"
+        >
+          ¿Por qué reformar con Constival?
+        </h2>
+        <div class="space-y-4">
+          <!-- Feature 1 -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-sans font-bold text-feature-title text-constival-navy dark:text-white">Asesoría especializada por tipo de sociedad</h3>
+              <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">Expertos en SAS, Cía. Ltda. y SA con experiencia real en la SCVS.</p>
+            </div>
+          </div>
+          <!-- Feature 2 -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-sans font-bold text-feature-title text-constival-navy dark:text-white">Identificación precisa de tu reforma</h3>
+              <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">Analizamos tus estatutos vigentes y determinamos el procedimiento exacto.</p>
+            </div>
+          </div>
+          <!-- Feature 3 -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-sans font-bold text-feature-title text-constival-navy dark:text-white">Cumplimiento de quórum y redacción legal</h3>
+              <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">Redactamos el acta conforme a los requisitos exactos de la SCVS. Sin observaciones.</p>
+            </div>
+          </div>
+          <!-- Feature 4 -->
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-sans font-bold text-feature-title text-constival-navy dark:text-white">Honorarios fijos sin costos ocultos</h3>
+              <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">Precio cerrado desde el inicio. Sabes exactamente cuánto pagas antes de comenzar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
