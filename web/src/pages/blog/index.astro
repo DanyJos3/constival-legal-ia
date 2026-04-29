@@ -39,13 +39,14 @@ const sortedPosts = allPosts.sort(
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
         {sortedPosts.map((post) => (
           <article class="bg-white dark:bg-constival-deep/50 border border-constival-navy/5 dark:border-white/5 overflow-hidden group hover:border-constival-mint/30 dark:hover:border-constival-mint/30 transition-all duration-300 flex flex-col h-full shadow-sm hover:shadow-xl">
-            <div class="h-48 sm:h-64 w-full overflow-hidden shrink-0 relative bg-constival-navy flex items-center justify-center p-6 text-center">
+            <div class="h-36 sm:h-44 w-full overflow-hidden shrink-0 relative bg-constival-navy flex items-center justify-center p-5 text-center">
               <img 
                 src={post.data.image || '/images/default-blog-bg.png'} 
                 alt=""
-                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-60 mix-blend-luminosity" 
+                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-40" 
               />
-              <div class="absolute inset-0 bg-gradient-to-tr from-constival-navy/95 via-constival-navy/80 to-constival-teal/40 mix-blend-multiply transition-opacity group-hover:opacity-90"></div>
+              <div class="absolute inset-0 bg-gradient-to-b from-[#0a1830]/80 via-[#0d2a5e]/85 to-[#0a3d62]/90 transition-opacity group-hover:opacity-95"></div>
+              <div class="absolute inset-0 bg-gradient-to-tr from-constival-navy via-transparent to-constival-teal/20 opacity-70"></div>
               
               <h2 class="relative z-10 font-sans text-card-title font-black text-white leading-tight drop-shadow-md group-hover:text-constival-mint transition-colors">
                 <a href={`/blog/${post.id}`} class="focus:outline-none">
@@ -55,7 +56,7 @@ const sortedPosts = allPosts.sort(
               </h2>
             </div>
             
-            <div class="p-6 md:p-8 flex flex-col flex-grow">
+            <div class="p-4 md:p-5 flex flex-col flex-grow">
               <div class="flex items-center gap-3 mb-4 flex-wrap">
                 <span class="font-sans text-fine font-bold uppercase tracking-wider text-constival-teal dark:text-slate-500">
                   {post.data.pubDate.toLocaleDateString("es-EC", {
@@ -82,9 +83,13 @@ const sortedPosts = allPosts.sort(
                 <span class="font-sans text-fine font-bold text-constival-navy dark:text-white">
                   {post.data.author}
                 </span>
-                <span class="flex items-center text-constival-teal dark:text-constival-mint text-fine font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300">
+                <a
+                  href={`/blog/${post.id}`}
+                  aria-label={`Leer artículo: ${post.data.title}`}
+                  class="flex items-center text-constival-teal dark:text-constival-mint text-fine font-bold uppercase tracking-widest group-hover:translate-x-1 transition-transform duration-300 hover:underline underline-offset-4"
+                >
                   Leer →
-                </span>
+                </a>
               </div>
             </div>
           </article>

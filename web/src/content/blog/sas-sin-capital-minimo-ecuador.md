@@ -12,7 +12,7 @@ draft: false
 
 Has tenido la idea de negocio perfecta. Ves claramente cómo funcionaría, quién sería tu cliente, cómo ganarías dinero. Pero entonces te topas con la pregunta legal más frustrante que bloquea a todos los inversionistas:
 
-## ¿Cuánto capital mínimo necesito para constituir una empresa en Ecuador?
+**¿Cuánto capital mínimo necesito para constituir una empresa en Ecuador?**
 
 Si buscas en Google, encontrarás respuestas confusas sobre los engorrosos trámites legales. Algunos sitios web te explican que requieres miles de dólares inmovilizados. Otros mencionan un capital mínimo variado dependiendo de la figura societaria. Y mientras tanto, tu idea de formalizar tu negocio se queda esperando en el escritorio.
 
