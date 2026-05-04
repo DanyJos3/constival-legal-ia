@@ -1,0 +1,74 @@
+---
+
+const variantes = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>`,
+    title: "Cambio de Representante Legal",
+    desc: "Cambio del titular de representación legal. Mantiene otros cargos administrativos vigentes.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    title: "Cambio de Presidente",
+    desc: "Cambio de presidente u otro cargo estatutario específico de gobierno interno.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>`,
+    title: "Renovación de Nombramiento",
+    desc: "Reelección del mismo administrador. Obligatoria antes de que venza el plazo estatutario.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>`,
+    title: "Cambio Múltiple (Representante + Presidente)",
+    desc: "Cambios simultáneos de representante legal y otra posición administrativa en un solo trámite.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>`,
+    title: "Solo Renuncia",
+    desc: "Trámite de renuncia de un administrador sin reemplazo inmediato para situaciones temporales.",
+  },
+];
+---
+
+<section
+  class="py-14 md:py-16 bg-gray-50 dark:bg-[#090e1a] relative overflow-hidden transition-colors duration-300"
+  id="tipos-nombramientos"
+>
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-10 md:mb-14">
+      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
+        Variantes del Servicio
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight">
+        Selecciona tu <span class="text-constival-mint">necesidad específica.</span>
+      </h2>
+      <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 mt-3 max-w-2xl mx-auto">
+        Cada tipo de cambio administrativo tiene un proceso y precio diferente. Identifica el tuyo y cotiza en segundos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      {variantes.map((item) => (
+        <div class="group bg-white dark:bg-constival-deep/50 p-6 border border-constival-navy/5 dark:border-white/5 hover:border-constival-mint/30 transition-all duration-300 relative overflow-hidden">
+          <div class="absolute bottom-0 left-0 h-0.5 w-0 bg-constival-mint group-hover:w-full transition-all duration-700"></div>
+          <div class="w-10 h-10 mb-4 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={item.icon} />
+          </div>
+          <h3 class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-2">{item.title}</h3>
+          <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <a
+        href="#precio-nombramientos"
+        class="inline-flex items-center gap-2 font-sans font-bold text-body uppercase tracking-wider text-constival-teal dark:text-constival-mint bg-constival-teal/10 dark:bg-constival-mint/10 hover:bg-constival-teal/20 dark:hover:bg-constival-mint/20 px-6 py-3 rounded-full transition-all duration-300 hover:scale-[1.02]"
+      >
+        Cotizar mi trámite
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

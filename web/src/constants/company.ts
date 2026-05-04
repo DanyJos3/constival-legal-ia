@@ -93,7 +93,7 @@ export const CONSTIVAL_DATA = {
       title: "Protección de Directorio",
       shortDescription: "Evita el bloqueo de tus cuentas bancarias corporativas.",
       subtitle: "Inscribimos cambios de representantes y gerentes para evitar el congelamiento automático de tus cuentas bancarias.",
-      price: "Desde $99",
+      price: "Desde $75",
       currency: "USD",
       popular: false,
       features: [
@@ -102,7 +102,7 @@ export const CONSTIVAL_DATA = {
         "Prevención de bloqueo bancario",
         "Actualización de firma autorizada",
       ],
-        url: "/servicios/crear-sas-ecuador"
+        url: "/servicios/nombramientos-ecuador"
     },
     cesiones: {
       title: "Traspaso Acordado (Cesiones)",

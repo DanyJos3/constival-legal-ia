@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+// Embudo CRO: Secuencia estratégica de conversión
+import NombramientosHero from "../../components/servicios/nombramientos/NombramientosHero.astro";
+import NombramientosContexto from "../../components/servicios/nombramientos/NombramientosContexto.astro";
+import NombramientosTipos from "../../components/servicios/nombramientos/NombramientosTipos.astro";
+import NombramientosProceso from "../../components/servicios/nombramientos/NombramientosProceso.astro";
+import NombramientosRequisitos from "../../components/servicios/nombramientos/NombramientosRequisitos.astro";
+import NombramientosCotizador from "../../components/servicios/nombramientos/NombramientosCotizador.astro";
+import NombramientosFaq from "../../components/servicios/nombramientos/NombramientosFaq.astro";
+import NombramientosCtaFinal from "../../components/servicios/nombramientos/NombramientosCtaFinal.astro";
+
+const title =
+  "Nombramientos y Cambios Administrativos en Ecuador | CONSTIVAL";
+const description =
+  "Cambio de representante legal, renovación de nombramientos y renuncias de administradores desde $75+IVA. Gestión integral ante Registro Mercantil y SCVS para SAS, SA y Cía. Ltda.";
+const canonicalUrl =
+  "https://constival.com/servicios/nombramientos-ecuador";
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <Navbar />
+  <main>
+    <NombramientosHero />
+    <NombramientosContexto />
+    <NombramientosTipos />
+    <NombramientosProceso />
+    <NombramientosRequisitos />
+    <NombramientosCotizador />
+    <NombramientosFaq />
+    <NombramientosCtaFinal />
+  </main>
+  <Footer />
+</Layout>

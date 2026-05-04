@@ -1,0 +1,334 @@
+---
+import Button from "../../ui/Button.astro";
+
+const incluye = [
+  { title: "Revisión de estatutos", desc: "Verificamos tu estructura administrativa vigente." },
+  { title: "Redacción de acta y nombramiento", desc: "Documentación con requisitos legales exactos." },
+  { title: "Gestión registral completa", desc: "Registro Mercantil o SCVS según corresponda." },
+  { title: "Actualización de RUC", desc: "Notificación y actualización ante el SRI." },
+  { title: "Seguimiento del expediente", desc: "Monitoreo constante hasta la inscripción." },
+  { title: "Sin costos sorpresa", desc: "Subsanación sin cargo si hay observaciones nuestras." },
+];
+---
+
+<section
+  id="precio-nombramientos"
+  class="py-20 md:py-28 bg-gradient-to-br from-constival-navy via-[#061021] to-constival-teal/90 relative overflow-hidden transition-colors duration-300"
+>
+  <!-- Background Glow -->
+  <div
+    class="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-constival-mint/20 blur-[120px] rounded-full pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-constival-mint/30 to-transparent"
+  >
+  </div>
+
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-16 md:mb-20">
+      <span
+        class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-mint/10 text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-6 border-l-4 border-constival-mint backdrop-blur-sm"
+      >
+        Inversión Transparente
+      </span>
+      <h2
+        class="font-sans text-section-title font-black text-white tracking-tight drop-shadow-lg leading-tight"
+      >
+        Cotiza tu cambio <br class="hidden sm:block" />
+        <span class="text-constival-mint">administrativo</span>
+      </h2>
+      <p
+        class="font-sans text-body md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto leading-relaxed"
+      >
+        Honorarios fijos y 100% transparentes. Selecciona el tipo de trámite y tu figura societaria para obtener el precio exacto.
+      </p>
+    </div>
+
+    <!-- Split Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <!-- LEFT: Value proposition + Inclusions -->
+      <div class="order-2 lg:order-1 lg:sticky lg:top-28">
+        <h3
+          class="font-sans text-card-title font-extrabold text-white mb-6 tracking-tight leading-tight"
+        >
+          Todo el trámite administrativo en un solo pago.
+        </h3>
+        <p
+          class="font-sans text-body text-slate-300 mb-10 leading-relaxed border-l-[3px] border-constival-mint pl-5"
+        >
+          Nos encargamos de la gestión integral desde la preparación del acta hasta la inscripción registral y actualización del RUC. Tú solo firmas.
+        </p>
+
+        <!-- Inclusions Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
+          {incluye.map((item) => (
+            <div class="flex items-start gap-4">
+              <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+                <svg
+                  class="w-5 h-5 text-constival-mint"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-sans font-bold text-sm sm:text-base text-white">
+                  {item.title}
+                </h4>
+                <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- RIGHT: Interactive Cotizador -->
+      <div
+        id="cotizador-interactivo"
+        class="order-1 lg:order-2 flex justify-center lg:justify-end scroll-mt-32 relative"
+      >
+        <div
+          class="relative bg-white text-constival-navy w-full max-w-md shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-2xl transition-all duration-500 overflow-hidden"
+        >
+          <!-- Widget Header -->
+          <div
+            class="bg-constival-mint px-6 py-6 text-center border-b-[6px] border-[#1ebd5b]"
+          >
+            <h3
+              class="font-sans text-2xl font-black text-constival-navy tracking-tight leading-none mb-1"
+            >
+              Cotizador Interactivo
+            </h3>
+            <p
+              class="font-sans text-xs font-bold text-constival-navy/70 uppercase tracking-widest"
+            >
+              Conoce tu inversión exacta ahora
+            </p>
+          </div>
+
+          <!-- Widget Body -->
+          <div class="p-8 sm:p-10 relative overflow-hidden min-h-[560px]">
+            
+            <!-- Step 1: Tipo empresa -->
+            <div id="nomb-step1" class="absolute w-full px-8 sm:px-10 left-0 top-8 transition-transform duration-300">
+              <div class="flex items-center justify-between mb-8">
+                <span class="font-sans font-bold text-fine uppercase tracking-widest text-slate-400">Paso 1 de 2</span>
+                <div class="h-1.5 w-16 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-constival-mint w-1/2 rounded-full"></div>
+                </div>
+              </div>
+
+              <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">
+                ¿Qué tipo de figura jurídica tiene tu empresa?
+              </h4>
+              
+              <div class="flex flex-col gap-4 mt-8">
+                <button
+                  class="nomb-opt-empresa group relative p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm"
+                  data-val="sas"
+                >
+                  <div class="font-sans text-2xl font-black text-constival-navy group-hover:text-constival-mint transition-colors">S.A.S.</div>
+                </button>
+
+                <button
+                  class="nomb-opt-empresa group relative p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm"
+                  data-val="sa-cia"
+                >
+                  <div class="font-sans text-2xl font-black text-constival-navy group-hover:text-constival-mint transition-colors">S.A. o Cía. Ltda.</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Tipo cambio -->
+            <div id="nomb-step2" class="absolute w-full px-8 sm:px-10 left-0 top-8 translate-x-full transition-transform duration-300 invisible">
+              <div class="flex items-center justify-between mb-8">
+                <span class="font-sans font-bold text-fine uppercase tracking-widest text-[#0a1818]">Paso 2 de 2</span>
+                <button class="nomb-back font-sans text-xs font-bold text-constival-teal hover:text-constival-mint hover:underline transition-colors shrink-0 outline-none" data-target="nomb-step1">← Volver</button>
+              </div>
+
+              <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">
+                ¿Qué tipo de trámite necesitas?
+              </h4>
+              
+              <div class="flex flex-col gap-2 mt-5">
+                {[
+                  { val: "renuncia", label: "Solo Renuncia", desc: "Sin reemplazo inmediato" },
+                  { val: "renovacion-1", label: "Renovación (1 cargo)", desc: "Representante legal o subrogante" },
+                  { val: "renovacion-2", label: "Renovación (2 cargos)", desc: "Representante legal y subrogante" },
+                  { val: "cambio-1", label: "Cambio (1 cargo)", desc: "Representante legal o subrogante" },
+                  { val: "cambio-2", label: "Cambio (2 cargos)", desc: "Representante legal y subrogante" },
+                ].map((opt) => (
+                  <button
+                    class="nomb-opt-tipo group p-3 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left shadow-sm"
+                    data-val={opt.val}
+                  >
+                    <div class="font-sans text-sm font-black text-constival-navy">{opt.label}</div>
+                    <div class="font-sans text-[11px] font-medium text-slate-500 mt-0.5">{opt.desc}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Result Panel -->
+            <div id="nomb-result" class="absolute w-full px-8 sm:px-10 left-0 top-8 translate-x-full transition-transform duration-300 invisible">
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-sans font-black text-fine uppercase tracking-widest text-[#0a1818]">Presupuesto</span>
+                <button class="font-sans text-xs font-bold text-constival-teal hover:text-constival-mint hover:underline transition-colors shrink-0 outline-none" id="nomb-restart">← Reiniciar</button>
+              </div>
+
+              <div class="mb-6 p-5 bg-slate-50 border border-slate-200 rounded-xl text-center shadow-inner relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 text-[8rem] font-black text-slate-900/[0.03] leading-none select-none pointer-events-none translate-x-1/4 translate-y-1/4">$</div>
+                <p class="font-sans text-sm font-bold text-slate-500 mb-2 uppercase tracking-wide" id="nomb-tramite-label">
+                  Honorarios:
+                </p>
+                <div class="flex items-baseline justify-center gap-2">
+                  <span class="font-sans text-5xl font-black text-constival-navy leading-none font-display tracking-tight" id="nomb-price-value">$99</span>
+                  <span class="font-sans text-sm font-bold text-slate-400">+ IVA</span>
+                </div>
+              </div>
+
+              <p class="font-sans text-xs text-slate-500 mb-6 text-center leading-relaxed">
+                No incluye aranceles de Registro Mercantil o SCVS, que se informan con transparencia antes de iniciar.
+              </p>
+
+              <a
+                id="nomb-whatsapp-cta"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#1ebd5b] text-white font-sans font-black text-base uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-green-900/30 ring-4 ring-[#25D366]/20"
+              >
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+                INICIAR TRÁMITE AHORA
+              </a>
+
+              <p class="font-sans text-fine text-slate-400 mt-5 text-center leading-relaxed">
+                🔒 Honorarios fijos Constival. Los aranceles gubernamentales se desglosarán con absoluta transparencia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Price table: [empresa][tipo] = price
+    const nombPrecios: Record<string, Record<string, string>> = {
+      sas: {
+        "renuncia": "$75",
+        "renovacion-1": "$99",
+        "renovacion-2": "$125",
+        "cambio-1": "$145",
+        "cambio-2": "$167",
+      },
+      "sa-cia": {
+        "renuncia": "$85",
+        "renovacion-1": "$109",
+        "renovacion-2": "$135",
+        "cambio-1": "$155",
+        "cambio-2": "$177",
+      },
+    };
+
+    const nombLabels: Record<string, string> = {
+      "renuncia": "Solo Renuncia",
+      "renovacion-1": "Renovación (1 cargo)",
+      "renovacion-2": "Renovación (2 cargos)",
+      "cambio-1": "Cambio (1 cargo)",
+      "cambio-2": "Cambio (2 cargos)",
+    };
+
+    let selEmpresa = "";
+    let selTipo = "";
+
+    const step1 = document.getElementById("nomb-step1");
+    const step2 = document.getElementById("nomb-step2");
+    const result = document.getElementById("nomb-result");
+
+    function goToStep(from: HTMLElement, to: HTMLElement) {
+      if (!from || !to) return;
+      from.classList.add("-translate-x-full", "invisible");
+      from.classList.remove("translate-x-0");
+      to.classList.remove("translate-x-full", "-translate-x-full", "invisible");
+      to.classList.add("translate-x-0");
+    }
+
+    function goBack(from: HTMLElement, to: HTMLElement) {
+      if (!from || !to) return;
+      from.classList.add("translate-x-full", "invisible");
+      from.classList.remove("translate-x-0");
+      to.classList.remove("-translate-x-full", "translate-x-full", "invisible");
+      to.classList.add("translate-x-0");
+    }
+
+    function showResult() {
+      goToStep(step2!, result!);
+
+      const precio = nombPrecios[selEmpresa]?.[selTipo];
+      if (!precio) return;
+
+      const lblTramite = document.getElementById("nomb-tramite-label");
+      const lblPrice = document.getElementById("nomb-price-value");
+      if (lblTramite) lblTramite.textContent = nombLabels[selTipo] + ":";
+      if (lblPrice) lblPrice.textContent = precio;
+
+      const empLabel = selEmpresa === "sas" ? "S.A.S." : "S.A.%20%2F%20C%C3%ADa.%20Ltda.";
+      const tipoLabel = encodeURIComponent(nombLabels[selTipo]);
+
+      const ctaEl = document.getElementById("nomb-whatsapp-cta") as HTMLAnchorElement;
+      if (ctaEl) {
+        ctaEl.href = `https://wa.me/593969503502?text=Hola%20Constival%2C%20utilic%C3%A9%20el%20cotizador%20de%20nombramientos.%0A%0A*Mi%20configuraci%C3%B3n%3A*%0A-%20Figura%3A%20${empLabel}%0A-%20Tr%C3%A1mite%3A%20${tipoLabel}%0A-%20Presupuesto%3A%20${precio}%20%2B%20IVA%0A%0AQuiero%20iniciar%20el%20tr%C3%A1mite.`;
+      }
+    }
+
+    // Step 1 clicks
+    document.querySelectorAll(".nomb-opt-empresa").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selEmpresa = (btn as HTMLElement).dataset.val!;
+        goToStep(step1!, step2!);
+      });
+    });
+
+    // Step 2 clicks
+    document.querySelectorAll(".nomb-opt-tipo").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        selTipo = (btn as HTMLElement).dataset.val!;
+        showResult();
+      });
+    });
+
+    // Back buttons
+    document.querySelectorAll(".nomb-back").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = (btn as HTMLElement).dataset.target;
+        const currentStep = btn.closest('div[id^="nomb-step"]') as HTMLElement;
+        const targetStep = document.getElementById(targetId!) as HTMLElement;
+        goBack(currentStep, targetStep);
+      });
+    });
+
+    // Restart button
+    document.getElementById("nomb-restart")?.addEventListener("click", () => {
+      selEmpresa = "";
+      selTipo = "";
+      goBack(result!, step1!);
+      step2!.classList.add("translate-x-full", "invisible");
+      step2!.classList.remove("-translate-x-full", "translate-x-0");
+    });
+    
+    // Initial state
+    if(step1) {
+        step1.classList.add("translate-x-0");
+    }
+
+  </script>
+</section>
