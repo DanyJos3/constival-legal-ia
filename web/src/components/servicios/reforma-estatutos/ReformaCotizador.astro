@@ -269,6 +269,34 @@ const incluye = [
     </div>
   </div>
 
+  <!-- Service Schema -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Reforma de Estatutos de Empresas en Ecuador",
+      description:
+        "Servicio legal integral para reformas estatutarias (aumento de capital, cambio de objeto, cambio de domicilio, transformación) para empresas SAS, SA y Cía. Ltda. en Ecuador.",
+      provider: {
+        "@type": "LegalService",
+        name: "CONSTIVAL",
+        url: "https://constival.com",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "155.00",
+        priceCurrency: "USD",
+        url: "https://constival.com/servicios/reforma-estatutos-ecuador",
+        availability: "https://schema.org/InStock"
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Ecuador"
+      }
+    })}
+  />
+
   <script>
     // Price table: [empresa][socios][reforma] = [basico, pro]
     const reformaPrecios: Record<string, Record<string, Record<string, [string, string]>>> = {

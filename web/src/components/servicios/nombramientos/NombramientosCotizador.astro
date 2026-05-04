@@ -220,6 +220,34 @@ const incluye = [
     </div>
   </div>
 
+  <!-- Service Schema -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Nombramientos y Cambios Administrativos de Empresas en Ecuador",
+      description:
+        "Servicio integral de cambio de representante legal, renovación de nombramientos y renuncias de administradores en Ecuador. Incluye actas e inscripción registral.",
+      provider: {
+        "@type": "LegalService",
+        name: "CONSTIVAL",
+        url: "https://constival.com",
+      },
+      offers: {
+        "@type": "Offer",
+        price: "75.00",
+        priceCurrency: "USD",
+        url: "https://constival.com/servicios/nombramientos-ecuador",
+        availability: "https://schema.org/InStock"
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "Ecuador"
+      }
+    })}
+  />
+
   <script>
     // Price table: [empresa][tipo] = price
     const nombPrecios: Record<string, Record<string, string>> = {
