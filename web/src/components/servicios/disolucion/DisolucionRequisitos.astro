@@ -1,0 +1,61 @@
+---
+const requisitos = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/>`,
+    title: "Cédula e Identificaciones",
+    desc: "Cédulas de ciudadanía (o RUC) de todos los socios/accionistas y del representante legal actual.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>`,
+    title: "Certificados de Inscripción",
+    desc: "RUC de la empresa y certificado de inscripción en el Registro Mercantil o de Sociedades.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2zm12 5h-2m-2 0h-2m-2 0h-2m-2 0H9"/>`,
+    title: "Información Contable",
+    desc: "Último balance final de operaciones y cuadro de distribución del haber social (firmados por contador).",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`,
+    title: "Datos de Contacto",
+    desc: "Domicilios completos y correos electrónicos de los socios para fines de notificaciones.",
+  },
+];
+---
+
+<section
+  class="py-14 md:py-16 bg-gray-50 dark:bg-[#0a0f1a] relative overflow-hidden transition-colors duration-300"
+>
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-10 md:mb-14 relative">
+      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
+        Documentación Necesaria
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight">
+        Requisitos para <span class="text-constival-mint">disolver tu empresa.</span>
+      </h2>
+      <div class="mt-4 flex justify-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-sans text-xs font-bold rounded-full">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          Actualizado a Mayo 2026
+        </span>
+      </div>
+      <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+        Solo necesitas tener a mano estos documentos base. Nosotros redactamos el acta y toda la documentación legal de soporte.
+      </p>
+    </div>
+
+    <!-- Base requirements grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mb-10">
+      {requisitos.map((req) => (
+        <div class="group bg-white dark:bg-constival-deep/50 p-5 border border-constival-navy/5 dark:border-white/5 hover:border-constival-mint/30 transition-all duration-300">
+          <div class="w-10 h-10 mb-3 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={req.icon} />
+          </div>
+          <h3 class="font-sans font-bold text-feature-title text-constival-navy dark:text-white mb-2">{req.title}</h3>
+          <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 leading-relaxed">{req.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

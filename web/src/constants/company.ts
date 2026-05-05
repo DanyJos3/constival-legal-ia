@@ -119,6 +119,21 @@ export const CONSTIVAL_DATA = {
       ],
         url: "/servicios/crear-sas-ecuador"
     },
+    disolucion: {
+      title: "Disolución y Cierre",
+      shortDescription: "Cierre seguro de empresas, liquidación y cancelación de RUC.",
+      subtitle: "Gestionamos la disolución voluntaria, abreviada u ordinaria ante la Superintendencia de Compañías para evitar riesgos legales.",
+      price: "Desde $157",
+      currency: "USD",
+      popular: false,
+      features: [
+        "Evaluación contable y legal",
+        "Redacción de acta de junta",
+        "Gestión completa en SUPERCIAS",
+        "Cancelación registral",
+      ],
+      url: "/servicios/disolucion-sociedades-ecuador"
+    },
   },
 
   faq: [

@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import DisolucionHero from "../../components/servicios/disolucion/DisolucionHero.astro";
+import DisolucionContexto from "../../components/servicios/disolucion/DisolucionContexto.astro";
+import DisolucionInclusiones from "../../components/servicios/disolucion/DisolucionInclusiones.astro";
+import DisolucionProceso from "../../components/servicios/disolucion/DisolucionProceso.astro";
+import DisolucionRequisitos from "../../components/servicios/disolucion/DisolucionRequisitos.astro";
+import DisolucionCotizador from "../../components/servicios/disolucion/DisolucionCotizador.astro";
+import DisolucionFaq from "../../components/servicios/disolucion/DisolucionFaq.astro";
+import DisolucionCtaFinal from "../../components/servicios/disolucion/DisolucionCtaFinal.astro";
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site || "https://constival.com").href;
+---
+
+<Layout 
+  title="Disolución de Sociedades en Ecuador (SAS, SA, Cía Ltda) | Constival"
+  description="Gestión integral para la disolución voluntaria, abreviada u ordinaria de empresas ante la Superintendencia de Compañías. Evite multas y riesgos personales."
+  image="/og-disolucion.png"
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="keywords" content="disolución de empresas ecuador, cerrar empresa ecuador, cancelar SAS ecuador, disolucion abreviada supercias, liquidacion compañias ecuador, constival" />
+  </Fragment>
+
+  <Navbar />
+  
+  <main class="w-full relative overflow-x-hidden pt-20">
+    <DisolucionHero />
+    <DisolucionContexto />
+    <DisolucionInclusiones />
+    <DisolucionProceso />
+    <DisolucionRequisitos />
+    <DisolucionCotizador />
+    <DisolucionFaq />
+    <DisolucionCtaFinal />
+  </main>
+
+  <Footer />
+</Layout>
