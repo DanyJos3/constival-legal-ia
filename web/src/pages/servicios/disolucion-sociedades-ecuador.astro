@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
 import DisolucionHero from "../../components/servicios/disolucion/DisolucionHero.astro";
-import DisolucionContexto from "../../components/servicios/disolucion/DisolucionContexto.astro";
 import DisolucionInclusiones from "../../components/servicios/disolucion/DisolucionInclusiones.astro";
 import DisolucionProceso from "../../components/servicios/disolucion/DisolucionProceso.astro";
 import DisolucionRequisitos from "../../components/servicios/disolucion/DisolucionRequisitos.astro";
@@ -31,7 +30,6 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site || "https://constiva
   
   <main class="w-full relative overflow-x-hidden pt-20">
     <DisolucionHero />
-    <DisolucionContexto />
     <DisolucionInclusiones />
     <DisolucionProceso />
     <DisolucionRequisitos />
