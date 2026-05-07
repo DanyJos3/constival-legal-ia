@@ -45,15 +45,15 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
 
     <link rel="canonical" href={canonicalURLStr} />
 
-    <!-- JSON-LD Schema -->
+    <!-- JSON-LD: LegalService (Organización global) -->
     <script
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@type": "LegalService",
+        "@id": "https://constival.com/#organization",
         name: "Constival Legal",
         image: "https://constival.com/isotipo-2.svg",
-        "@id": "https://constival.com/",
         url: "https://constival.com/",
         telephone: "+593969503502",
         address: {
@@ -62,12 +62,46 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
           addressLocality: CONSTIVAL_DATA.info.contact.city,
           addressCountry: CONSTIVAL_DATA.info.contact.country,
         },
-        sameAs: ["https://www.instagram.com/constival.ecu"],
+        sameAs: [
+          "https://www.instagram.com/constival.ecu",
+          "https://constival.com/"
+        ],
         description:
-          "Firma legal en Ecuador que ha estructurado más de 100 empresas corporativas. Proveemos constitución digital de S.A.S. en 3 a 5 días operativos y auditoría preventiva ante la Superintendencia de Compañías.",
-        priceRange: "$$$",
+          "Firma legal en Ecuador especializada en derecho societario: constitución de S.A.S., disolución de empresas, nombramientos y trámites ante la Superintendencia de Compañías, Valores y Seguros (SUPERCIAS).",
+        priceRange: "$$",
+        areaServed: { "@type": "Country", name: "Ecuador" },
+        knowsAbout: [
+          "Constitución de SAS en Ecuador",
+          "Disolución de Sociedades en Ecuador",
+          "Derecho Societario Ecuatoriano",
+          "SUPERCIAS Ecuador",
+          "Ley de Compañías Ecuador"
+        ],
       })}
     />
+
+    <!-- JSON-LD: WebSite (para SearchAction y reconocimiento de entidad por IA) -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://constival.com/#website",
+        url: "https://constival.com/",
+        name: "Constival Legal",
+        description: "Especialistas en derecho societario ecuatoriano: constitución de empresas, disoluciones y trámites ante SUPERCIAS.",
+        inLanguage: "es-EC",
+        publisher: { "@id": "https://constival.com/#organization" },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: { "@type": "EntryPoint", urlTemplate: "https://constival.com/?q={search_term_string}" },
+          "query-input": "required name=search_term_string",
+        },
+      })}
+    />
+
+    <!-- Slot para schemas específicos de página -->
+    <slot name="head" />
 
     <!-- Self-hosted font preloads (critical fonts only — reduces LCP) -->
     <link

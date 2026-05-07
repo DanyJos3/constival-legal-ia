@@ -1,4 +1,46 @@
+# ============================================================
+# constival.com — robots.txt
+# Última actualización: Mayo 2026
+# ============================================================
+
+# Permitir todo a rastreadores generales
 User-agent: *
 Allow: /
 
-Sitemap: https://constival.com/sitemap.xml
+# ── Google ──────────────────────────────────────────────────
+# Google AI Overviews y Gemini
+User-agent: Google-Extended
+Allow: /
+
+# ── OpenAI / ChatGPT ────────────────────────────────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# ── Anthropic / Claude ──────────────────────────────────────
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ── Perplexity ──────────────────────────────────────────────
+User-agent: PerplexityBot
+Allow: /
+
+# ── Microsoft Copilot (Bing) ────────────────────────────────
+User-agent: Bingbot
+Allow: /
+
+# ── Meta AI ─────────────────────────────────────────────────
+User-agent: FacebookBot
+Allow: /
+
+# Bloquear solo rastreadores de entrenamiento puro (no de búsqueda)
+User-agent: CCBot
+Disallow: /
+
+# ============================================================
+Sitemap: https://constival.com/sitemap-index.xml

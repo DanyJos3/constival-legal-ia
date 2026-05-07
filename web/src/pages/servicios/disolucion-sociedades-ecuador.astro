@@ -16,9 +16,58 @@ const title = "Disuelve tu Empresa en Ecuador — SAS, S.A. y Cía. Ltda. | CONS
 const description =
   "Disolución y liquidación de empresas en Ecuador desde $157+IVA. Proceso abreviado u ordinario ante la SUPERCIAS. Sin riesgos personales para los socios. Cancelación registral garantizada.";
 const canonicalUrl = "https://constival.com/servicios/disolucion-sociedades-ecuador";
+const dateModified = "2026-05-07";
+const datePublished = "2026-05-01";
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}/#webpage`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  datePublished,
+  dateModified,
+  inLanguage: "es-EC",
+  isPartOf: { "@id": "https://constival.com/#website" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://constival.com/" },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: "https://constival.com/servicios/" },
+      { "@type": "ListItem", position: 3, name: "Disolución de Sociedades", item: canonicalUrl },
+    ],
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://constival.com/images/og-image.png",
+  },
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Cómo disolver una empresa en Ecuador ante la SUPERCIAS",
+  description:
+    "Proceso paso a paso para la disolución y liquidación de SAS, Sociedad Anónima o Compañía de Responsabilidad Limitada en Ecuador ante la Superintendencia de Compañías.",
+  totalTime: "P8W",
+  estimatedCost: { "@type": "MonetaryAmount", currency: "USD", minValue: "157", maxValue: "317" },
+  step: [
+    { "@type": "HowToStep", position: 1, name: "Evaluación Inicial", text: "Revisión estatutaria completa: tipo de empresa, pasivos y causal de disolución. Determinación de proceso abreviado u ordinario." },
+    { "@type": "HowToStep", position: 2, name: "Decisión Societaria", text: "Redacción del acta de junta general unánime aprobando la disolución y certificando inexistencia de deudas con terceros." },
+    { "@type": "HowToStep", position: 3, name: "Documentación y Solicitud", text: "Preparación de escritura pública o documento privado más documentos habilitantes requeridos por SUPERCIAS." },
+    { "@type": "HowToStep", position: 4, name: "Aprobación y Publicación", text: "Presentación ante SUPERCIAS, seguimiento hasta resolución de disolución y gestión de publicaciones si aplica." },
+    { "@type": "HowToStep", position: 5, name: "Liquidación", text: "Pago a acreedores, distribución del haber social y balance final de liquidación con el contador." },
+    { "@type": "HowToStep", position: 6, name: "Cancelación Registral", text: "Inscripción de cancelación en el Registro Mercantil y actualización del RUC ante el SRI." },
+  ],
+};
 ---
 
 <Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <!-- Page-level structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} slot="head" />
+
   <Navbar />
   <main>
     <DisolucionHero />
