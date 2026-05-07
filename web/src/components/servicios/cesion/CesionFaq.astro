@@ -1,0 +1,95 @@
+---
+const faqItems = [
+  {
+    q: "¿Cuánto demora la cesión de acciones o participaciones?",
+    a: "Entre 5 y 10 días hábiles desde que recibimos todos los documentos completos. Las SAS y S.A. suelen completarse en 5–8 días; las Compañías de Responsabilidad Limitada, que requieren escritura pública notarial, pueden tomar hasta 10 días."
+  },
+  {
+    q: "¿Puedo ceder solo una parte de mis acciones o participaciones?",
+    a: "Sí. En la carta o instrumento de cesión se especifica exactamente la cantidad de acciones o participaciones que se transfieren, el valor unitario y el valor total. No es necesario ceder la totalidad de tu participación."
+  },
+  {
+    q: "¿Qué pasa si los estatutos tienen restricciones para la cesión?",
+    a: "Es uno de los primeros puntos que revisamos. En SAS y S.A. puede requerirse autorización de una asamblea de accionistas según los estatutos. En Compañía Limitada, la cesión a terceros ajenos a la empresa requiere unanimidad de todos los socios. Si la cesión es entre socios existentes, este requisito no aplica."
+  },
+  {
+    q: "¿Qué pasa si el cedente o el cesionario es extranjero o persona jurídica?",
+    a: "El proceso aplica igualmente. Para personas naturales extranjeras requerimos pasaporte vigente. Para personas jurídicas, solicitamos el nombramiento del representante legal y el RUC o equivalente. En algunos casos puede requerirse declaración de origen lícito de fondos si la normativa antilavado aplica."
+  },
+  {
+    q: "¿Garantizan la confidencialidad del proceso?",
+    a: "Sí. Aplicamos estricta confidencialidad profesional conforme a la Ley Orgánica de Protección de Datos Personales del Ecuador. Los documentos de la cesión solo son conocidos por las partes intervinientes y CONSTIVAL como gestor legal."
+  },
+];
+---
+
+<section class="py-14 md:py-16 bg-gray-50 dark:bg-[#090e1a] relative transition-colors duration-300" id="faq-cesion">
+  <div class="container mx-auto px-6 md:px-12 max-w-[900px] relative z-10">
+    <div class="text-center mb-10">
+      <span class="inline-block py-1.5 px-3 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
+        Preguntas Frecuentes
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight mb-2">
+        Preguntas que siempre <span class="text-constival-mint">nos hacen.</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3" id="cesion-faq-accordion">
+      {faqItems.map((item) => (
+        <div class="border border-constival-navy/5 dark:border-white/5 group" data-cesion-faq-item>
+          <button
+            class="w-full flex items-center justify-between text-left p-4 md:p-5 font-sans font-bold text-body text-constival-navy dark:text-white hover:text-constival-mint dark:hover:text-constival-mint transition-colors"
+            data-cesion-faq-trigger
+            aria-expanded="false"
+          >
+            <span class="pr-4">{item.q}</span>
+            <svg class="w-5 h-5 shrink-0 text-constival-navy/30 dark:text-white/30 transition-transform duration-300 cesion-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out" data-cesion-faq-content>
+            <p class="px-4 md:px-5 pb-4 md:pb-5 font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{item.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+    publisher: { "@id": "https://constival.com/#organization" },
+  })} />
+</section>
+
+<script>
+  document.querySelectorAll("[data-cesion-faq-trigger]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const item = (trigger as HTMLElement).closest("[data-cesion-faq-item]")!;
+      const content = item.querySelector("[data-cesion-faq-content]") as HTMLElement;
+      const icon = item.querySelector(".cesion-faq-icon") as HTMLElement;
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll("[data-cesion-faq-item]").forEach((other) => {
+        if (other !== item) {
+          (other.querySelector("[data-cesion-faq-content]") as HTMLElement).style.maxHeight = "0";
+          (other.querySelector(".cesion-faq-icon") as HTMLElement)?.classList.remove("rotate-180");
+          other.querySelector("[data-cesion-faq-trigger]")!.setAttribute("aria-expanded", "false");
+        }
+      });
+      if (isOpen) {
+        content.style.maxHeight = "0";
+        icon?.classList.remove("rotate-180");
+        trigger.setAttribute("aria-expanded", "false");
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon?.classList.add("rotate-180");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+</script>

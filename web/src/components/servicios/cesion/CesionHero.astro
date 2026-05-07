@@ -1,0 +1,117 @@
+---
+import Button from "../../ui/Button.astro";
+---
+
+<section
+  id="inicio-cesion"
+  class="relative min-h-[100svh] flex items-center py-16 pt-20 sm:pt-24 md:pt-28 pb-10 sm:pb-12 bg-white dark:bg-constival-navy transition-colors duration-300"
+>
+  <!-- Background layers -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div
+      class="absolute top-0 right-0 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-constival-teal/70 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+    ></div>
+    <div
+      class="absolute bottom-0 left-0 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px] bg-constival-blue/20 blur-[80px] md:blur-[120px] rounded-full mix-blend-multiply dark:mix-blend-screen"
+    ></div>
+    <div
+      class="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]"
+      style="background-image: linear-gradient(rgba(0,255,178,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,178,0.3) 1px, transparent 1px); background-size: 60px 60px;"
+    ></div>
+  </div>
+
+  <div
+    class="w-full mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-center lg:justify-between max-w-7xl gap-8 sm:gap-12 lg:gap-16 flex-1 my-auto"
+  >
+    <!-- Left Column: Copy -->
+    <div class="w-full lg:w-7/12 lg:max-w-2xl flex-shrink-0 relative z-10">
+      <span
+        class="inline-block py-2 px-3 sm:py-2.5 sm:px-5 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-5 sm:mb-6 font-sans font-bold tracking-widest uppercase text-badge"
+      >
+        Servicio de Cesión Societaria
+      </span>
+
+      <h1
+        class="font-sans text-hero font-extrabold tracking-tighter leading-[0.95] text-constival-navy dark:text-white mb-5 sm:mb-7 lg:mb-8 uppercase"
+      >
+        Cede tus acciones en Ecuador:
+        <span class="block text-constival-blue dark:text-constival-mint mt-1 sm:mt-2">
+          Seguro, digital y en 5–10 días.
+        </span>
+      </h1>
+
+      <p
+        class="font-serif italic text-body-lead text-constival-teal dark:text-slate-400 mb-8 sm:mb-9 lg:mb-10 max-w-xl border-l-[4px] sm:border-l-[5px] border-constival-mint pl-5 sm:pl-6 leading-relaxed"
+      >
+        Transferencia de acciones y participaciones en SAS, S.A. y Cía. Ltda. con inscripción inmediata en libros societarios y notificación ante la Superintendencia de Compañías. 100% digital, sin visitas a oficinas.
+      </p>
+
+      <div class="flex flex-wrap gap-3 items-center">
+        <Button variant="primary" href="#widget-cotizador-cesion">
+          <svg class="w-4 h-4 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Ver precios al instante
+        </Button>
+        <a
+          href="#proceso-cesion"
+          class="font-sans text-body font-bold text-constival-navy/60 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint transition-colors underline underline-offset-4 decoration-constival-mint/30 hover:decoration-constival-mint ml-2"
+        >
+          ¿Cómo funciona? &darr;
+        </a>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6 mt-8 sm:mt-10 pt-6 border-t border-constival-navy/10 dark:border-white/10">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span class="font-sans text-badge font-bold text-constival-navy/70 dark:text-slate-400">5–10 días hábiles</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span class="font-sans text-badge font-bold text-constival-navy/70 dark:text-slate-400">Válido ante SUPERCIAS</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-constival-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span class="font-sans text-badge font-bold text-constival-navy/70 dark:text-slate-400">Confidencialidad total</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="w-full lg:w-5/12 relative mt-6 lg:mt-0">
+      <div class="bg-gray-50 dark:bg-[#121826] border border-constival-navy/5 dark:border-white/5 p-6 sm:p-8 relative overflow-hidden">
+        <div class="absolute right-0 top-0 text-[10rem] font-sans font-black text-constival-navy/[0.03] dark:text-white/[0.02] leading-none select-none pointer-events-none translate-x-1/4 -translate-y-1/4">C</div>
+        <h2 class="font-sans text-card-title font-extrabold text-constival-navy dark:text-white mb-6 tracking-tight">
+          ¿Por qué confiar en CONSTIVAL?
+        </h2>
+        <div class="space-y-4">
+          {[
+            { title: "Proceso 100% digital", desc: "Firma electrónica, notificación online al portal SCVS. Sin visitas a notarías salvo que sea Cía. Ltda.", icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" },
+            { title: "Oponibilidad garantizada", desc: "Inscripción en el Libro de Acciones/Participaciones y notificación SUPERCIAS. Válido frente a terceros.", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+            { title: "Adaptado a tu tipo de empresa", desc: "SAS, S.A. o Cía. Ltda.: cada una tiene requisitos distintos. Los manejamos todos sin esfuerzo de tu parte.", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" },
+            { title: "Precio fijo desde $99 + IVA", desc: "Sin sorpresas. El desglose de honorarios y gastos adicionales se entrega antes de firmar.", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 text-constival-mint shrink-0 mt-0.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-sans font-bold text-feature-title text-constival-navy dark:text-white">{item.title}</h3>
+                <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

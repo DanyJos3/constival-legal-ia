@@ -1,0 +1,127 @@
+---
+const tipos = [
+  {
+    label: "S.A.S.",
+    full: "Sociedad por Acciones Simplificada",
+    precio: "$99 + IVA",
+    highlight: true,
+    badge: "Más Ágil",
+    instrumento: "Documento privado (sin notaría)",
+    plazo: "5–8 días hábiles",
+    restricciones: "Según estatutos. Posible autorización asamblearia.",
+    libro: "Libro de Registro de Acciones",
+    features: [
+      "No requiere escritura pública",
+      "Firma electrónica válida",
+      "Notificación digital a SCVS",
+      "Mayor flexibilidad estatutaria",
+    ],
+  },
+  {
+    label: "S.A.",
+    full: "Sociedad Anónima",
+    precio: "$119 + IVA",
+    highlight: false,
+    badge: null,
+    instrumento: "Carta de cesión privada",
+    plazo: "5–10 días hábiles",
+    restricciones: "Posible autorización asamblearia según estatutos.",
+    libro: "Libro de Acciones y Socios",
+    features: [
+      "Documento privado válido",
+      "Sin gastos notariales en la mayoría de casos",
+      "Notificación a Superintendencia",
+      "Emisión de nuevos títulos accionarios",
+    ],
+  },
+  {
+    label: "Cía. Ltda.",
+    full: "Compañía de Responsabilidad Limitada",
+    precio: "$159 + IVA",
+    highlight: false,
+    badge: null,
+    instrumento: "Escritura pública notarial obligatoria",
+    plazo: "8–10 días hábiles",
+    restricciones: "Requiere unanimidad de socios para cesión a terceros.",
+    libro: "Libro de Participaciones y Socios",
+    features: [
+      "Protocolización notarial incluida en gestión",
+      "Verificación de unanimidad societaria",
+      "Notificación y registro SCVS",
+      "Gastos notariales adicionales según notaría",
+    ],
+  },
+];
+---
+
+<section id="comparativa-cesion" class="py-14 md:py-16 bg-gray-50 dark:bg-[#090e1a] relative overflow-hidden transition-colors duration-300">
+  <div class="absolute left-0 top-0 w-1/3 h-full bg-constival-blue/5 dark:bg-constival-blue/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-10 md:mb-14">
+      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
+        SAS vs S.A. vs Cía. Ltda.
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight">
+        El proceso varía según <span class="text-constival-mint">el tipo de empresa.</span>
+      </h2>
+      <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+        No todas las cesiones son iguales. Los requisitos legales, el instrumento necesario y los plazos difieren según si tienes una SAS, S.A. o Cía. Ltda.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+      {tipos.map((tipo) => (
+        <div class={`relative bg-white dark:bg-constival-deep/60 p-5 md:p-6 flex flex-col ${tipo.highlight ? "border-2 border-constival-mint shadow-[0_0_30px_rgba(0,255,178,0.1)]" : "border border-constival-navy/10 dark:border-white/10"}`}>
+          {tipo.badge && (
+            <div class="absolute -top-4 left-6 px-4 py-1.5 bg-constival-mint text-constival-navy font-sans font-bold text-fine uppercase tracking-widest">
+              {tipo.badge}
+            </div>
+          )}
+          <div class="mt-2 mb-4">
+            <h3 class="font-sans text-2xl font-extrabold text-constival-navy dark:text-white tracking-tight">{tipo.label}</h3>
+            <p class="font-sans text-fine text-constival-navy/50 dark:text-slate-500 uppercase tracking-wider">{tipo.full}</p>
+            <div class="mt-3 flex items-baseline gap-1">
+              <span class="font-sans text-3xl font-black text-constival-mint">{tipo.precio}</span>
+            </div>
+          </div>
+
+          <div class="space-y-3 mb-5 flex-1">
+            <div class="flex items-start gap-2 text-body">
+              <svg class="w-4 h-4 text-constival-mint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+              <span class="font-sans text-constival-navy/80 dark:text-slate-300"><strong>Instrumento:</strong> {tipo.instrumento}</span>
+            </div>
+            <div class="flex items-start gap-2 text-body">
+              <svg class="w-4 h-4 text-constival-mint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span class="font-sans text-constival-navy/80 dark:text-slate-300"><strong>Plazo:</strong> {tipo.plazo}</span>
+            </div>
+            <div class="flex items-start gap-2 text-body">
+              <svg class="w-4 h-4 text-constival-mint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              <span class="font-sans text-constival-navy/80 dark:text-slate-300"><strong>Libro:</strong> {tipo.libro}</span>
+            </div>
+            <hr class="border-constival-navy/5 dark:border-white/5 my-2" />
+            {tipo.features.map((f) => (
+              <div class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-constival-mint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                <span class="font-sans text-body text-constival-navy/70 dark:text-slate-400">{f}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="pt-4 border-t border-constival-navy/5 dark:border-white/5">
+            <p class="font-sans text-fine text-constival-navy/50 dark:text-slate-500 italic">{tipo.restricciones}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-start gap-3 px-5 py-4 bg-constival-mint/5 dark:bg-constival-mint/10 border border-constival-mint/20 text-left">
+        <svg class="w-5 h-5 text-constival-mint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <p class="font-sans text-body text-constival-navy/70 dark:text-slate-400 leading-relaxed">
+          <strong class="text-constival-navy dark:text-white">¿Cía. Ltda. con cesión a tercero?</strong> Requiere aprobación unánime de todos los socios. Verificamos los estatutos antes de iniciar para evitar nulidades. La cesión entre socios existentes no requiere unanimidad.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

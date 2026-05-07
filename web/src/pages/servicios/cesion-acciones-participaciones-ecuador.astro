@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+import CesionHero from "../../components/servicios/cesion/CesionHero.astro";
+import CesionContexto from "../../components/servicios/cesion/CesionContexto.astro";
+import CesionComparacion from "../../components/servicios/cesion/CesionComparacion.astro";
+import CesionProceso from "../../components/servicios/cesion/CesionProceso.astro";
+import CesionRequisitos from "../../components/servicios/cesion/CesionRequisitos.astro";
+import CesionCotizador from "../../components/servicios/cesion/CesionCotizador.astro";
+import CesionFaq from "../../components/servicios/cesion/CesionFaq.astro";
+import CesionCtaFinal from "../../components/servicios/cesion/CesionCtaFinal.astro";
+
+const title = "Cesión de Acciones y Participaciones en Ecuador — SAS, S.A. y Cía. Ltda. | CONSTIVAL";
+const description =
+  "Transfiere acciones o participaciones en Ecuador desde $99+IVA. Proceso 100% digital en 5–10 días hábiles. Inscripción en libros societarios y notificación a SUPERCIAS garantizada. SAS, S.A. y Cía. Ltda.";
+const canonicalUrl = "https://constival.com/servicios/cesion-acciones-participaciones-ecuador";
+const dateModified = "2026-05-07";
+const datePublished = "2026-05-07";
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}/#webpage`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  datePublished,
+  dateModified,
+  inLanguage: "es-EC",
+  isPartOf: { "@id": "https://constival.com/#website" },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://constival.com/" },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: "https://constival.com/servicios/" },
+      { "@type": "ListItem", position: 3, name: "Cesión de Acciones y Participaciones", item: canonicalUrl },
+    ],
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://constival.com/images/og-image.png",
+  },
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Cómo ceder acciones o participaciones societarias en Ecuador",
+  description:
+    "Proceso paso a paso para la cesión legal de acciones (SAS, S.A.) o participaciones (Cía. Ltda.) en Ecuador ante la Superintendencia de Compañías.",
+  totalTime: "P10D",
+  estimatedCost: { "@type": "MonetaryAmount", currency: "USD", minValue: "99", maxValue: "159" },
+  step: [
+    { "@type": "HowToStep", position: 1, name: "Cotización y Envío de Requisitos", text: "Recibes presupuesto fijo. Envías cédulas de cedente/cesionario, RUC y detalles de la cesión." },
+    { "@type": "HowToStep", position: 2, name: "Revisión Estatutaria", text: "Verificamos estatutos para detectar restricciones, cláusulas de preferencia o requisitos de consentimiento." },
+    { "@type": "HowToStep", position: 3, name: "Redacción del Instrumento", text: "Elaboramos la carta privada (SAS/S.A.) o coordinamos escritura pública notarial (Cía. Ltda.)." },
+    { "@type": "HowToStep", position: 4, name: "Firma, Inscripción y Notificación", text: "Coordinamos firmas, inscribimos en el Libro de Acciones/Participaciones y notificamos a la SCVS vía portal." },
+  ],
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} slot="head" />
+
+  <Navbar />
+  <main>
+    <CesionHero />
+    <CesionContexto />
+    <CesionComparacion />
+    <CesionProceso />
+    <CesionRequisitos />
+    <CesionCotizador />
+    <CesionFaq />
+    <CesionCtaFinal />
+  </main>
+  <Footer />
+</Layout>

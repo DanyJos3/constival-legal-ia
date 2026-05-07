@@ -117,7 +117,7 @@ export const CONSTIVAL_DATA = {
         "Notificación a la Superintendencia de Compañías",
         "Asesoría tributaria del traspaso",
       ],
-        url: "/servicios/crear-sas-ecuador"
+        url: "/servicios/cesion-acciones-participaciones-ecuador"
     },
     disolucion: {
       title: "Disolución y Cierre",

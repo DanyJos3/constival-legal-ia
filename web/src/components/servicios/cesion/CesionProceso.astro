@@ -1,0 +1,110 @@
+---
+const fases = [
+  {
+    num: "01",
+    label: "Fase 1",
+    title: "Cotización y Envío de Requisitos",
+    desc: "Recibes presupuesto fijo en minutos. Nos envías los documentos básicos: cédulas de cedente/cesionario, RUC de la empresa y detalles de la cesión (cantidad, valor, naturaleza onerosa o gratuita).",
+  },
+  {
+    num: "02",
+    label: "Fase 2",
+    title: "Revisión Estatutaria",
+    desc: "Verificamos el contrato social y estatutos para detectar restricciones, cláusulas de preferencia o requisitos de consentimiento. Evitamos nulidades antes de redactar el instrumento.",
+  },
+  {
+    num: "03",
+    label: "Fase 3",
+    title: "Redacción del Instrumento",
+    desc: "Elaboramos la carta privada de cesión (SAS/S.A.) o coordinamos la escritura pública notarial (Cía. Ltda.) con todos los datos legales: partes, acciones/participaciones, precio, declaraciones y cláusulas de oponibilidad.",
+  },
+  {
+    num: "04",
+    label: "Fase 4",
+    title: "Firma e Inscripción Societaria",
+    desc: "Coordenamos firmas presenciales o electrónicas. Realizamos la inscripción en el Libro de Acciones/Participaciones y emitimos los nuevos títulos o certificados actualizados.",
+  },
+];
+---
+
+<section id="proceso-cesion" class="py-14 md:py-20 bg-white dark:bg-constival-navy overflow-hidden relative transition-colors duration-300">
+  <div class="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]" style="background-image: linear-gradient(rgba(0,255,178,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,178,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+  <div class="absolute right-0 top-1/4 w-[400px] h-[400px] bg-constival-teal/10 dark:bg-constival-teal/20 blur-[150px] rounded-full pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-12 md:mb-16">
+      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-4 sm:mb-5 font-sans font-bold tracking-widest uppercase text-badge">
+        ¿Cómo funciona?
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight leading-[1.1]">
+        Tu cesión lista en <span class="text-constival-mint">4 fases</span>
+      </h2>
+      <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 mt-4 max-w-xl mx-auto">
+        Nos encargamos de todo: redacción, firmas, inscripción y notificación a SUPERCIAS. Tú solo firmas.
+      </p>
+    </div>
+
+    <!-- MOBILE TIMELINE -->
+    <div class="md:hidden relative">
+      <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-constival-mint/50 via-constival-teal/30 to-transparent"></div>
+      <div class="space-y-10 pl-14">
+        {fases.map((fase) => (
+          <div class="relative">
+            <div class="absolute -left-[3.25rem] top-0 w-10 h-10 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 border border-constival-mint/30">
+              <span class="font-sans font-black text-sm text-constival-mint">{fase.num}</span>
+            </div>
+            <span class="inline-block font-sans text-fine font-bold text-constival-navy/40 dark:text-slate-500 uppercase tracking-widest mb-1">{fase.label}</span>
+            <h3 class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-1">{fase.title}</h3>
+            <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{fase.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- DESKTOP ZIGZAG TIMELINE -->
+    <div class="hidden md:block relative">
+      <div class="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-constival-mint/60 via-constival-teal/30 to-transparent"></div>
+      <div class="space-y-0">
+        {fases.map((fase, index) => {
+          const isLeft = index % 2 === 0;
+          return (
+            <div class="relative flex items-center min-h-[180px]">
+              {isLeft ? (
+                <>
+                  <div class="w-1/2 pr-12 lg:pr-16 text-right">
+                    <span class="inline-block font-sans text-fine font-bold text-constival-navy/40 dark:text-slate-500 uppercase tracking-widest mb-1.5">{fase.label}</span>
+                    <h3 class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-2">{fase.title}</h3>
+                    <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{fase.desc}</p>
+                  </div>
+                  <div class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint shadow-[0_0_20px_rgba(0,255,178,0.15)] transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:rotate-3 group cursor-pointer">
+                    <span class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 group-hover:text-constival-navy">{fase.num}</span>
+                  </div>
+                  <div class="w-1/2 pl-12 lg:pl-16"></div>
+                </>
+              ) : (
+                <>
+                  <div class="w-1/2 pr-12 lg:pr-16"></div>
+                  <div class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)] transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:border-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:-rotate-3 group cursor-pointer">
+                    <span class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 group-hover:text-constival-navy">{fase.num}</span>
+                  </div>
+                  <div class="w-1/2 pl-12 lg:pl-16">
+                    <span class="inline-block font-sans text-fine font-bold text-constival-navy/40 dark:text-slate-500 uppercase tracking-widest mb-1.5">{fase.label}</span>
+                    <h3 class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-2">{fase.title}</h3>
+                    <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{fase.desc}</p>
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <div class="mt-10 md:mt-14 flex justify-center">
+      <div class="inline-flex items-center gap-3 px-5 py-3 bg-constival-mint/10 dark:bg-constival-mint/20 border border-constival-mint/20">
+        <svg class="w-5 h-5 text-constival-mint shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="font-sans font-bold text-body text-constival-navy dark:text-white">Tiempo estimado: <span class="text-constival-mint">5 a 10 días hábiles</span></span>
+      </div>
+    </div>
+  </div>
+</section>
