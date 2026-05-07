@@ -1,0 +1,323 @@
+---
+---
+
+<!-- Pricing table with dark gradient matching SasCotizador -->
+<section
+  id="cotizador-disolucion"
+  class="py-20 md:py-28 bg-gradient-to-br from-constival-navy via-[#061021] to-constival-teal/90 relative overflow-hidden transition-colors duration-300 scroll-mt-20"
+>
+  <div class="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-constival-mint/20 blur-[120px] rounded-full pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-constival-mint/30 to-transparent"></div>
+
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-16 md:mb-20">
+      <span class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-mint/10 text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-6 border-l-4 border-constival-mint backdrop-blur-sm">
+        Presupuesto Inmediato
+      </span>
+      <h2 class="font-sans text-section-title font-black text-white tracking-tight drop-shadow-lg leading-tight">
+        Cotiza la Disolución <br class="hidden sm:block" />
+        <span class="text-constival-mint">de tu Empresa</span>
+      </h2>
+      <p class="font-sans text-body md:text-xl text-slate-300 mt-6 max-w-2xl mx-auto leading-relaxed">
+        Honorarios fijos y 100% transparentes. Selecciona el tipo de empresa y proceso para conocer tu inversión exacta.
+      </p>
+    </div>
+
+    <!-- Split Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- LEFT: What's included -->
+      <div class="order-2 lg:order-1">
+        <h3 class="font-sans text-card-title font-extrabold text-white mb-6 tracking-tight leading-tight">
+          Todo el proceso legal en un solo honorario.
+        </h3>
+        <p class="font-sans text-body text-slate-300 mb-10 leading-relaxed border-l-[3px] border-constival-mint pl-5">
+          Nos encargamos de cada detalle ante SUPERCIAS y el Registro Mercantil para que su empresa quede formalmente cancelada sin riesgos.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8">
+          {[
+            { title: "Consulta inicial gratuita", desc: "Evaluación de causal y proceso aplicable." },
+            { title: "Redacción del acta de junta", desc: "Unanimidad societaria documentada." },
+            { title: "Trámite ante SUPERCIAS", desc: "Presentación, seguimiento y resolución." },
+            { title: "Inscripción Registro Mercantil", desc: "Razón de cancelación oficial." },
+            { title: "Asesoría post-cancelación", desc: "Actualización RUC ante el SRI." },
+            { title: "Sin sorpresas de costos", desc: "Desglose claro antes de firmar." },
+          ].map((item) => (
+            <div class="flex items-start gap-4">
+              <div class="bg-constival-mint/20 p-2 rounded-md shrink-0">
+                <svg class="w-5 h-5 text-constival-mint" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-sans font-bold text-sm sm:text-base text-white">{item.title}</h4>
+                <p class="font-sans text-sm text-slate-400 leading-relaxed mt-1">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- RIGHT: Interactive Cotizador -->
+      <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div class="relative bg-white text-constival-navy w-full max-w-md shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)] rounded-2xl overflow-hidden">
+          <!-- Widget Header -->
+          <div class="bg-constival-mint px-6 py-6 text-center border-b-[6px] border-[#1ebd5b]">
+            <h3 class="font-sans text-2xl font-black text-constival-navy tracking-tight leading-none mb-1">
+              Cotizador de Disolución
+            </h3>
+            <p class="font-sans text-xs font-bold text-constival-navy/70 uppercase tracking-widest">
+              Conoce tu inversión exacta ahora
+            </p>
+          </div>
+
+          <!-- Widget Body -->
+          <div class="p-8 sm:p-10">
+            <!-- Step 1: Tipo de empresa -->
+            <div id="d-step1">
+              <div class="flex items-center justify-between mb-8">
+                <span class="font-sans font-bold text-fine uppercase tracking-widest text-slate-400">Paso 1 de 3</span>
+                <div class="h-1.5 w-16 bg-slate-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-constival-mint w-1/3 rounded-full"></div>
+                </div>
+              </div>
+              <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">¿Qué tipo de empresa vas a disolver?</h4>
+              <p class="font-sans text-sm text-slate-500 mb-8 leading-relaxed">El tipo determina si se requiere escritura notarial.</p>
+              <div class="flex flex-col gap-4">
+                <button class="d-tipo-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm" data-tipo="sas" data-tipo-label="S.A.S.">
+                  <div class="w-10 h-10 rounded-full bg-constival-mint/20 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-constival-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  </div>
+                  <div>
+                    <div class="font-sans text-base font-black text-constival-navy">S.A.S.</div>
+                    <div class="font-sans text-sm text-slate-500 mt-0.5">Sociedad por Acciones Simplificada</div>
+                  </div>
+                </button>
+                <button class="d-tipo-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm" data-tipo="sa-crl" data-tipo-label="S.A. / Cía. Ltda.">
+                  <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                  </div>
+                  <div>
+                    <div class="font-sans text-base font-black text-constival-navy">S.A. / Cía. Ltda.</div>
+                    <div class="font-sans text-sm text-slate-500 mt-0.5">Requiere escritura pública notarial</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Proceso -->
+            <div id="d-step2" class="hidden">
+              <div class="flex items-center justify-between mb-8">
+                <span class="font-sans font-bold text-fine uppercase tracking-widest text-slate-400">Paso 2 de 3</span>
+                <button id="d-back1" class="font-sans text-xs font-bold text-constival-teal hover:text-constival-mint hover:underline transition-colors shrink-0 outline-none">← Volver</button>
+              </div>
+              <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">¿Qué proceso aplica?</h4>
+              <p class="font-sans text-sm text-slate-500 mb-8 leading-relaxed">Abreviado si no hay deudas. Ordinario si hay activos o pasivos por liquidar.</p>
+              <div class="flex flex-col gap-4">
+                <button class="d-proceso-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm" data-proceso="abreviado" data-proceso-label="Abreviado">
+                  <div class="w-10 h-10 rounded-full bg-constival-mint/20 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-constival-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                  </div>
+                  <div>
+                    <div class="font-sans text-base font-black text-constival-navy">Abreviado</div>
+                    <div class="font-sans text-sm text-slate-500 mt-0.5">Sin deudas, unanimidad, más rápido</div>
+                  </div>
+                </button>
+                <button class="d-proceso-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-left flex items-center gap-4 shadow-sm" data-proceso="ordinario" data-proceso-label="Ordinario">
+                  <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2"></path></svg>
+                  </div>
+                  <div>
+                    <div class="font-sans text-base font-black text-constival-navy">Ordinario</div>
+                    <div class="font-sans text-sm text-slate-500 mt-0.5">Con liquidación de activos o pasivos</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Socios -->
+            <div id="d-step3" class="hidden">
+              <div class="flex items-center justify-between mb-8">
+                <span class="font-sans font-bold text-fine uppercase tracking-widest text-slate-400">Paso 3 de 3</span>
+                <button id="d-back2" class="font-sans text-xs font-bold text-constival-teal hover:text-constival-mint hover:underline transition-colors shrink-0 outline-none">← Volver</button>
+              </div>
+              <h4 class="font-sans text-xl font-black text-constival-navy mb-3 leading-tight">¿Cuántos socios tiene la empresa?</h4>
+              <p class="font-sans text-sm text-slate-500 mb-8 leading-relaxed">El número de accionistas determina el honorario final.</p>
+              <div class="grid grid-cols-2 gap-4">
+                {[
+                  { val: "1", label: "Unipersonal", p_sas_ab: 157, p_sas_or: 187, p_sa_ab: 177, p_sa_or: 197 },
+                  { val: "2-3", label: "Socios", p_sas_ab: 197, p_sas_or: 217, p_sa_ab: 217, p_sa_or: 237 },
+                  { val: "4-6", label: "Socios", p_sas_ab: 237, p_sas_or: 257, p_sa_ab: 257, p_sa_or: 277 },
+                  { val: "7+", label: "Socios", p_sas_ab: 277, p_sas_or: 297, p_sa_ab: 297, p_sa_or: 317 },
+                ].map((s) => (
+                  <button
+                    class="d-socios-btn group p-5 bg-slate-50 rounded-xl border-2 border-slate-200 hover:border-constival-mint hover:bg-white transition-all duration-300 text-center shadow-sm"
+                    data-socios={s.val}
+                    data-label={s.val === "1" ? "1 Socio" : `${s.val} Socios`}
+                    data-sas-ab={s.p_sas_ab}
+                    data-sas-or={s.p_sas_or}
+                    data-sa-ab={s.p_sa_ab}
+                    data-sa-or={s.p_sa_or}
+                  >
+                    <div class="font-sans text-3xl font-black text-constival-navy group-hover:text-constival-mint transition-colors">{s.val}</div>
+                    <div class="font-sans text-xs font-bold text-slate-500 mt-2 uppercase tracking-wide">{s.label}</div>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <!-- Result -->
+            <div id="d-result" class="hidden">
+              <div class="flex items-center justify-between mb-8">
+                <span class="font-sans font-black text-fine uppercase tracking-widest text-[#0a1818]">Presupuesto Final</span>
+                <span class="px-3 py-1 bg-constival-mint text-constival-navy rounded-sm font-sans font-bold text-xs uppercase tracking-widest" id="d-badge">S.A.S. · Abreviado</span>
+              </div>
+              <div class="mb-8 p-6 bg-slate-50 border border-slate-200 rounded-xl text-center shadow-inner">
+                <p class="font-sans text-sm font-bold text-slate-500 mb-2 uppercase tracking-wide">Honorarios Profesionales:</p>
+                <div class="flex items-baseline justify-center gap-2">
+                  <span class="font-sans text-6xl sm:text-7xl font-black text-constival-navy leading-none tracking-tight" id="d-price">$157</span>
+                  <span class="font-sans text-base font-bold text-slate-400">+ IVA</span>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-3 mb-8">
+                <div class="bg-constival-navy text-white rounded-lg p-3 text-center shadow-md">
+                  <div class="font-sans font-black text-xl text-constival-mint leading-none">100%</div>
+                  <div class="font-sans text-[10px] sm:text-xs text-white/70 mt-1 uppercase tracking-wider font-bold">Legal</div>
+                </div>
+                <div class="bg-constival-navy text-white rounded-lg p-3 text-center shadow-md">
+                  <div class="font-sans font-black text-xl text-constival-mint leading-none" id="d-tiempo">3-8 sem.</div>
+                  <div class="font-sans text-[10px] sm:text-xs text-white/70 mt-1 uppercase tracking-wider font-bold">Plazo</div>
+                </div>
+                <div class="bg-constival-navy text-white rounded-lg p-3 text-center shadow-md">
+                  <div class="font-sans font-black text-xl text-constival-mint leading-none">$0</div>
+                  <div class="font-sans text-[10px] sm:text-xs text-white/70 mt-1 uppercase tracking-wider font-bold">Sorpresas</div>
+                </div>
+              </div>
+              <p id="d-nota-notarial" class="hidden font-sans text-xs text-amber-600 dark:text-amber-400 mb-4 p-3 bg-amber-50 rounded-lg border border-amber-200 leading-relaxed">
+                ⚠️ Como S.A. o Cía. Ltda., el proceso requiere escritura pública notarial. Los gastos notariales son adicionales y se detallarán en la cotización formal.
+              </p>
+              <a
+                id="d-whatsapp"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#25D366] hover:bg-[#1ebd5b] text-white font-sans font-black text-base uppercase tracking-wider transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-lg shadow-green-900/30 ring-4 ring-[#25D366]/20"
+              >
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+                INICIAR TRÁMITE AHORA
+              </a>
+              <button class="mt-6 w-full font-sans text-xs font-bold text-slate-400 hover:text-constival-mint transition-colors underline underline-offset-4" id="d-restart">
+                ← Recalcular con otras opciones
+              </button>
+              <p class="font-sans text-fine text-slate-400 mt-5 text-center leading-relaxed">
+                🔒 Honorarios fijos CONSTIVAL. Los gastos notariales y aranceles de SUPERCIAS se detallarán antes de firmar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Schema -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        serviceType: "Disolución y Liquidación de Empresas en Ecuador",
+        description: "Servicio legal integral para la disolución voluntaria, abreviada u ordinaria de SAS, S.A. y Cía. Ltda. ante la Superintendencia de Compañías en Ecuador.",
+        provider: { "@type": "LegalService", name: "Constival Legal", url: "https://constival.com/" },
+        areaServed: { "@type": "Country", name: "Ecuador" },
+        offers: {
+          "@type": "AggregateOffer",
+          lowPrice: "157",
+          highPrice: "317",
+          priceCurrency: "USD",
+          offerCount: "16",
+          url: "https://constival.com/servicios/disolucion-sociedades-ecuador",
+        },
+      })}
+    />
+  </div>
+</section>
+
+<script>
+  // Price matrix: [sas_ab, sas_or, sa_ab, sa_or]
+  let dTipo = "";
+  let dProceso = "";
+  let dSocios = "";
+  let dSociosData: Record<string, number> = {};
+  let dSociosLabel = "";
+
+  const s1 = document.getElementById("d-step1")!;
+  const s2 = document.getElementById("d-step2")!;
+  const s3 = document.getElementById("d-step3")!;
+  const res = document.getElementById("d-result")!;
+
+  document.querySelectorAll(".d-tipo-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      dTipo = (btn as HTMLElement).dataset.tipo!;
+      highlight(".d-tipo-btn", btn);
+      setTimeout(() => { s1.classList.add("hidden"); s2.classList.remove("hidden"); }, 250);
+    });
+  });
+
+  document.querySelectorAll(".d-proceso-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      dProceso = (btn as HTMLElement).dataset.proceso!;
+      highlight(".d-proceso-btn", btn);
+      setTimeout(() => { s2.classList.add("hidden"); s3.classList.remove("hidden"); }, 250);
+    });
+  });
+
+  document.querySelectorAll(".d-socios-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const el = btn as HTMLElement;
+      dSocios = el.dataset.socios!;
+      dSociosLabel = el.dataset.label!;
+      dSociosData = {
+        sas_ab: parseInt(el.dataset.sasAb!),
+        sas_or: parseInt(el.dataset.sasOr!),
+        sa_ab: parseInt(el.dataset.saAb!),
+        sa_or: parseInt(el.dataset.saOr!),
+      };
+      highlight(".d-socios-btn", btn);
+      setTimeout(() => { s3.classList.add("hidden"); res.classList.remove("hidden"); updateResult(); }, 250);
+    });
+  });
+
+  document.getElementById("d-back1")?.addEventListener("click", () => { s2.classList.add("hidden"); s1.classList.remove("hidden"); });
+  document.getElementById("d-back2")?.addEventListener("click", () => { s3.classList.add("hidden"); s2.classList.remove("hidden"); });
+
+  document.getElementById("d-restart")?.addEventListener("click", () => {
+    dTipo = ""; dProceso = ""; dSocios = "";
+    res.classList.add("hidden"); s1.classList.remove("hidden");
+    document.querySelectorAll(".d-tipo-btn, .d-proceso-btn, .d-socios-btn").forEach((b) => {
+      b.classList.remove("border-constival-mint", "bg-constival-mint/5");
+    });
+  });
+
+  function highlight(selector: string, active: Element) {
+    document.querySelectorAll(selector).forEach((b) => b.classList.remove("border-constival-mint", "bg-constival-mint/5"));
+    active.classList.add("border-constival-mint", "bg-constival-mint/5");
+  }
+
+  function updateResult() {
+    const key = (dTipo === "sas" ? "sas" : "sa") + "_" + (dProceso === "abreviado" ? "ab" : "or");
+    const price = dSociosData[key] ?? 157;
+    const tiempoEl = document.getElementById("d-tiempo")!;
+    tiempoEl.textContent = dProceso === "abreviado" ? "3-8 sem." : "2-6 meses";
+    (document.getElementById("d-price") as HTMLElement).textContent = `$${price}`;
+    const badgeText = `${dTipo === "sas" ? "S.A.S." : "S.A./Cía."} · ${dProceso === "abreviado" ? "Abreviado" : "Ordinario"} · ${dSociosLabel}`;
+    (document.getElementById("d-badge") as HTMLElement).textContent = badgeText;
+    const notaEl = document.getElementById("d-nota-notarial") as HTMLElement;
+    notaEl.classList.toggle("hidden", dTipo !== "sa-crl");
+    const msg = `Hola CONSTIVAL, usé el cotizador de disolución.\n\n*Mi configuración:*\n- Empresa: ${dTipo === "sas" ? "S.A.S." : "S.A. / Cía. Ltda."}\n- Proceso: ${dProceso === "abreviado" ? "Abreviado" : "Ordinario"}\n- Socios: ${dSociosLabel}\n- Honorario estimado: $${price} + IVA\n\nQuiero iniciar el proceso de disolución.`;
+    const wa = document.getElementById("d-whatsapp") as HTMLAnchorElement;
+    wa.href = `https://wa.me/593969503502?text=${encodeURIComponent(msg)}`;
+  }
+</script>
+
+<style>
+  @keyframes d-slide { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+</style>

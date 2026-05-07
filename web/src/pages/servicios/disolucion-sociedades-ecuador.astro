@@ -2,41 +2,33 @@
 import Layout from "../../layouts/Layout.astro";
 import Navbar from "../../components/Navbar.astro";
 import Footer from "../../components/Footer.astro";
+
 import DisolucionHero from "../../components/servicios/disolucion/DisolucionHero.astro";
-import DisolucionInclusiones from "../../components/servicios/disolucion/DisolucionInclusiones.astro";
+import DisolucionContexto from "../../components/servicios/disolucion/DisolucionContexto.astro";
+import DisolucionComparacion from "../../components/servicios/disolucion/DisolucionComparacion.astro";
 import DisolucionProceso from "../../components/servicios/disolucion/DisolucionProceso.astro";
 import DisolucionRequisitos from "../../components/servicios/disolucion/DisolucionRequisitos.astro";
 import DisolucionCotizador from "../../components/servicios/disolucion/DisolucionCotizador.astro";
 import DisolucionFaq from "../../components/servicios/disolucion/DisolucionFaq.astro";
 import DisolucionCtaFinal from "../../components/servicios/disolucion/DisolucionCtaFinal.astro";
 
-const canonicalUrl = new URL(Astro.url.pathname, Astro.site || "https://constival.com").href;
+const title = "Disuelve tu Empresa en Ecuador — SAS, S.A. y Cía. Ltda. | CONSTIVAL";
+const description =
+  "Disolución y liquidación de empresas en Ecuador desde $157+IVA. Proceso abreviado u ordinario ante la SUPERCIAS. Sin riesgos personales para los socios. Cancelación registral garantizada.";
+const canonicalUrl = "https://constival.com/servicios/disolucion-sociedades-ecuador";
 ---
 
-<Layout 
-  title="Disolución de Sociedades en Ecuador (SAS, SA, Cía Ltda) | Constival"
-  description="Gestión integral para la disolución voluntaria, abreviada u ordinaria de empresas ante la Superintendencia de Compañías. Evite multas y riesgos personales."
-  image="/og-disolucion.png"
->
-  <Fragment slot="head">
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="keywords" content="disolución de empresas ecuador, cerrar empresa ecuador, cancelar SAS ecuador, disolucion abreviada supercias, liquidacion compañias ecuador, constival" />
-  </Fragment>
-
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
   <Navbar />
-  
-  <main class="w-full relative overflow-x-hidden pt-20">
+  <main>
     <DisolucionHero />
-    <DisolucionInclusiones />
+    <DisolucionContexto />
+    <DisolucionComparacion />
     <DisolucionProceso />
     <DisolucionRequisitos />
     <DisolucionCotizador />
     <DisolucionFaq />
     <DisolucionCtaFinal />
   </main>
-
   <Footer />
 </Layout>

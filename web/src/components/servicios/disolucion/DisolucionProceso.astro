@@ -1,0 +1,191 @@
+---
+const fases = [
+  {
+    num: "01",
+    label: "Fase 1",
+    title: "Evaluación Inicial",
+    desc: "Revisión estatutaria completa: tipo de empresa, situación de pasivos, número de socios y causal de disolución. Determinamos si aplica proceso abreviado u ordinario.",
+  },
+  {
+    num: "02",
+    label: "Fase 2",
+    title: "Decisión Societaria",
+    desc: "Redacción del acta de junta general unánime aprobando la disolución, designando al liquidador (si aplica) y certificando la inexistencia de deudas con terceros.",
+  },
+  {
+    num: "03",
+    label: "Fase 3",
+    title: "Documentación y Solicitud",
+    desc: "Preparación de la escritura pública o documento privado (según tipo de empresa) más todos los documentos habilitantes requeridos por SUPERCIAS.",
+  },
+  {
+    num: "04",
+    label: "Fase 4",
+    title: "Aprobación y Publicación",
+    desc: "Presentación ante SUPERCIAS, seguimiento hasta la resolución de disolución. Gestión de publicaciones en el Registro Oficial si el proceso lo requiere.",
+  },
+  {
+    num: "05",
+    label: "Fase 5",
+    title: "Liquidación",
+    desc: "En procesos ordinarios: pago a acreedores, distribución del haber social entre socios y elaboración del balance final de liquidación con el contador.",
+  },
+  {
+    num: "06",
+    label: "Fase 6",
+    title: "Cancelación Registral",
+    desc: "Obtención de la razón de inscripción de cancelación en el Registro Mercantil y actualización del RUC ante el SRI. Su empresa queda formalmente cerrada.",
+  },
+];
+---
+
+<section
+  id="proceso-disolucion"
+  class="py-14 md:py-20 bg-white dark:bg-constival-navy overflow-hidden relative transition-colors duration-300"
+>
+  <!-- Ambient background -->
+  <div
+    class="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]"
+    style="background-image: linear-gradient(rgba(0,255,178,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,178,0.3) 1px, transparent 1px); background-size: 60px 60px;"
+  ></div>
+  <div
+    class="absolute right-0 top-1/4 w-[400px] h-[400px] bg-constival-teal/10 dark:bg-constival-teal/20 blur-[150px] rounded-full pointer-events-none"
+  ></div>
+
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <span
+        class="inline-block py-1.5 px-3 sm:py-2 sm:px-4 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint border-l-4 border-constival-teal dark:border-constival-mint mb-4 sm:mb-5 font-sans font-bold tracking-widest uppercase text-badge"
+      >
+        ¿Cómo funciona?
+      </span>
+      <h2
+        class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight leading-[1.1]"
+      >
+        Su empresa cerrada en <span class="text-constival-mint">6 fases</span>
+      </h2>
+      <p
+        class="font-sans text-body text-constival-navy/60 dark:text-slate-400 mt-4 max-w-xl mx-auto"
+      >
+        Nos encargamos del 100% del trámite ante SUPERCIAS y el Registro Mercantil. Usted solo firma.
+      </p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- MOBILE TIMELINE (visible < md) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="md:hidden relative">
+      <!-- Vertical line -->
+      <div
+        class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-constival-mint/50 via-constival-teal/30 to-transparent"
+      ></div>
+
+      <div class="space-y-10 pl-14">
+        {fases.map((fase) => (
+          <div class="relative">
+            <div
+              class="absolute -left-[3.25rem] top-0 w-10 h-10 flex items-center justify-center bg-constival-mint/10 dark:bg-constival-mint/20 border border-constival-mint/30"
+            >
+              <span class="font-sans font-black text-sm text-constival-mint">{fase.num}</span>
+            </div>
+            <span
+              class="inline-block font-sans text-fine font-bold text-constival-navy/40 dark:text-slate-500 uppercase tracking-widest mb-1"
+              >{fase.label}</span
+            >
+            <h3
+              class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-1"
+            >
+              {fase.title}
+            </h3>
+            <p
+              class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed"
+            >
+              {fase.desc}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- DESKTOP ZIGZAG TIMELINE (visible >= md) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="hidden md:block relative">
+      <!-- Central vertical line -->
+      <div
+        class="absolute left-1/2 -translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-constival-mint/60 via-constival-teal/30 to-transparent"
+      ></div>
+
+      <div class="space-y-0">
+        {fases.map((fase, index) => {
+          const isLeft = index % 2 === 0;
+          return (
+            <div class="relative flex items-center min-h-[180px]">
+              {isLeft ? (
+                <>
+                  <!-- Left content -->
+                  <div class="w-1/2 pr-12 lg:pr-16 text-right">
+                    <span class="inline-block font-sans text-fine font-bold text-constival-navy/40 dark:text-slate-500 uppercase tracking-widest mb-1.5">{fase.label}</span>
+                    <h3 class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-2">{fase.title}</h3>
+                    <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{fase.desc}</p>
+                  </div>
+                  <!-- Center number -->
+                  <div class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint shadow-[0_0_20px_rgba(0,255,178,0.15)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:rotate-3 group">
+                    <span class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 group-hover:text-constival-navy">{fase.num}</span>
+                  </div>
+                  <!-- Right (empty) -->
+                  <div class="w-1/2 pl-12 lg:pl-16"></div>
+                </>
+              ) : (
+                <>
+                  <!-- Left (empty) -->
+                  <div class="w-1/2 pr-12 lg:pr-16"></div>
+                  <!-- Center number -->
+                  <div class="absolute left-1/2 -translate-x-1/2 w-14 h-14 lg:w-16 lg:h-16 flex items-center justify-center z-10 bg-white dark:bg-constival-navy border-2 border-constival-mint/50 shadow-[0_0_20px_rgba(0,255,178,0.1)] cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-constival-mint hover:border-constival-mint hover:shadow-[0_0_30px_rgba(0,255,178,0.35)] hover:-rotate-3 group">
+                    <span class="font-sans font-black text-xl lg:text-2xl text-constival-mint transition-colors duration-300 group-hover:text-constival-navy">{fase.num}</span>
+                  </div>
+                  <!-- Right content -->
+                  <div class="w-1/2 pl-12 lg:pl-16">
+                    <span class="inline-block font-sans text-xs font-bold text-constival-navy/40 dark:text-slate-500 uppercase tracking-widest mb-1.5">{fase.label}</span>
+                    <h3 class="font-sans text-lg lg:text-xl font-bold text-constival-navy dark:text-white mb-2">{fase.title}</h3>
+                    <p class="font-sans text-sm text-constival-navy/60 dark:text-slate-400 leading-relaxed">{fase.desc}</p>
+                  </div>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- Bottom badge -->
+    <div class="mt-10 md:mt-14 flex justify-center">
+      <div
+        class="inline-flex items-center gap-3 px-5 py-3 bg-constival-mint/10 dark:bg-constival-mint/20 border border-constival-mint/20"
+      >
+        <svg
+          class="w-5 h-5 text-constival-mint shrink-0"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg
+        >
+        <span class="font-sans font-bold text-body text-constival-navy dark:text-white"
+          >Proceso abreviado estimado:
+          <span class="text-constival-mint">3 a 8 semanas hábiles</span></span
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  div:hover > .step-number {
+    color: #111622 !important;
+  }
+</style>
