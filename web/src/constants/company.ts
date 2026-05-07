@@ -78,16 +78,16 @@ export const CONSTIVAL_DATA = {
       title: "Registro de Marcas",
       shortDescription: "Protege tu propiedad intelectual a nivel nacional por 10 años.",
       subtitle: "Registro a 10 años ante el SENADI con búsquedas fonéticas. Asegura el control del activo más valioso que tienes.",
-      price: "Desde $300",
+      price: "Desde $295",
       currency: "USD",
       popular: false,
       features: [
-        "Búsqueda fonética previa ($40)",
+        "Búsqueda fonética previa ($29)",
         "Registro ante SENADI",
         "Protección a 10 años renovables",
         "Monitoreo de infracciones",
       ],
-        url: "/servicios/crear-sas-ecuador"
+        url: "/servicios/registro-marca-ecuador"
     },
     nombramientos: {
       title: "Protección de Directorio",

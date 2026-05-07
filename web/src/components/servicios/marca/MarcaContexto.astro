@@ -1,0 +1,75 @@
+---
+---
+
+<section class="py-14 md:py-16 bg-white dark:bg-[#0a0f1a] relative overflow-hidden transition-colors duration-300">
+  <div class="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]" style="background-image: linear-gradient(rgba(0,255,178,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,178,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+  <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl relative z-10">
+    <div class="text-center mb-10">
+      <span class="inline-block py-1.5 px-3 bg-red-500/10 dark:bg-red-500/20 text-red-600 dark:text-red-400 font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-red-500">
+        Riesgos de no Registrar tu Marca
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight">
+        Sin registro, tu marca <span class="text-red-500 dark:text-red-400">no te pertenece legalmente.</span>
+      </h2>
+      <p class="font-sans text-body text-constival-navy/60 dark:text-slate-400 mt-3 max-w-2xl mx-auto">
+        En Ecuador, la protección de marca opera bajo el principio de <strong class="text-constival-navy dark:text-white">primer registrante</strong>: quien primero registra, tiene el derecho. No quien primero usó la marca.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+      {[
+        {
+          title: "Terceros pueden registrar tu marca",
+          desc: "Si no registras tu marca hoy, otra persona o empresa puede hacerlo mañana. Legalmente, ellos tendrían el derecho de usarla y tú estarías cometiendo una infracción aunque la hayas usado por años.",
+        },
+        {
+          title: "No puedes bloquear copias ni competidores",
+          desc: "Sin registro, no tienes herramientas legales para impedir que competidores usen signos similares, copien tu logo o se presenten ante clientes como si fueran tú. El SENADI solo actúa cuando hay un titular registrado.",
+        },
+        {
+          title: "Pierdes años de inversión en branding",
+          desc: "Si construiste reconocimiento de marca durante años sin registro y un tercero te gana el registro, puedes ser obligado a cambiar tu nombre comercial, tu logo y todo tu material de comunicación. El daño es irreversible.",
+        },
+      ].map((item) => (
+        <div class="group relative bg-gray-50 dark:bg-constival-deep/50 p-6 border border-constival-navy/5 dark:border-white/5 hover:border-red-500/30 dark:hover:border-red-400/30 transition-all duration-500 overflow-hidden">
+          <div class="absolute top-0 left-0 h-0.5 w-0 bg-red-500 group-hover:w-full transition-all duration-700"></div>
+          <div class="text-red-500/10 dark:text-red-400/5 font-sans font-black text-6xl absolute -right-1 -top-2 select-none pointer-events-none">!</div>
+          <div class="relative z-10">
+            <div class="w-8 h-8 mb-4 text-red-500 dark:text-red-400">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+              </svg>
+            </div>
+            <h3 class="font-sans text-feature-title font-bold text-constival-navy dark:text-white mb-2">{item.title}</h3>
+            <p class="text-constival-navy/60 dark:text-slate-400 font-sans leading-relaxed text-body">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Highlight stat -->
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+      {[
+        { stat: "10 años", label: "de protección exclusiva en Ecuador" },
+        { stat: "6–12 m.", label: "tiempo promedio de resolución SENADI" },
+        { stat: "$295", label: "honorario fijo todo incluido" },
+      ].map((s) => (
+        <div class="text-center p-5 bg-gray-50 dark:bg-constival-deep/50 border border-constival-navy/5 dark:border-white/5">
+          <div class="font-sans text-2xl font-black text-constival-mint mb-1">{s.stat}</div>
+          <div class="font-sans text-fine text-constival-navy/60 dark:text-slate-500 font-bold uppercase tracking-wide">{s.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <p class="font-serif italic text-body text-constival-teal dark:text-constival-mint/70 mb-5">
+        "En propiedad intelectual, el tiempo es dinero y también es riesgo. Cada día sin registro es un día de exposición."
+      </p>
+      <a href="#widget-cotizador-marca" class="inline-flex items-center gap-2 font-sans font-bold text-body uppercase tracking-wider text-red-600 dark:text-red-400 bg-red-500/10 hover:bg-red-500/20 px-6 py-3 md:py-3.5 rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+        Proteger mi marca ahora
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+      </a>
+    </div>
+  </div>
+</section>

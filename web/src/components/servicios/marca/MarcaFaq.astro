@@ -1,0 +1,99 @@
+---
+const faqItems = [
+  {
+    q: "¿Cuánto tarda el registro de marca en Ecuador ante el SENADI?",
+    a: "El tiempo promedio es de 6 a 12 meses desde la presentación de la solicitud. El SENADI tiene un plazo máximo legal de 12 meses para resolver. El proceso incluye: examen de forma (15 días hábiles), publicación en Gaceta (30 días de oposición) y examen de fondo (hasta 6 meses). CONSTIVAL realiza seguimiento en cada etapa con actualizaciones vía WhatsApp."
+  },
+  {
+    q: "¿La marca registrada en Ecuador es exclusiva solo en el país?",
+    a: "Sí. El registro ante el SENADI otorga protección exclusiva dentro del territorio ecuatoriano por 10 años, renovables indefinidamente. Para protección en otros países se debe registrar en cada territorio o acudir al Sistema de Madrid (Protocolo de Madrid) para registro internacional simultáneo."
+  },
+  {
+    q: "¿Puedo registrar cualquier nombre, logo o diseño como marca?",
+    a: "No todos los signos son registrables. No pueden registrarse marcas genéricas (ej: 'Manzana' para vender manzanas), descriptivas, contrarias al orden público, iguales o confundibles con marcas previamente registradas, ni nombres geográficos. Por eso realizamos una búsqueda de anterioridades previa que minimiza el riesgo de rechazo antes de presentar la solicitud."
+  },
+  {
+    q: "¿Qué vigencia tiene una marca registrada en Ecuador?",
+    a: "10 años contados desde la fecha de concesión del registro. La marca es renovable por períodos iguales de 10 años, sin necesidad de probar uso de la marca. La renovación debe solicitarse dentro de los 6 meses anteriores al vencimiento o hasta 6 meses después (con recargo)."
+  },
+  {
+    q: "¿CONSTIVAL garantiza que el SENADI aprobará mi marca?",
+    a: "No. El SENADI es la autoridad que decide sobre la registrabilidad de cada marca, y ningún gestor puede garantizar la aprobación porque depende del análisis técnico-jurídico de la institución. Sin embargo, con la búsqueda previa de anterioridades y la preparación impecable de la solicitud, maximizamos significativamente las probabilidades de concesión y minimizamos rechazos y oposiciones."
+  },
+  {
+    q: "¿Puedo registrar la marca a nombre de mi empresa SAS?",
+    a: "Sí. Podemos registrar la marca a nombre de cualquier persona natural o jurídica, incluyendo tu Sociedad por Acciones Simplificada (SAS). Si tu empresa fue constituida con CONSTIVAL, el proceso es aún más ágil porque ya conocemos tu estructura societaria y RUC. También podemos vincular el registro de marca a tus estatutos si necesitas protección contractual adicional."
+  },
+];
+---
+
+<section class="py-14 md:py-16 bg-gray-50 dark:bg-[#090e1a] relative transition-colors duration-300" id="faq-marca">
+  <div class="container mx-auto px-6 md:px-12 max-w-[900px] relative z-10">
+    <div class="text-center mb-10">
+      <span class="inline-block py-1.5 px-3 bg-constival-teal/10 dark:bg-constival-teal/30 text-constival-teal dark:text-constival-mint font-sans font-bold tracking-widest uppercase text-badge mb-4 border-l-4 border-constival-teal dark:border-constival-mint">
+        Preguntas Frecuentes
+      </span>
+      <h2 class="font-sans text-section-title font-extrabold text-constival-navy dark:text-white tracking-tight mb-2">
+        Lo que todo empresario <span class="text-constival-mint">necesita saber.</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3" id="marca-faq-accordion">
+      {faqItems.map((item) => (
+        <div class="border border-constival-navy/5 dark:border-white/5 group" data-marca-faq-item>
+          <button
+            class="w-full flex items-center justify-between text-left p-4 md:p-5 font-sans font-bold text-body text-constival-navy dark:text-white hover:text-constival-mint dark:hover:text-constival-mint transition-colors"
+            data-marca-faq-trigger
+            aria-expanded="false"
+          >
+            <span class="pr-4">{item.q}</span>
+            <svg class="w-5 h-5 shrink-0 text-constival-navy/30 dark:text-white/30 transition-transform duration-300 marca-faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out" data-marca-faq-content>
+            <p class="px-4 md:px-5 pb-4 md:pb-5 font-sans text-body text-constival-navy/60 dark:text-slate-400 leading-relaxed">{item.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+    publisher: { "@id": "https://constival.com/#organization" },
+  })} />
+</section>
+
+<script>
+  document.querySelectorAll("[data-marca-faq-trigger]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const item = (trigger as HTMLElement).closest("[data-marca-faq-item]")!;
+      const content = item.querySelector("[data-marca-faq-content]") as HTMLElement;
+      const icon = item.querySelector(".marca-faq-icon") as HTMLElement;
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll("[data-marca-faq-item]").forEach((other) => {
+        if (other !== item) {
+          (other.querySelector("[data-marca-faq-content]") as HTMLElement).style.maxHeight = "0";
+          (other.querySelector(".marca-faq-icon") as HTMLElement)?.classList.remove("rotate-180");
+          other.querySelector("[data-marca-faq-trigger]")!.setAttribute("aria-expanded", "false");
+        }
+      });
+      if (isOpen) {
+        content.style.maxHeight = "0";
+        icon?.classList.remove("rotate-180");
+        trigger.setAttribute("aria-expanded", "false");
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        icon?.classList.add("rotate-180");
+        trigger.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+</script>

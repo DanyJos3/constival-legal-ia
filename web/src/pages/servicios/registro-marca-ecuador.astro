@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+
+import MarcaHero from "../../components/servicios/marca/MarcaHero.astro";
+import MarcaContexto from "../../components/servicios/marca/MarcaContexto.astro";
+import MarcaTipos from "../../components/servicios/marca/MarcaTipos.astro";
+import MarcaProceso from "../../components/servicios/marca/MarcaProceso.astro";
+import MarcaRequisitos from "../../components/servicios/marca/MarcaRequisitos.astro";
+import MarcaCotizador from "../../components/servicios/marca/MarcaCotizador.astro";
+import MarcaFaq from "../../components/servicios/marca/MarcaFaq.astro";
+import MarcaCtaFinal from "../../components/servicios/marca/MarcaCtaFinal.astro";
+
+const title = "Registro de Marca en Ecuador ante el SENADI — Desde $295 | CONSTIVAL";
+const description =
+  "Registra tu marca en Ecuador ante el SENADI desde $295 + IVA. Búsqueda previa de anterioridades, seguimiento completo del trámite y obtención del Título de Registro. Protección exclusiva por 10 años.";
+const canonicalUrl = "https://constival.com/servicios/registro-marca-ecuador";
+const dateModified = "2026-05-07";
+const datePublished = "2026-05-07";
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}/#webpage`,
+  url: canonicalUrl,
+  name: title,
+  description,
+  datePublished,
+  dateModified,
+  inLanguage: "es-EC",
+  isPartOf: { "@id": "https://constival.com/#website" },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["#inicio-marca h1", "#faq-marca"],
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: "https://constival.com/" },
+      { "@type": "ListItem", position: 2, name: "Servicios", item: "https://constival.com/servicios/" },
+      { "@type": "ListItem", position: 3, name: "Registro de Marca", item: canonicalUrl },
+    ],
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://constival.com/images/og-image.png",
+  },
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Cómo registrar una marca en Ecuador ante el SENADI",
+  description:
+    "Proceso completo para el registro de marca (denominativa, mixta o figurativa) en Ecuador ante el Servicio Nacional de Derechos Intelectuales (SENADI), conforme al COESCCI.",
+  totalTime: "P12M",
+  estimatedCost: { "@type": "MonetaryAmount", currency: "USD", minValue: "295", maxValue: "295" },
+  step: [
+    { "@type": "HowToStep", position: 1, name: "Contacto y Cotización", text: "Envío de datos de la marca y recepción de cotización fija en el día." },
+    { "@type": "HowToStep", position: 2, name: "Búsqueda de Anterioridades", text: "Búsqueda fonética y visual en la base de datos SENADI para detectar marcas idénticas o confundibles. Resultado en 2–5 días." },
+    { "@type": "HowToStep", position: 3, name: "Presentación de Solicitud", text: "Elaboración del formulario con descripción, reproducción de marca, clase Niza y lista de productos/servicios. Presentación ante SENADI vía casillero virtual." },
+    { "@type": "HowToStep", position: 4, name: "Examen de Forma y Publicación en Gaceta", text: "SENADI verifica requisitos formales en 15 días hábiles. Publicación en Gaceta por 30 días para posibles oposiciones." },
+    { "@type": "HowToStep", position: 5, name: "Examen de Fondo y Resolución", text: "Análisis de registrabilidad por el SENADI. Plazo máximo 6 meses. Se gestionan recursos si aplica." },
+    { "@type": "HowToStep", position: 6, name: "Emisión del Título de Registro", text: "El SENADI emite el título con firma digital. Protección exclusiva en Ecuador por 10 años, renovable indefinidamente." },
+  ],
+};
+---
+
+<Layout title={title} description={description} canonicalUrl={canonicalUrl}>
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} slot="head" />
+
+  <Navbar />
+  <main>
+    <MarcaHero />
+    <MarcaContexto />
+    <MarcaTipos />
+    <MarcaProceso />
+    <MarcaRequisitos />
+    <MarcaCotizador />
+    <MarcaFaq />
+    <MarcaCtaFinal />
+  </main>
+  <Footer />
+</Layout>
