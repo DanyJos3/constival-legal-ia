@@ -1,9 +1,10 @@
 ---
 import Button from "./ui/Button.astro";
-import ThemeToggle from "./ThemeToggle.astro";
+// import ThemeToggle from "./ThemeToggle.astro";
 
-const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
-const isSasEcuadorLp = pathname === "/servicios/crear-sas-ecuador";
+// const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+// const isSasEcuadorLp = pathname === "/servicios/crear-sas-ecuador";
+const isSasEcuadorLp = false;
 const homeHash = (id: string) =>
   isSasEcuadorLp ? `/servicios/crear-sas-ecuador#${id}` : `/#${id}`;
 ---
@@ -57,19 +58,11 @@ const homeHash = (id: string) =>
       >
       <a
         class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint transition-all"
-        href="/#configurador">Simulador</a
-      >
-      <!-- <a
-        class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint transition-all"
-        href="/#precios">Precios</a
-      > -->
-      <a
-        class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint transition-all"
-        href="/#faq">Preguntas Frecuentes</a
+        href="/blog">Blog</a
       >
       <a
         class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint transition-all"
-        href="/blog">Blog & Recursos</a
+        href="/contactanos">Contacto</a
       >
       <a
         class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint dark:hover:text-constival-mint border-b-2 border-transparent hover:border-constival-mint transition-all"
@@ -177,19 +170,11 @@ const homeHash = (id: string) =>
     >
     <a
       class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link"
-      href="/#configurador">Simulador</a
-    >
-    <!-- <a
-      class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link"
-      href="/#precios">Precios</a
-    > -->
-    <a
-      class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link"
-      href="/#faq">FAQ</a
+      href="/blog">Blog</a
     >
     <a
       class="text-3xl font-bold text-white hover:text-constival-mint transition-colors mobile-link"
-      href="/blog">Blog & Recursos</a
+      href="/contactanos">Contacto</a
     >
     <div class="mt-4">
       <!-- TRACKING: mobile_cta_diagnostico -->

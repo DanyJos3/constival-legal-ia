@@ -90,7 +90,7 @@ export const CONSTIVAL_DATA = {
         url: "/servicios/registro-marca-ecuador"
     },
     nombramientos: {
-      title: "Protección de Directorio",
+      title: "Nombramientos",
       shortDescription: "Evita el bloqueo de tus cuentas bancarias corporativas.",
       subtitle: "Inscribimos cambios de representantes y gerentes para evitar el congelamiento automático de tus cuentas bancarias.",
       price: "Desde $75",
@@ -105,7 +105,7 @@ export const CONSTIVAL_DATA = {
         url: "/servicios/nombramientos-ecuador"
     },
     cesiones: {
-      title: "Traspaso Acordado (Cesiones)",
+      title: "Transferencia de Acciones",
       shortDescription: "Transfiere acciones legalmente y sin contingencias fiscales.",
       subtitle: "Transferencia accionaria 100% legalizada en libros societarios y notificada en portales gubernamentales.",
       price: "Desde $149",
@@ -120,7 +120,7 @@ export const CONSTIVAL_DATA = {
         url: "/servicios/cesion-acciones-participaciones-ecuador"
     },
     disolucion: {
-      title: "Disolución y Cierre",
+      title: "Disolución y Cierre de empresas",
       shortDescription: "Cierre seguro de empresas, liquidación y cancelación de RUC.",
       subtitle: "Gestionamos la disolución voluntaria, abreviada u ordinaria ante la Superintendencia de Compañías para evitar riesgos legales.",
       price: "Desde $157",

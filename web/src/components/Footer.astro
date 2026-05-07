@@ -8,9 +8,8 @@ const { info } = CONSTIVAL_DATA;
   class="bg-gray-50 dark:bg-[#161b28] border-t border-constival-navy/10 dark:border-constival-mint/10 py-4 transition-colors duration-300"
 >
   <div class="container mx-auto px-6 md:px-12 lg:px-16 max-w-7xl">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 py-10">
-      <!-- <div class="lg:col-span-2 text-center justify-center items-center"> -->
-      <div class="col-span-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 py-10">
+      <div class="sm:col-span-2">
         <div class="flex items-center gap-2">
           <img
             src="/isotipo-2.svg"
@@ -37,19 +36,62 @@ const { info } = CONSTIVAL_DATA;
         <p
           class="font-sans text-constival-navy dark:text-white font-bold uppercase tracking-widest text-xs mb-5"
         >
-          Navegación
+          Servicios
         </p>
         <ul class="space-y-3 font-sans text-xs">
           <li>
             <a
               class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
-              href="#servicios">Servicios</a>
+              href="/servicios/crear-sas-ecuador">Constitución SAS</a>
           </li>
-          <!-- <li><a class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors" href="#precios">Precios</a></li> -->
           <li>
             <a
               class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
-              href="#faq">Preguntas Frecuentes</a>
+              href="/servicios/registro-marca-ecuador">Registro de Marca</a>
+          </li>
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/servicios/nombramientos-ecuador">Nombramientos</a>
+          </li>
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/servicios/reforma-estatutos-ecuador">Reforma de Estatutos</a>
+          </li>
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/servicios/cesion-acciones-participaciones-ecuador">Cesión de Acciones</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p
+          class="font-sans text-constival-navy dark:text-white font-bold uppercase tracking-widest text-xs mb-5"
+        >
+          Compañía
+        </p>
+        <ul class="space-y-3 font-sans text-xs">
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/">Inicio</a>
+          </li>
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/blog">Blog & Recursos</a>
+          </li>
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/contactanos">Contáctanos</a>
+          </li>
+          <li>
+            <a
+              class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors"
+              href="/#faq">Preguntas Frecuentes</a>
           </li>
         </ul>
       </div>
@@ -60,20 +102,20 @@ const { info } = CONSTIVAL_DATA;
           Contacto
         </p>
         <ul class="space-y-3 font-sans text-xs">
-          <li
-            class="text-constival-navy/70 dark:text-slate-400 flex items-center gap-3"
-          >
-            {info.contact.address}
+          <li>
+            <a href="/contactanos" class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors flex items-center gap-3">
+              {info.contact.address}
+            </a>
           </li>
-          <li
-            class="text-constival-navy/70 dark:text-slate-400 flex items-center gap-3"
-          >
-            {info.contact.phone}
+          <li>
+            <a href={`https://wa.me/593${info.contact.phone.substring(1)}?text=Hola%20Constival,%20necesito%20asesoría`} target="_blank" rel="noopener noreferrer" class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors flex items-center gap-3">
+              {info.contact.phone}
+            </a>
           </li>
-          <li
-            class="text-constival-navy/70 dark:text-slate-400 flex items-center gap-3"
-          >
-            {info.contact.email}
+          <li>
+            <a href={`mailto:${info.contact.email}`} class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors flex items-center gap-3">
+              {info.contact.email}
+            </a>
           </li>
           <li class="flex items-center gap-4 pt-2">
             <a href={info.contact.socials.instagram} target="_blank" rel="noopener noreferrer" class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors" aria-label="Instagram">
@@ -81,6 +123,9 @@ const { info } = CONSTIVAL_DATA;
             </a>
             <a href={info.contact.socials.facebook} target="_blank" rel="noopener noreferrer" class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors" aria-label="Facebook">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+            </a>
+            <a href={`https://wa.me/593${info.contact.phone.substring(1)}?text=Hola%20Constival,%20necesito%20asesoría`} target="_blank" rel="noopener noreferrer" class="text-constival-navy/70 dark:text-slate-400 hover:text-constival-mint transition-colors" aria-label="WhatsApp">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.996 2.015c-5.508 0-9.98 4.472-9.98 9.98 0 1.956.513 3.844 1.488 5.512l-1.464 5.342 5.467-1.435c1.621.892 3.46 1.365 5.352 1.365 5.508 0 9.98-4.472 9.98-9.98 0-5.508-4.472-9.98-9.98-9.98zm0 18.256c-1.65 0-3.264-.424-4.697-1.228l-.337-.19-3.486.915.932-3.398-.208-.33a8.232 8.232 0 01-1.265-4.41c0-4.542 3.696-8.238 8.238-8.238s8.238 3.696 8.238 8.238-3.696 8.238-8.238 8.238zm4.512-6.17c-.247-.124-1.465-.724-1.692-.808-.227-.082-.392-.124-.557.124-.165.247-.64 .808-.784.973-.144.165-.289.185-.536.062-1.127-.565-2.062-1.11-2.883-2.222-.211-.285-.015-.41.109-.533.111-.111.247-.289.371-.433.124-.144.165-.247.247-.412.082-.165.041-.31-.021-.433-.062-.124-.557-1.343-.763-1.838-.2-.484-.402-.418-.557-.426h-.475c-.165 0-.433.062-.66.31-.227.247-.866.845-.866 2.061 0 1.216.887 2.392 1.01 2.557.124.165 1.743 2.662 4.223 3.731.59.254 1.049.406 1.408.52.593.188 1.133.161 1.558.098.474-.07 1.465-.598 1.671-1.175.206-.577.206-1.072.144-1.175-.062-.103-.227-.165-.474-.289z"/></svg>
             </a>
           </li>
         </ul>
