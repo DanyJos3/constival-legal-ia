@@ -11,7 +11,7 @@ const description =
   "Escríbenos por WhatsApp, email o llámanos. Oficinas en Quito. Respuesta en menos de 24 horas. Consulta inicial gratuita para tu empresa.";
 
 // La URL se lee de la variable de entorno — nunca queda hardcodeada en el repo
-const sheetsEndpoint = import.meta.env.PUBLIC_SHEETS_ENDPOINT ?? "";
+const sheetsEndpoint = import.meta.env.SHEETS_KEY ?? "";
 ---
 
 <Layout
@@ -504,9 +504,9 @@ const sheetsEndpoint = import.meta.env.PUBLIC_SHEETS_ENDPOINT ?? "";
         <div
           class="relative w-full h-[400px] md:h-[500px] overflow-hidden border border-constival-navy/10 dark:border-white/10 shadow-xl rounded-2xl"
         >
-          <LeafletMap 
-            lat={-0.180436} 
-            lng={-78.47959} 
+          <LeafletMap
+            lat={-0.180436}
+            lng={-78.47959}
             title="CONSTIVAL (Space Cowork)"
             address="Av. Republica de El Salvador 170135, Ed. Prisma Norte"
           />
