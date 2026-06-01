@@ -611,6 +611,10 @@ const sheetsEndpoint = import.meta.env.SHEETS_KEY ?? "";
       form.classList.add("hidden");
       successEl.classList.remove("hidden");
       successEl.classList.add("flex");
+      
+      if (typeof window.trackEvent === "function") {
+        window.trackEvent("form_submitted", { form_name: "contact_page", service_interest: formData.get("servicio") });
+      }
     } catch (_) {
       errorEl.textContent =
         "Hubo un error al enviar. Escríbenos directamente por WhatsApp.";

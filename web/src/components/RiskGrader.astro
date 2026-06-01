@@ -302,6 +302,10 @@ const totalQuestions = auditData.questions.length;
       () => resultStep?.classList.replace("opacity-0", "opacity-100"),
       50,
     );
+
+    if (typeof window.trackEvent === "function") {
+      window.trackEvent("risk_audit_completed", { risk_level: analysis.severity });
+    }
   }
 
   restartBtn?.addEventListener("click", () => {

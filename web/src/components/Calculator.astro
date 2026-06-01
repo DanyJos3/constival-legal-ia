@@ -235,6 +235,10 @@ const { calculator } = CONSTIVAL_DATA;
     if (waBtn) {
       waBtn.href = `https://wa.me/593969503502?text=${encodeURIComponent(waMessage)}`;
     }
+
+    if (typeof window.trackEvent === "function") {
+      window.trackEvent("calculator_completed", { result_structure: winner });
+    }
   }
 
   // Restart

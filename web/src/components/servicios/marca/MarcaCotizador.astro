@@ -237,6 +237,10 @@
         const msg = `Hola CONSTIVAL, usé el cotizador de marca.\n\n*Servicio seleccionado:* ${label}\n*Honorario estimado:* $${precio} + IVA\n\nQuiero iniciar el proceso de registro de marca en Ecuador.`;
         const wa = document.getElementById("m-whatsapp") as HTMLAnchorElement;
         wa.href = `https://wa.me/593969503502?text=${encodeURIComponent(msg)}`;
+        
+        if (typeof (window as any).trackEvent === "function") {
+          (window as any).trackEvent("calculator_completed", { service: "Registro de Marca", result: label });
+        }
       }, 200);
     });
   });

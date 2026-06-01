@@ -212,6 +212,10 @@
         const msg = `Hola CONSTIVAL, usé el cotizador de cesión.\n\n*Mi empresa:* ${label}\n*Honorario estimado:* $${precio} + IVA\n\nQuiero iniciar el proceso de cesión de acciones/participaciones.`;
         const wa = document.getElementById("c-whatsapp") as HTMLAnchorElement;
         wa.href = `https://wa.me/593969503502?text=${encodeURIComponent(msg)}`;
+
+        if (typeof (window as any).trackEvent === "function") {
+          (window as any).trackEvent("calculator_completed", { service: "Cesion de Acciones", result: label });
+        }
       }, 200);
     });
   });

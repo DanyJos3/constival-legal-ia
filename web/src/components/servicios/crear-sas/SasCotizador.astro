@@ -678,6 +678,10 @@ import Button from "../../ui/Button.astro";
       if (waBtn) {
         waBtn.href = `https://wa.me/593969503502?text=${encodeURIComponent(waMessage)}`;
       }
+      
+      if (typeof window.trackEvent === "function") {
+        window.trackEvent("calculator_completed", { service: "Constitucion SAS", result: selectedLabel });
+      }
     }
   </script>
 

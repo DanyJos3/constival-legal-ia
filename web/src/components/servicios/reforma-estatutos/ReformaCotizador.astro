@@ -374,6 +374,10 @@ const incluye = [
       if (ctaEl) {
         ctaEl.href = `https://wa.me/593969503502?text=Hola%20Constival%2C%20utilic%C3%A9%20el%20cotizador%20para%20una%20reforma%20de%20estatutos.%0A%0A*Mi%20configuraci%C3%B3n%3A*%0A-%20Figura%3A%20${empLabel}%0A-%20Socios%3A%20${selSocios}%0A-%20Reforma%3A%20${msgMap[selTipo]}%0A-%20Presupuesto%3A%20${datos[0]}%20%28B%C3%A1sico%29%20%2F%20${datos[1]}%20%28Pro%29%0A%0AQuiero%20iniciar%20el%20tr%C3%A1mite.`;
       }
+      
+      if (typeof (window as any).trackEvent === "function") {
+        (window as any).trackEvent("calculator_completed", { service: "Reforma de Estatutos", result: datos[0] });
+      }
     }
 
     // Step 1 clicks

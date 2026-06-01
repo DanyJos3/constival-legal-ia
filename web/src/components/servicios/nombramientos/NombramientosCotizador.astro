@@ -316,6 +316,10 @@ const incluye = [
       if (ctaEl) {
         ctaEl.href = `https://wa.me/593969503502?text=Hola%20Constival%2C%20utilic%C3%A9%20el%20cotizador%20de%20nombramientos.%0A%0A*Mi%20configuraci%C3%B3n%3A*%0A-%20Figura%3A%20${empLabel}%0A-%20Tr%C3%A1mite%3A%20${tipoLabel}%0A-%20Presupuesto%3A%20${precio}%20%2B%20IVA%0A%0AQuiero%20iniciar%20el%20tr%C3%A1mite.`;
       }
+      
+      if (typeof window.trackEvent === "function") {
+        window.trackEvent("calculator_completed", { service: "Nombramientos", result: nombLabels[selTipo] });
+      }
     }
 
     // Step 1 clicks

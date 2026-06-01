@@ -315,6 +315,10 @@
     const msg = `Hola CONSTIVAL, usé el cotizador de disolución.\n\n*Mi configuración:*\n- Empresa: ${dTipo === "sas" ? "S.A.S." : "S.A. / Cía. Ltda."}\n- Proceso: ${dProceso === "abreviado" ? "Abreviado" : "Ordinario"}\n- Socios: ${dSociosLabel}\n- Honorario estimado: $${price} + IVA\n\nQuiero iniciar el proceso de disolución.`;
     const wa = document.getElementById("d-whatsapp") as HTMLAnchorElement;
     wa.href = `https://wa.me/593969503502?text=${encodeURIComponent(msg)}`;
+
+    if (typeof window.trackEvent === "function") {
+      window.trackEvent("calculator_completed", { service: "Disolucion", result: badgeText });
+    }
   }
 </script>
 
