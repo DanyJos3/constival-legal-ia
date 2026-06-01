@@ -120,7 +120,7 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
     <!-- Self-hosted font preloads (critical fonts only — reduces LCP) -->
     <link
       rel="preload"
-      href="/fonts/outfit/outfit-700.woff2"
+      href="/fonts/outfit/outfit-800.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -132,32 +132,22 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
       type="font/woff2"
       crossorigin
     />
-
-    <!-- Preload hero background (LCP element) -->
     <link
       rel="preload"
-      href="/images/hero-bg.webp"
-      as="image"
-      type="image/webp"
+      href="/fonts/playfair-display/playfair-italic.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     <!-- Prevenir flashazo blanco y checkear tema -->
     <script is:inline>
-      const getThemePreference = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        // Si no hay preferencia guardada, sugerimos 'dark' por defecto
-        // ya que resalta mejor la paleta corporativa y los CTAs.
-        // Opcional: descomentar la siguiente línea para seguir el sistema operativo.
-        // return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        return "dark";
-      };
-      const isDark = getThemePreference() === "dark";
-      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+      // Forzar tema oscuro (Dark Mode) incondicionalmente
+      // y limpiar/sobreescribir cualquier preferencia de 'light' guardada previamente.
+      if (typeof localStorage !== "undefined") {
+        localStorage.setItem("theme", "dark");
+      }
+      document.documentElement.classList.add("dark");
     </script>
   </head>
   <body

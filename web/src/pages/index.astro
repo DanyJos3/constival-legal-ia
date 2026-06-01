@@ -23,6 +23,15 @@ import { CONSTIVAL_DATA } from "../constants/company";
   description="Estructuras societarias blindadas para escalar tu empresa en Ecuador. Constitución S.A.S., reformas, registro de marcas y blindaje corporativo 100% digital. Arquitectos Legales."
   contact={CONSTIVAL_DATA.info.contact}
 >
+  <Fragment slot="head">
+    <!-- Preload hero background (LCP element) only on homepage -->
+    <link
+      rel="preload"
+      href="/images/hero-bg.webp"
+      as="image"
+      type="image/webp"
+    />
+  </Fragment>
   <Navbar />
   <main>
     <Hero />
