@@ -116,6 +116,8 @@
   --animate-slide-up: slide-up 0.5s ease-out both;
   --animate-slide-in-right: slide-in-right 0.4s ease-out both;
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-slide-up-sheet: slide-up-sheet 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-out: fade-out 0.3s ease-out both;
 }
 
 /* ========================
@@ -239,4 +241,14 @@ html {
 
 .animate-marquee:has(.carousel-card:hover) {
   animation-play-state: paused;
+}
+
+@keyframes slide-up-sheet {
+  from { opacity: 0; transform: translateY(100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }

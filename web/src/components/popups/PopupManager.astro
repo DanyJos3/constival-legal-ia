@@ -1,158 +1,551 @@
 ---
+/**
+ * PopupManager.astro — Sistema inteligente de popups WhatsApp-first
+ *
+ * Reglas de negocio:
+ *  1. Máximo 1 popup por sesión (sessionStorage)
+ *  2. Engagement mínimo de 15 s antes de cualquier popup
+ *  3. Prioridad: Scroll (60 %+25 s) → Exit (2.° mouseout+15 s) → Time (55 s / 70 s)
+ *  4. Exclusiones: /contactanos, post-interacción cotizador, post-click WA CTA
+ *  5. Cooldowns (localStorage): exit 7 d, scroll 14 d, time 3 d
+ *  6. Mobile: time-delayed usa bottom-sheet, exit usa scroll-up detection
+ *  7. Accesibilidad: Escape, focus trap, aria-modal
+ */
 ---
-<!-- Exit Intent Popup -->
-<div id="popup-exit" class="fixed inset-0 z-[60] hidden items-center justify-center p-4" role="dialog" aria-modal="true">
+
+<!-- ═══════════════════════════════════════════════════
+     1. EXIT INTENT POPUP  (modal centrado)
+     ═══════════════════════════════════════════════════ -->
+<div
+  id="popup-exit"
+  class="fixed inset-0 z-[60] hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Popup de salida"
+>
   <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="popup-exit-overlay"></div>
   <div class="relative bg-constival-navy w-full max-w-lg p-8 md:p-12 overflow-hidden animate-slide-up">
     <!-- Ambient glow -->
     <div class="absolute top-0 right-0 w-64 h-64 bg-constival-teal/30 blur-[100px] rounded-full pointer-events-none"></div>
-    
-    <button id="popup-exit-close" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors z-10" aria-label="Cerrar">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+
+    <button
+      id="popup-exit-close"
+      class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center text-slate-500 hover:text-white transition-colors z-10 rounded-full hover:bg-white/10"
+      aria-label="Cerrar"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
     </button>
-    
+
     <div class="relative z-10">
-      <span class="inline-block py-1 px-3 bg-red-500/10 text-red-400 font-sans font-bold tracking-widest uppercase text-[10px] mb-6 border-l-2 border-red-500">Alerta Preventiva</span>
-      <h3 class="font-sans text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">¿Te vas dejando tu empresa vulnerable?</h3>
-      <p class="font-sans text-sm text-slate-400 mb-8 leading-relaxed">Descarga gratis nuestro <strong class="text-white">"Checklist de Blindaje S.A.S."</strong> y descubre si tus estatutos actuales resistirían una auditoría de la Superintendencia de Compañías.</p>
-      
-      <div class="flex flex-col gap-3">
-        <input type="email" placeholder="Tu email corporativo" class="w-full px-4 py-3.5 bg-constival-deep border border-constival-teal/20 text-white font-sans text-sm placeholder:text-slate-600 focus:border-constival-mint focus:outline-none transition-colors" id="exit-email" />
-        <!-- TRACKING: exit_intent_checklist_download -->
-        <button class="w-full px-6 py-3.5 bg-constival-mint text-constival-navy font-sans font-bold text-sm uppercase tracking-wider hover:bg-constival-mint/80 transition-colors" id="exit-submit">
-          Descargar Checklist Gratuito
-        </button>
-      </div>
-      <button class="mt-4 font-sans text-xs text-slate-600 hover:text-slate-400 transition-colors italic cursor-pointer" id="popup-exit-dismiss">
-        No gracias, asumo los riesgos legales actuales de mi empresa.
+      <span id="exit-badge" class="inline-block py-1 px-3 bg-red-500/10 text-red-400 font-sans font-bold tracking-widest uppercase text-[10px] mb-6 border-l-2 border-red-500">⚡ Antes de irte</span>
+      <h3 id="exit-headline" class="font-sans text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">¿Tu empresa está operando sin blindaje legal?</h3>
+      <p id="exit-subheadline" class="font-sans text-sm text-slate-400 mb-8 leading-relaxed">El 78% de las SAS en Ecuador usan estatutos genéricos. Un diagnóstico de 15 minutos puede revelarte vacíos críticos. <strong class="text-white">Sin costo.</strong></p>
+
+      <!-- WhatsApp CTA -->
+      <a
+        id="exit-wa-btn"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-3 w-full px-6 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-sans font-black text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+      >
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+        <span id="exit-btn-text">Solicitar Diagnóstico por WhatsApp</span>
+      </a>
+
+      <button class="mt-4 w-full text-center font-sans text-xs text-slate-600 hover:text-slate-400 transition-colors italic cursor-pointer" id="popup-exit-dismiss">
+        <span id="exit-dismiss-text">No, mi empresa está protegida.</span>
       </button>
     </div>
   </div>
 </div>
 
-<!-- Scroll Slide-In (50%) -->
+
+<!-- ═══════════════════════════════════════════════════
+     2. SCROLL SLIDE-IN  (esquina inferior derecha)
+     ═══════════════════════════════════════════════════ -->
 <div id="popup-scroll" class="fixed bottom-6 right-6 z-[60] hidden max-w-sm w-full animate-slide-in-right">
   <div class="bg-constival-deep border-t-4 border-constival-mint p-6 shadow-2xl relative">
-    <button id="popup-scroll-close" class="absolute top-3 right-3 text-slate-500 hover:text-white transition-colors" aria-label="Cerrar">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    <button
+      id="popup-scroll-close"
+      class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-white transition-colors rounded-full hover:bg-white/10"
+      aria-label="Cerrar"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
     </button>
-    <span class="font-sans font-bold tracking-widest uppercase text-[10px] text-constival-mint mb-3 block">Protección Empresarial Integral</span>
-    <h4 class="font-sans text-lg font-bold text-white mb-2 leading-snug">Tu estatuto debe ser tu mayor escudo, no tu mayor debilidad.</h4>
-    <p class="font-sans text-xs text-slate-400 mb-5 leading-relaxed">Arquitectamos negocios estables que blindan tu patrimonio personal.</p>
-    <!-- TRACKING: scroll_slidein_cta -->
-    <a href="#configurador" class="inline-flex items-center gap-2 font-sans font-bold text-constival-mint uppercase text-xs tracking-wider hover:translate-x-1 transition-transform">
-      Conocer la Metodología →
+
+    <span id="scroll-kicker" class="font-sans font-bold tracking-widest uppercase text-[10px] text-constival-mint mb-3 block">Protección Empresarial</span>
+    <h4 id="scroll-headline" class="font-sans text-lg font-bold text-white mb-2 leading-snug pr-6">Tu estatuto debe ser tu escudo, no tu debilidad.</h4>
+    <p id="scroll-subline" class="font-sans text-xs text-slate-400 mb-5 leading-relaxed">Arquitectamos negocios estables que blindan tu patrimonio personal.</p>
+
+    <!-- WhatsApp CTA -->
+    <a
+      id="scroll-wa-btn"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 font-sans font-bold text-constival-mint uppercase text-xs tracking-wider hover:translate-x-1 transition-transform"
+    >
+      <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+      <span id="scroll-btn-text">Blindar mi empresa →</span>
     </a>
   </div>
 </div>
 
-<!-- Time-Delayed Popup (45s) -->
-<div id="popup-time" class="fixed inset-0 z-[60] hidden items-center justify-center p-4" role="dialog" aria-modal="true">
-  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="popup-time-overlay"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     3. TIME-DELAYED  (Desktop: modal / Mobile: bottom-sheet)
+     ═══════════════════════════════════════════════════ -->
+<!-- Desktop modal -->
+<div id="popup-time" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 md:flex" role="dialog" aria-modal="true" aria-label="Popup de diagnóstico">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="popup-time-overlay"></div>
   <div class="relative bg-constival-mint w-full max-w-md p-8 md:p-10 overflow-hidden animate-slide-up">
-    <button id="popup-time-close" class="absolute top-4 right-4 text-constival-navy/40 hover:text-constival-navy transition-colors z-10" aria-label="Cerrar">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    <button
+      id="popup-time-close"
+      class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center text-constival-navy/40 hover:text-constival-navy transition-colors z-10 rounded-full hover:bg-constival-navy/10"
+      aria-label="Cerrar"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
     </button>
     <div class="relative z-10">
       <div class="w-12 h-12 mb-6 text-constival-navy/80">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
       </div>
-      <h3 class="font-sans text-2xl font-extrabold text-constival-navy mb-3 leading-tight">¿Dudas sobre qué estructura necesitas?</h3>
-      <p class="font-sans text-sm text-constival-navy/70 mb-8 leading-relaxed">Agenda <strong>15 minutos de diagnóstico estratégico sin costo</strong> y resuelve tu escenario sin compromisos.</p>
-      <!-- TRACKING: time_delayed_booking_click -->
-      <a href="#configurador" class="block w-full px-6 py-3.5 bg-constival-navy text-constival-mint font-sans font-bold text-sm uppercase tracking-wider text-center hover:bg-constival-navy/90 transition-colors">
-        Agendar mis 15 min libres de tecnicismos
+      <h3 id="time-headline" class="font-sans text-2xl font-extrabold text-constival-navy mb-3 leading-tight">¿Dudas sobre qué estructura necesitas?</h3>
+      <p id="time-subheadline" class="font-sans text-sm text-constival-navy/70 mb-8 leading-relaxed">Agenda <strong>15 minutos de diagnóstico estratégico sin costo</strong>. Sin compromisos ni jerga legal.</p>
+
+      <!-- WhatsApp CTA -->
+      <a
+        id="time-wa-btn"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-3 w-full px-6 py-3.5 bg-constival-navy text-constival-mint font-sans font-bold text-sm uppercase tracking-wider text-center hover:bg-constival-navy/90 transition-colors"
+      >
+        <svg class="w-5 h-5 fill-constival-mint" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+        <span id="time-btn-text">Agendar por WhatsApp</span>
       </a>
     </div>
   </div>
 </div>
 
+<!-- Mobile bottom-sheet (Google-safe — no bloquea contenido) -->
+<div id="popup-time-mobile" class="fixed bottom-0 left-0 right-0 z-[60] hidden md:hidden animate-slide-up-sheet">
+  <div class="bg-constival-mint px-5 py-4 shadow-[0_-8px_30px_rgba(0,0,0,0.3)] flex items-center gap-4">
+    <div class="flex-1 min-w-0">
+      <p id="time-mobile-headline" class="font-sans text-sm font-extrabold text-constival-navy leading-tight truncate">¿Dudas sobre tu estructura?</p>
+      <p class="font-sans text-[11px] text-constival-navy/60 leading-tight mt-0.5">15 min de diagnóstico gratis</p>
+    </div>
+    <a
+      id="time-mobile-wa-btn"
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="shrink-0 flex items-center gap-2 px-4 py-2.5 bg-constival-navy text-constival-mint font-sans font-bold text-xs uppercase tracking-wider rounded-sm hover:bg-constival-navy/90 transition-colors"
+    >
+      <svg class="w-4 h-4 fill-constival-mint" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
+      Escribir
+    </a>
+    <button
+      id="popup-time-mobile-close"
+      class="shrink-0 w-7 h-7 flex items-center justify-center text-constival-navy/40 hover:text-constival-navy transition-colors"
+      aria-label="Cerrar"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+    </button>
+  </div>
+</div>
+
+
 <script>
-  // ============ Popup Manager (Anti-collision) ============
-  const POPUP_STATE = {
-    activePopup: null as string | null,
-    shown: new Set<string>(),
+  // ═══════════════════════════════════════════════════════════
+  //  POPUP INTELLIGENCE ENGINE — WhatsApp-First
+  // ═══════════════════════════════════════════════════════════
+
+  const WA_PHONE = "593969503502";
+  const WA_BASE  = `https://wa.me/${WA_PHONE}?text=`;
+  const PATH     = window.location.pathname.replace(/\/+$/, "") || "/";
+  const IS_MOBILE = window.innerWidth < 768;
+  const PAGE_LOAD = Date.now();
+
+  // ── Helpers ──────────────────────────────────────────────
+
+  function secondsOnPage(): number {
+    return (Date.now() - PAGE_LOAD) / 1000;
+  }
+
+  function isContactPage(): boolean {
+    return PATH.includes("/contactanos");
+  }
+
+  function isServicePage(): boolean {
+    return PATH.startsWith("/servicios");
+  }
+
+  function isBlogPage(): boolean {
+    return PATH.startsWith("/blog") && PATH !== "/blog";
+  }
+
+  function isBlogIndex(): boolean {
+    return PATH === "/blog";
+  }
+
+  function isHomePage(): boolean {
+    return PATH === "/" || PATH === "";
+  }
+
+  /** Detecta el nombre del servicio según el pathname */
+  function getServiceName(): string {
+    const serviceMap: Record<string, string> = {
+      "crear-sas":       "Constitución de SAS",
+      "registro-marca":  "Registro de Marca",
+      "disolucion":      "Disolución de Sociedades",
+      "nombramientos":   "Nombramientos",
+      "reforma-estatutos": "Reforma de Estatutos",
+      "cesion-acciones":   "Cesión de Acciones",
+    };
+    for (const [slug, name] of Object.entries(serviceMap)) {
+      if (PATH.includes(slug)) return name;
+    }
+    return "sus servicios legales";
+  }
+
+  /** Obtiene el título del artículo del blog (H1) */
+  function getBlogTitle(): string {
+    const h1 = document.querySelector("article h1, header h1");
+    return h1?.textContent?.trim() || "uno de sus artículos";
+  }
+
+  // ── WhatsApp URL builders ──────────────────────────────
+
+  function waUrlForExit(): string {
+    if (isServicePage()) {
+      return WA_BASE + encodeURIComponent(`Hola Constival, estuve viendo el servicio de ${getServiceName()} y tengo algunas dudas. ¿Podrían asesorarme?`);
+    }
+    if (isBlogPage()) {
+      return WA_BASE + encodeURIComponent(`Hola Constival, leí su artículo "${getBlogTitle()}" y me gustaría profundizar con un experto.`);
+    }
+    // Homepage & others
+    return WA_BASE + encodeURIComponent("Hola Constival, estuve revisando su página y me gustaría un diagnóstico gratuito para mi empresa.");
+  }
+
+  function waUrlForScroll(): string {
+    if (isServicePage()) {
+      return WA_BASE + encodeURIComponent(`Hola Constival, me interesa el servicio de ${getServiceName()}. ¿Podrían darme más información y una cotización?`);
+    }
+    if (isBlogPage() || isBlogIndex()) {
+      return WA_BASE + encodeURIComponent(`Hola Constival, estuve leyendo su blog y me gustaría asesoría personalizada para mi empresa.`);
+    }
+    return WA_BASE + encodeURIComponent("Hola Constival, quiero blindar la estructura legal de mi empresa. ¿Pueden asesorarme?");
+  }
+
+  function waUrlForTime(): string {
+    if (isBlogPage()) {
+      return WA_BASE + encodeURIComponent(`Hola Constival, leí "${getBlogTitle()}" y necesito una opinión experta sobre mi caso. ¿Podemos agendar 15 minutos?`);
+    }
+    return WA_BASE + encodeURIComponent("Hola Constival, me gustaría agendar 15 minutos de diagnóstico gratuito para resolver dudas sobre la estructura de mi empresa.");
+  }
+
+  // ── Context-aware copy injection ───────────────────────
+
+  function injectContextualCopy(): void {
+    // Exit Intent
+    const exitBadge     = document.getElementById("exit-badge");
+    const exitHeadline  = document.getElementById("exit-headline");
+    const exitSub       = document.getElementById("exit-subheadline");
+    const exitBtnText   = document.getElementById("exit-btn-text");
+    const exitDismiss   = document.getElementById("exit-dismiss-text");
+
+    if (isServicePage()) {
+      if (exitBadge) exitBadge.textContent = "⚡ Espera";
+      if (exitHeadline) exitHeadline.textContent = "¿Tienes dudas sobre este servicio?";
+      if (exitSub) exitSub.innerHTML = "Nuestro equipo te resuelve en minutos lo que Google no puede. Escríbenos y cotiza <strong class='text-white'>sin compromiso.</strong>";
+      if (exitBtnText) exitBtnText.textContent = "Escribir a Constival";
+      if (exitDismiss) exitDismiss.textContent = "No, seguiré investigando por mi cuenta.";
+    } else if (isBlogPage()) {
+      if (exitBadge) exitBadge.textContent = "📋 Recurso Extra";
+      if (exitHeadline) exitHeadline.textContent = "¿Necesitas asesoría personalizada?";
+      if (exitSub) exitSub.innerHTML = "Este artículo es un punto de partida. Si tu caso necesita un experto, estamos a <strong class='text-white'>un mensaje de distancia.</strong>";
+      if (exitBtnText) exitBtnText.textContent = "Consultar con un Arquitecto Legal";
+      if (exitDismiss) exitDismiss.textContent = "No por ahora, seguiré leyendo.";
+    }
+    // Homepage uses defaults from HTML
+
+    // Scroll Slide-in
+    const scrollKicker   = document.getElementById("scroll-kicker");
+    const scrollHeadline = document.getElementById("scroll-headline");
+    const scrollBtnText  = document.getElementById("scroll-btn-text");
+
+    if (isServicePage()) {
+      const svcName = getServiceName();
+      const scrollCopy: Record<string, [string, string, string]> = {
+        "Constitución de SAS":  ["Constitución SAS",      "¿Listo para formalizar tu empresa en 3 días?",    "Cotizar mi SAS →"],
+        "Registro de Marca":    ["Registro de Marca",     "Tu marca merece protección legal a 10 años.",     "Proteger mi marca →"],
+        "Disolución de Sociedades": ["Disolución Legal",  "Cierra tu empresa sin riesgos personales.",       "Consultar proceso →"],
+        "Nombramientos":        ["Nombramientos",         "Evita el bloqueo de tus cuentas bancarias.",      "Actualizar nombramientos →"],
+        "Reforma de Estatutos": ["Reforma Estatutaria",   "Actualiza tus estatutos sin rechazos.",           "Reformar estatutos →"],
+        "Cesión de Acciones":   ["Transferencia",         "Transfiere acciones sin contingencias fiscales.", "Iniciar cesión →"],
+      };
+      const copy = scrollCopy[svcName];
+      if (copy) {
+        if (scrollKicker)   scrollKicker.textContent  = copy[0];
+        if (scrollHeadline) scrollHeadline.textContent = copy[1];
+        if (scrollBtnText)  scrollBtnText.textContent  = copy[2];
+      }
+    } else if (isBlogPage() || isBlogIndex()) {
+      if (scrollKicker)   scrollKicker.textContent  = "Asesoría Experta";
+      if (scrollHeadline) scrollHeadline.textContent = "¿Este artículo describe tu situación?";
+      if (scrollBtnText)  scrollBtnText.textContent  = "Hablar con un experto →";
+    }
+    // Homepage uses defaults from HTML
+
+    // Time-delayed
+    const timeHeadline = document.getElementById("time-headline");
+    const timeSub      = document.getElementById("time-subheadline");
+    const timeBtnText  = document.getElementById("time-btn-text");
+    const timeMobileH  = document.getElementById("time-mobile-headline");
+
+    if (isBlogPage()) {
+      if (timeHeadline) timeHeadline.textContent = "¿Necesitas una opinión experta?";
+      if (timeSub) timeSub.innerHTML = "Este tema tiene matices que cambian según tu empresa. <strong>Cuéntanos tu caso en 2 minutos.</strong>";
+      if (timeBtnText) timeBtnText.textContent = "Escribir a Constival";
+      if (timeMobileH) timeMobileH.textContent = "¿Necesitas una opinión experta?";
+    }
+    // Homepage uses defaults from HTML
+
+    // Inject WhatsApp URLs
+    const exitBtn    = document.getElementById("exit-wa-btn") as HTMLAnchorElement;
+    const scrollBtn  = document.getElementById("scroll-wa-btn") as HTMLAnchorElement;
+    const timeBtn    = document.getElementById("time-wa-btn") as HTMLAnchorElement;
+    const timeMobBtn = document.getElementById("time-mobile-wa-btn") as HTMLAnchorElement;
+
+    if (exitBtn)    exitBtn.href    = waUrlForExit();
+    if (scrollBtn)  scrollBtn.href  = waUrlForScroll();
+    if (timeBtn)    timeBtn.href    = waUrlForTime();
+    if (timeMobBtn) timeMobBtn.href = waUrlForTime();
+  }
+
+
+  // ═══════════════════════════════════════════════════════
+  //  STATE MANAGEMENT & ANTI-COLLISION
+  // ═══════════════════════════════════════════════════════
+
+  const STATE = {
+    popupShownThisSession: false,
+    exitMouseOutCount: 0,
+    scrollTriggered: false,
+    exitTriggered: false,
+    timeTriggered: false,
+    userInteractedWithTool: false,
   };
 
+  /** Check if user already interacted with a cotizador / calculator / risk-grader */
+  function detectToolInteraction(): void {
+    // Listen for interactions on key CRO tools
+    const tools = document.querySelectorAll(
+      "#configurador, #cotizador-interactivo, #risk-grader, [id*='cotizador'], [id*='calculator']"
+    );
+    tools.forEach(tool => {
+      tool.addEventListener("click", () => {
+        STATE.userInteractedWithTool = true;
+      }, { once: true });
+    });
+  }
+
   function canShow(id: string): boolean {
-    // Only 1 popup at a time, and check localStorage
-    if (POPUP_STATE.activePopup) return false;
-    if (POPUP_STATE.shown.has(id)) return false;
+    // Block all popups on contact page
+    if (isContactPage()) return false;
+
+    // Max 1 popup per session
+    if (STATE.popupShownThisSession) return false;
+    if (sessionStorage.getItem("popup_shown_session")) return false;
+
+    // Block if user interacted with CRO tools
+    if (STATE.userInteractedWithTool) return false;
+
+    // Minimum engagement
+    if (secondsOnPage() < 15) return false;
+
+    // Cooldown check (localStorage)
     const stored = localStorage.getItem(`popup_${id}_dismissed`);
     if (stored) {
       const dismissedAt = parseInt(stored);
-      const cooldown = id === 'scroll' ? 30 * 24 * 60 * 60 * 1000 : 7 * 24 * 60 * 60 * 1000;
-      if (Date.now() - dismissedAt < cooldown) return false;
+      const cooldowns: Record<string, number> = {
+        exit:   7  * 24 * 60 * 60 * 1000,
+        scroll: 14 * 24 * 60 * 60 * 1000,
+        time:   3  * 24 * 60 * 60 * 1000,
+      };
+      if (Date.now() - dismissedAt < (cooldowns[id] ?? 7 * 24 * 60 * 60 * 1000)) return false;
     }
+
+    // Time-delayed: exclude service pages (user already in funnel)
+    if (id === "time" && isServicePage()) return false;
+
+    // Time-delayed: skip if user scrolled >80% (already deeply engaged)
+    if (id === "time") {
+      const scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPct > 80) return false;
+    }
+
     return true;
   }
 
-  function showPopup(id: string) {
+  function showPopup(id: string): void {
     if (!canShow(id)) return;
+
+    // For time-delayed on mobile, show mobile variant
+    if (id === "time" && IS_MOBILE) {
+      const mobileEl = document.getElementById("popup-time-mobile");
+      if (!mobileEl) return;
+      STATE.popupShownThisSession = true;
+      sessionStorage.setItem("popup_shown_session", "1");
+      mobileEl.classList.remove("hidden");
+      mobileEl.classList.add("flex");
+      return;
+    }
+
     const el = document.getElementById(`popup-${id}`);
     if (!el) return;
-    POPUP_STATE.activePopup = id;
-    POPUP_STATE.shown.add(id);
-    el.classList.remove('hidden');
-    el.classList.add('flex');
-    document.body.style.overflow = id !== 'scroll' ? 'hidden' : '';
+
+    STATE.popupShownThisSession = true;
+    sessionStorage.setItem("popup_shown_session", "1");
+
+    el.classList.remove("hidden");
+    if (id !== "scroll") {
+      el.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      // Focus trap: focus the close button
+      const closeBtn = el.querySelector("[id$='-close']") as HTMLElement;
+      closeBtn?.focus();
+    } else {
+      el.classList.add("block");
+    }
   }
 
-  function hidePopup(id: string) {
+  function hidePopup(id: string): void {
     const el = document.getElementById(`popup-${id}`);
-    if (!el) return;
-    el.classList.add('hidden');
-    el.classList.remove('flex');
-    POPUP_STATE.activePopup = null;
-    document.body.style.overflow = '';
+    const mobileEl = (id === "time") ? document.getElementById("popup-time-mobile") : null;
+
+    if (el) {
+      el.classList.add("hidden");
+      el.classList.remove("flex", "block");
+    }
+    if (mobileEl) {
+      mobileEl.classList.add("hidden");
+      mobileEl.classList.remove("flex");
+    }
+
+    document.body.style.overflow = "";
     localStorage.setItem(`popup_${id}_dismissed`, String(Date.now()));
   }
 
-  // Close handlers
-  ['exit', 'scroll', 'time'].forEach(id => {
-    document.getElementById(`popup-${id}-close`)?.addEventListener('click', () => hidePopup(id));
-  });
-  document.getElementById('popup-exit-overlay')?.addEventListener('click', () => hidePopup('exit'));
-  document.getElementById('popup-exit-dismiss')?.addEventListener('click', () => hidePopup('exit'));
-  document.getElementById('popup-time-overlay')?.addEventListener('click', () => hidePopup('time'));
 
-  // Email submit
-  document.getElementById('exit-submit')?.addEventListener('click', () => {
-    const emailInput = document.getElementById('exit-email') as HTMLInputElement;
-    if (emailInput?.value?.includes('@')) {
-      const btn = document.getElementById('exit-submit')!;
-      btn.textContent = '✓ Enviado — Revisa tu email';
-      btn.classList.add('opacity-70', 'pointer-events-none');
-      setTimeout(() => hidePopup('exit'), 2000);
+  // ═══════════════════════════════════════════════════════
+  //  INITIALIZATION
+  // ═══════════════════════════════════════════════════════
+
+  // Skip everything on contact page
+  if (!isContactPage()) {
+
+    // Inject contextual copy & WhatsApp URLs
+    injectContextualCopy();
+
+    // Detect tool interactions
+    detectToolInteraction();
+
+    // ── Close handlers ─────────────────────────────────
+
+    // Close buttons
+    ["exit", "scroll", "time"].forEach(id => {
+      document.getElementById(`popup-${id}-close`)?.addEventListener("click", () => hidePopup(id));
+    });
+    document.getElementById("popup-time-mobile-close")?.addEventListener("click", () => hidePopup("time"));
+
+    // Overlay clicks
+    document.getElementById("popup-exit-overlay")?.addEventListener("click", () => hidePopup("exit"));
+    document.getElementById("popup-time-overlay")?.addEventListener("click", () => hidePopup("time"));
+
+    // Dismiss text
+    document.getElementById("popup-exit-dismiss")?.addEventListener("click", () => hidePopup("exit"));
+
+    // Escape key (closes any active popup)
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        ["exit", "scroll", "time"].forEach(id => hidePopup(id));
+      }
+    });
+
+    // Mark WhatsApp clicks to suppress future popups
+    document.querySelectorAll("[id$='-wa-btn']").forEach(btn => {
+      btn.addEventListener("click", () => {
+        sessionStorage.setItem("popup_shown_session", "1");
+        STATE.popupShownThisSession = true;
+      });
+    });
+
+
+    // ── TRIGGER: Exit Intent ──────────────────────────
+    //    Desktop: 2nd mouseout above viewport + 15s min
+    //    Mobile: rapid scroll-up detection + 20s min
+
+    if (!IS_MOBILE) {
+      document.addEventListener("mouseout", (e) => {
+        if (STATE.exitTriggered) return;
+        if ((e as MouseEvent).clientY <= 0) {
+          STATE.exitMouseOutCount++;
+          if (STATE.exitMouseOutCount >= 2 && secondsOnPage() >= 15) {
+            STATE.exitTriggered = true;
+            showPopup("exit");
+          }
+        }
+      });
+    } else {
+      // Mobile: detect 3 rapid scroll-ups (swipe up gesture)
+      let lastScrollY = window.scrollY;
+      let scrollUpCount = 0;
+      let scrollUpTimer: ReturnType<typeof setTimeout> | null = null;
+
+      window.addEventListener("scroll", () => {
+        if (STATE.exitTriggered) return;
+        const currentY = window.scrollY;
+        if (currentY < lastScrollY && (lastScrollY - currentY) > 30) {
+          scrollUpCount++;
+          if (scrollUpTimer) clearTimeout(scrollUpTimer);
+          scrollUpTimer = setTimeout(() => { scrollUpCount = 0; }, 2000);
+
+          if (scrollUpCount >= 3 && secondsOnPage() >= 20) {
+            STATE.exitTriggered = true;
+            showPopup("exit");
+          }
+        }
+        lastScrollY = currentY;
+      }, { passive: true });
     }
-  });
 
-  // ============ Trigger: Exit Intent ============
-  let exitTriggered = false;
-  document.addEventListener('mouseout', (e) => {
-    if (exitTriggered) return;
-    if ((e as MouseEvent).clientY <= 0) {
-      exitTriggered = true;
-      showPopup('exit');
-    }
-  });
 
-  // ============ Trigger: Scroll 50% ============
-  let scrollTriggered = false;
-  window.addEventListener('scroll', () => {
-    if (scrollTriggered) return;
-    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    if (scrollPercent >= 50) {
-      scrollTriggered = true;
-      showPopup('scroll');
-    }
-  });
+    // ── TRIGGER: Scroll 60% + 25s ─────────────────────
 
-  // ============ Trigger: Time Delayed 45s ============
-  // Only on desktop (mobile: skip to avoid Google penalty)
-  if (window.innerWidth >= 768) {
+    window.addEventListener("scroll", () => {
+      if (STATE.scrollTriggered) return;
+      const scrollPct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPct >= 60 && secondsOnPage() >= 25) {
+        STATE.scrollTriggered = true;
+        showPopup("scroll");
+      }
+    }, { passive: true });
+
+
+    // ── TRIGGER: Time Delayed ─────────────────────────
+    //    Desktop: 55s  |  Mobile: 70s
+    //    Only on homepage & blog (excluded from services in canShow)
+
+    const timeDelay = IS_MOBILE ? 70000 : 55000;
     setTimeout(() => {
-      showPopup('time');
-    }, 45000);
-  }
+      if (!STATE.timeTriggered) {
+        STATE.timeTriggered = true;
+        showPopup("time");
+      }
+    }, timeDelay);
+
+  } // end if (!isContactPage)
 </script>

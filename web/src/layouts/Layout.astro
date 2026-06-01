@@ -1,5 +1,6 @@
 ---
 import { CONSTIVAL_DATA } from "../constants/company";
+import PopupManager from "../components/popups/PopupManager.astro";
 import "../styles/global.css";
 const {
   title = "Constival Legal",
@@ -149,5 +150,6 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
     class="bg-white text-constival-navy dark:bg-constival-navy dark:text-white transition-colors duration-300 min-h-screen font-sans antialiased"
   >
     <slot />
+    <PopupManager />
   </body>
 </html>
