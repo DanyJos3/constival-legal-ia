@@ -270,7 +270,7 @@ const sheetsEndpoint = import.meta.env.SHEETS_KEY ?? "";
                   >9:00 – 18:00</strong
                 ><br />WhatsApp: <strong
                   class="text-constival-navy dark:text-white"
-                  >Respuesta en 24h</strong
+                  >Respuesta Inmediata</strong
                 >
               </p>
             </div>
@@ -611,9 +611,12 @@ const sheetsEndpoint = import.meta.env.SHEETS_KEY ?? "";
       form.classList.add("hidden");
       successEl.classList.remove("hidden");
       successEl.classList.add("flex");
-      
+
       if (typeof window.trackEvent === "function") {
-        window.trackEvent("form_submitted", { form_name: "contact_page", service_interest: formData.get("servicio") });
+        window.trackEvent("form_submitted", {
+          form_name: "contact_page",
+          service_interest: formData.get("servicio"),
+        });
       }
     } catch (_) {
       errorEl.textContent =
