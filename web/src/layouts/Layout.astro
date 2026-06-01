@@ -17,14 +17,19 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    
+
     <!-- Google Tag Manager -->
     <script is:inline>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-TN464R4X');
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-TN464R4X");
     </script>
     <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,20 +44,14 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_EC" />
     <meta property="og:url" content={canonicalURLStr} />
-    <meta
-      property="og:image"
-      content={ogImage}
-    />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Constival Legal" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={ogImage}
-    />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="canonical" href={canonicalURLStr} />
 
@@ -75,7 +74,7 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
         },
         sameAs: [
           "https://www.instagram.com/constival.ecu",
-          "https://constival.com/"
+          "https://constival.com/",
         ],
         description:
           "Firma legal en Ecuador especializada en derecho societario: constitución de S.A.S., disolución de empresas, nombramientos y trámites ante la Superintendencia de Compañías, Valores y Seguros (SUPERCIAS).",
@@ -86,7 +85,7 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
           "Disolución de Sociedades en Ecuador",
           "Derecho Societario Ecuatoriano",
           "SUPERCIAS Ecuador",
-          "Ley de Compañías Ecuador"
+          "Ley de Compañías Ecuador",
         ],
       })}
     />
@@ -100,12 +99,16 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
         "@id": "https://constival.com/#website",
         url: "https://constival.com/",
         name: "Constival Legal",
-        description: "Especialistas en derecho societario ecuatoriano: constitución de empresas, disoluciones y trámites ante SUPERCIAS.",
+        description:
+          "Especialistas en derecho societario ecuatoriano: constitución de empresas, disoluciones y trámites ante SUPERCIAS.",
         inLanguage: "es-EC",
         publisher: { "@id": "https://constival.com/#organization" },
         potentialAction: {
           "@type": "SearchAction",
-          target: { "@type": "EntryPoint", urlTemplate: "https://constival.com/?q={search_term_string}" },
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://constival.com/?q={search_term_string}",
+          },
           "query-input": "required name=search_term_string",
         },
       })}
@@ -150,7 +153,7 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
         // return window.matchMedia("(prefers-color-scheme: dark)").matches
         //   ? "dark"
         //   : "light";
-        return "light";
+        return "dark";
       };
       const isDark = getThemePreference() === "dark";
       document.documentElement.classList[isDark ? "add" : "remove"]("dark");
@@ -160,41 +163,46 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
     class="bg-white text-constival-navy dark:bg-constival-navy dark:text-white transition-colors duration-300 min-h-screen font-sans antialiased"
   >
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TN464R4X"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TN464R4X"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <slot />
     <PopupManager />
 
     <script is:inline>
       // Global tracking helper
       window.dataLayer = window.dataLayer || [];
-      window.trackEvent = function(eventName, params) {
+      window.trackEvent = function (eventName, params) {
         window.dataLayer.push({
           event: eventName,
-          ...params
+          ...params,
         });
       };
 
       // Global click tracker for conversions (WhatsApp, Email, Phone)
-      document.addEventListener("click", function(e) {
+      document.addEventListener("click", function (e) {
         const target = e.target.closest("a");
         if (target && target.href) {
           if (target.href.includes("wa.me")) {
             window.trackEvent("whatsapp_clicked", {
               link_url: target.href,
-              page_path: window.location.pathname
+              page_path: window.location.pathname,
             });
           } else if (target.href.startsWith("mailto:")) {
             window.trackEvent("email_clicked", {
               link_url: target.href,
-              page_path: window.location.pathname
+              page_path: window.location.pathname,
             });
           } else if (target.href.startsWith("tel:")) {
             window.trackEvent("phone_clicked", {
               link_url: target.href,
-              page_path: window.location.pathname
+              page_path: window.location.pathname,
             });
           }
         }
