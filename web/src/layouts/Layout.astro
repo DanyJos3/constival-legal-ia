@@ -150,9 +150,10 @@ const canonicalURLStr = canonicalUrl || "https://constival.com/";
         ) {
           return localStorage.getItem("theme");
         }
-        // return window.matchMedia("(prefers-color-scheme: dark)").matches
-        //   ? "dark"
-        //   : "light";
+        // Si no hay preferencia guardada, sugerimos 'dark' por defecto
+        // ya que resalta mejor la paleta corporativa y los CTAs.
+        // Opcional: descomentar la siguiente línea para seguir el sistema operativo.
+        // return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         return "dark";
       };
       const isDark = getThemePreference() === "dark";
